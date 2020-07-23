@@ -1,0 +1,255 @@
+body {
+    font-size: 12px;
+    background-color: #eee;
+}
+.w {
+    width: 1080px;
+    margin: 0 auto;
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+a:hover {
+    color: #1890ff;
+}
+header, footer {
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'iconfont';
+    src: url('../fonts/iconfont.eot');
+    src: url('../fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/iconfont.woff2') format('woff2'),
+        url('../fonts/iconfont.woff') format('woff'),
+        url('../fonts/iconfont.ttf') format('truetype'),
+        url('../fonts/iconfont.svg#iconfont') format('svg');
+}
+/* 顶部导航栏开始 */
+.top-bar {
+    height: 30px;
+    width: 100%;
+    background-color: #f3f3f3;
+    line-height: 30px;
+}
+.top-bar .user-info {
+    float: left;
+}
+.top-bar .user-info p,
+.top-bar .user-info a {
+    float: left;
+}
+.user-login {
+    margin-right: 8px;
+}
+.top-bar p {
+    color: #333;
+    font-size: 12px;
+    margin-right: 15px;
+}
+.top-bar p .username {
+    font-size: 12px;
+    color: #666;
+    margin-left: 5px;
+}
+.top-bar .user-msg {
+    float: right;
+}
+.shop-car {
+    position: relative;
+}
+.shopcar-ico {
+    position: absolute;
+    font-family: 'iconfont';
+    font-size: 16px;
+    left: -16px;
+    top: -6px;
+}
+.top-bar ul li {
+    float: left;
+    margin: 0 11px;
+}
+/* 顶部导航栏结束 */
+
+/* 头部搜索框部分开始 */
+header {
+    height: 110px;
+    background-color: #fff;
+    border-bottom: 1px solid #52c41a;
+    margin-bottom: 30px;
+}
+header h1 {
+    float: left;
+    width: 210px;
+    height: 90px;
+    margin-right: 10px;
+    line-height: 90px;
+}
+header .logo {
+    float: left;
+    font-size: 30px;
+    color: #52c41a;
+    font-weight: 700;
+}
+header .search {
+    position: relative;
+    float: left;
+    width: 860px;
+    height: 90px;
+    padding-top: 18px;
+}
+header form {
+    float: left;
+    margin-left: 58px;
+}
+header form input,
+header form button {
+    float: left;
+}
+#search-txt {
+    padding-left: 12px;
+    width: 412px;
+    height: 42px;
+    border: 2px solid #52c41a;
+    border-right: 0;
+    line-height: 42px;
+    font-size: 14px;
+}
+#search-btn {
+    width: 102px;
+    height: 42px;
+    background-color: #52c41a;
+    border: 0;
+    font-size: 16px;
+    color: #fff;
+}
+.nav-bar {
+    position: absolute;
+    left: 56px;
+    bottom: -12px;
+}
+.nav-bar a {
+    font-size: 16px;
+    font-weight: 200;
+    color: #333;
+    margin-right: 40px;
+}
+.nav-bar li {
+    float: left;
+}
+.nav-bar li a:hover {
+    color: #1890ff;
+}
+.nav-bar li .navbar-active {
+    color: #52c41a;
+}
+.nav-bar li .navbar-active:hover {
+    color: #52c41a;
+}
+/* 头部搜索框部分结束 */
+
+/* footer底部开始 */
+footer {
+    height: 252px;
+    background-color: #2f2f2f;
+}
+.foo-hd {
+    height: 145px;
+    border-bottom: 1px solid #3d3d3d;
+    padding: 0 40px;
+}
+.foo-hd ul li {
+    float: left;
+    height: 145px;
+    line-height: 145px;
+    font-size: 20px;
+    color: #fff;
+}
+.foo-hd ul li:nth-child(2) {
+    margin: 0 210px;
+}
+.foo-hd ul li span {
+    font-family:'iconfont';
+    font-size: 28px;
+
+}
+.foo-bd {
+    text-align: center;
+}
+.company {
+    margin-top: 16px;
+}
+.foo-bd a,
+.foo-bd p {
+    font-size: 12px;
+    color: #999;
+}
+.foo-bd p {
+    margin-top: 17px;
+}
+/* footer底部结束 */
+
+/* 商品页的记录当前位置导航 */
+.crumb {
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+}
+.crumb a,
+.crumb span {
+    font-size: 14px;
+    color: #333;
+}
+.crumb em {
+    font-family: 'iconfont';
+    font-size: 12px;
+    margin: 0 1px 0 3px;
+}
+
+/* 商品盒子布局 */
+.goods-box {
+    position: relative;
+    box-sizing: border-box;
+    width: 208px;
+    height: 300px;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #fff;
+}
+.goods-box:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.goods-img {
+    margin-top: 20px;
+    width: 180px;
+    height: 180px;
+}
+.goods-title {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:2;
+    font-size: 14px;
+    color: #333;
+}
+.goods-price {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    font-size: 14px;
+    color: #ff0011;
+}
+.goods-price-old {
+    color: #adadad;
+    text-decoration: line-through;
+    font-size: 13px;
+}
+.goods-sold {
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    font-size: 12px;
+    color: rgba(0,0,0,.45);
+}

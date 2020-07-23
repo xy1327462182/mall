@@ -1,0 +1,150 @@
+.wrapper {
+    height: 744px;
+}
+/* 左侧列表导航开始 */
+.left-category {
+    float: left;
+    width: 208px;
+    height: 744px;
+    background-color: #eeeeee;
+    margin-right: 10px;
+}
+.category-title {
+    width: 100%;
+    height: 40px;
+    background-color: #333333;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+}
+.category-title .category-title-ico {
+    font-family: 'iconfont';
+    font-size: 18px;
+}
+.category-list {
+    padding-top: 10px;
+    height: 704px;
+    padding-left: 28px;
+    border-left: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
+}
+.left-category dt,
+.left-category dd {
+    font-size: 16px;
+    color: #333;
+    font-weight: 200;
+    line-height: 30px;
+}
+.left-category dt {
+    position: relative;
+}
+.left-category dt .fold {
+    position: absolute;
+    left: -20px;
+    top: 9px;
+    width: 13px;
+    height: 13px;
+    border: 1px solid #535353;
+    line-height: 11px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+}
+/* 左侧列表导航结束 */
+
+/* 右侧商品展现开始 */
+.right-goods {
+    position: relative;
+    float: left;
+    width: 862px;
+    height: 744px;
+}
+.right-goods-hd button {
+    float: left;
+    width: 82px;
+    height: 32px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    color: rgba(0,0,0,.45);
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    outline: none;
+}
+.right-goods-hd .sort-active {
+    background-color: #52c41a;
+    color: #fff;
+}
+.right-goods-hd .sort-default {
+    border-right: 0;
+}
+.right-goods-hd .sort-price {
+    position: relative;
+    border-left: 0;
+}
+.sort-price::before,
+.sort-price::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 60px;
+    top: 17px;
+    border-top: 4px solid #888888;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+}
+.sort-price::after {
+    top: 5px;
+    border-bottom: 4px solid #888888;
+    border-top: 4px solid transparent;
+}
+.right-goods-bd {
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+.right-goods-bd a {
+    margin-bottom: 20px;
+}
+/* 右侧商品展现结束 */
+
+/* 分页器部分 */
+.pagination {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+.pagination ul {
+    float: left;
+}
+.pagination ul li {
+    float: left;
+}
+.pagination ul li a {
+    display: inline-block;
+    width: 47px;
+    height: 32px;
+    border: 1px solid #ccc;
+    margin: 0 3px;
+    text-align: center;
+    line-height: 32px;
+    font-size: 14px;
+    color: rgba(0,0,0,.25);
+} 
+.pagination .page-active {
+    background-color: #52c41a;
+    color: #fff;
+}
+.pagination span {
+    float: left;
+    font-size: 14px;
+    color: rgba(0,0,0,.25);
+    line-height: 32px;
+    margin-left: 10px;
+}  
