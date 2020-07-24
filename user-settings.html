@@ -3,15 +3,15 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>用户中心</title>
-		<!-- 引入初始化css文件 -->
+        <title>用户-设置</title>
+        <!-- 引入初始化css文件 -->
 		<link rel="stylesheet" href="./css/base.css" />
 		<!-- 引入公共样式css文件 -->
         <link rel="stylesheet" href="./css/common.css" />
         <!-- 引入用户界面公共样式 -->
         <link rel="stylesheet" href="./css/user-common.css">
-		<!-- 引入用户中心页专有的css -->
-		<link rel="stylesheet" href="./css/user-center.css" />
+        <!-- 引入用户设置页专有css -->
+        <link rel="stylesheet" href="./css/user-settings.css">
 	</head>
 	<body>
 		<!-- 顶部导航栏开始 -->
@@ -66,13 +66,13 @@
 		</header>
 		<!-- 头部搜索框部分结束 -->
 
-        <!-- 用户中心页专有部分开始 -->
+        <!-- 用户设置页专有部分开始 -->
         <div class="main">
             <div class="w">
                 <!-- 记录当前位置导航 -->
-				<div class="crumb">
-					<a href="javascript:;">首页</a><em>&#xe7a7;</em>
-					<span>用户中心</span>
+                <div class="crumb">
+                    <a href="javascript:;">首页</a><em>&#xe7a7;</em>
+                    <span>基本设置</span>
                 </div>
                 <div class="wrapper">
                     <!-- 侧边导航 -->
@@ -88,35 +88,42 @@
                     <div class="right-con">
                         <div class="right-con-hd">
                             <div class="user-img"><img src="./images/fcac4dc411a64d5ab69308bdcc8d287f!400x400.jpg" alt=""></div>
-                            <p>15936389235</p>
+                            <div class="change-img">上传头像
+                                <span class="change-img-ico">&#xe632;</span>
+                            </div>
                         </div>
                         <ul>
-                            <li>手机 15936389235 <span class="right-con-ico">&#xe61c;</span></li>
-                            <li>电子邮件 <span class="right-con-ico">&#xe61b;</span></li>
-                            <li>订单数 1 <span class="right-con-ico">&#xe634;</span></li>
-                            <li>注册时间 2020/7/23 上午9:34:32<span class="right-con-ico">&#xe62e;</span></li>
+                            <li>
+                                <span class="setting-ico">&#xe602;</span>
+                                <input type="text" class="setting-number" value="1234566">
+                                <input type="submit" class="set-btn" value="修改">
+                            </li>
+                            <li>
+                                <span class="setting-ico">&#xe61b;</span>
+                                <input type="email" class="setting-number" placeholder="请输入邮箱">
+                                <input type="submit" class="set-btn" value="修改">
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- 用户中心页专有部分结束 -->
-
+        <!-- 用户设置页专有部分结束 -->
 		<!-- footer底部开始 -->
 		<footer>
 			<div class="w">
 				<div class="foo-hd">
 					<ul>
 						<li>
-							<span class="foo-ico1">&#xe600;</span>
+							<span class="foo-ico1">&#xe606;</span>
 							7天无理由退换货
 						</li>
 						<li>
-							<span class="foo-ico2">&#xe600;</span>
+							<span class="foo-ico2">&#xe90a;</span>
 							满99元全场免邮
 						</li>
 						<li>
-							<span class="foo-ico3">&#xe600;</span> 100%品质保证
+							<span class="foo-ico3">&#xe669;</span> 100%品质保证
 						</li>
 					</ul>
 				</div>
