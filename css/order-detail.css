@@ -1,0 +1,110 @@
+.right-con-detail {
+    width: 910px;
+    float: left;
+    background-color: #fff;
+    padding: 20px 35px;
+    margin-bottom: 30px;
+}
+.right-con-detail h2 {
+    font-size: 16px;
+    color: #666;
+    margin: 28px 0;
+    margin-left: -10px;
+}
+/* 订单详情 */
+.order-detail li {
+    font-size: 14px;
+    color: rgba(0,0,0,.45);
+    margin: 18px 0;
+}
+.order-detail li p {
+    display: inline-block;
+    color: #333;
+    margin-left: 5px;
+}
+.order-detail li span {
+    color: #ff0011;
+    margin-left: 5px;
+}
+.order-detail li a {
+    float: left;
+    width: 100px;
+    height: 30px;
+    background-color: #52c41a;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 20px;
+}
+/* 物流信息 */
+.order-msg-info {
+    font-size: 12px;
+    color: #faad14;
+}
+/* 订单列表 */
+.order-hd {
+    width: 100%;
+    height: 40px;
+    background-color: #ddd;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.order-hd ul li {
+    float: left;
+    font-size: 12px;
+    height: 40px;
+    color: #666;
+    margin-right: 55px;
+    line-height: 40px;
+}
+.order-hd ul li:first-child {
+    margin-left: 10px;
+    margin-right: 538px;
+}
+.order-box {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.order-box-bd {
+    border: 1px solid #bdbdbd;
+}
+.order-box-bd ul li {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #bdbdbd;
+    padding: 10px;
+}
+.order-box-bd ul li:last-child {
+    border-bottom: 0;
+}
+.order-box-img {
+    width: 60px;
+    height: 60px;
+    float: left;
+    border: 1px solid #ccc;
+}
+.order-box-img img {
+    width: 100%;
+    height: 100%;
+}
+.order-box-title {
+    float: left;
+    width: 466px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 60px;
+    color: #333;
+    margin-left: 5px;
+}
+.order-box-bd span {
+    float: left;
+    line-height: 60px;
+}
+.danjia {
+    margin-left: 20px;
+}
+.shuliang {
+    margin: 0 64px;
+}

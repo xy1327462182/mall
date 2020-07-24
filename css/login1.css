@@ -1,0 +1,77 @@
+.login-hd {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #fff;
+}
+.logo {
+    float: left;
+    color: #52c41a;
+    font-size: 30px;
+    font-weight: 700;
+}
+.wrapper {
+    width: 100%;
+    height: 610px;
+    background-color: #bdbdbd;
+    padding-top: 80px;
+}
+.login1-box {
+    position: relative;
+    padding-top: 30px;
+    margin: 0 auto;
+    width: 410px;
+    height: 290px;
+    background-color: #fff;
+}
+.login1-box h2 {
+    color: #000;
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.login1-box p {
+    margin-bottom: 25px;
+}
+form {
+    margin-left: 35px;
+}
+.login1-ico {
+    font-family: 'iconfont';
+    box-sizing: border-box;
+    float: left;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #bdbdbd;
+    text-align: center;
+    line-height: 30px;
+    background-color: #f3f3f3;
+}
+.w310 {
+    width: 310px;
+    height: 30px;
+    border: 1px solid #bdbdbd;
+    border-left: 0;
+    line-height: 30px;
+    padding-left: 10px;
+}
+.login1-btn {
+    width: 340px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-size: 16px;
+    border: 0;
+    cursor: pointer;
+    background-color: #52c41a;
+    
+}
+.login1-btn:hover {
+    opacity: .8;
+}
+.re {
+    position: absolute;
+    right: 35px;
+    bottom: 30px;
+}

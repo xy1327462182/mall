@@ -27,6 +27,9 @@ a:hover {
 header, footer {
     box-sizing: border-box;
 }
+input {
+    outline: none;
+}
 @font-face {
     font-family: 'iconfont';
     src: url('../fonts/iconfont.eot');

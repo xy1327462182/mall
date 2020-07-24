@@ -1,0 +1,156 @@
+.warpper {
+    width: 100%;
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+.warpper h2 {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 18px;
+    margin-left: -10px;
+}
+/* 收货地址 */
+.address {
+    margin-bottom: 40px;
+    position: relative;
+}
+.address-msg {
+    padding-left: 10px;
+    line-height: 43px;
+    width: 100%;
+    height: 43px;
+    border: 1px dashed #52c41a;
+    font-size: 14px;
+    color: #666;
+}
+.add-address {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+    height: 30px;
+    background-color: #52c41a;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    font-size: 16px;
+}
+/* 支付方式 */
+.pay {
+    margin-bottom: 40px;
+}
+.aili-pay {
+    position: relative;
+    font-family: 'iconfont';
+    width: 140px;
+    height: 90px;
+    border: 2px solid #52c41a;
+    border-radius: 8px;
+    background-color: #f3f5f7;
+    font-size: 60px;
+    color: #00abef;
+    line-height: 90px;
+    text-align: center;
+}
+/* 购物清单 */
+/* 在购物车的css文件中 */
+/* 以下稍作修改 */
+.select-img {
+    left: 30px;
+}
+.select-price {
+    left: 718px;
+}
+.count {
+    left: 822px;
+}
+.count-reduce {
+    left: 800px;
+}
+.count-add {
+    left: 864px;
+}
+.totle  {
+    left: 912px;
+}
+/* 新增地址的隐藏盒子 */
+.mask {
+    z-index: 9;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.4);
+}
+.address-hid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 470px;
+    height: 420px;
+    background-color: #fff;
+    z-index: 10;
+    padding: 15px;
+}
+.f-hd {
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    line-height: 40px;
+    font-size: 14px;
+    color: #333;
+    
+}
+.f-bd {
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.f-bd p {
+    margin-bottom: 15px;
+    line-height: 30px;
+}
+form select {
+    width: 80px;
+    outline: none;
+    margin-left: 5px;
+}
+.close-ico {
+    font-family: 'iconfont';
+    float: right;
+    font-size: 20px;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+.f-ico {
+    font-family: 'iconfont';
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #bdbdbd;
+    float: left;
+    text-align: center;
+    line-height: 30px;
+    font-size: 15px;
+}
+.w310 {
+    width: 310px;
+    height: 30px;
+    border: 1px solid #bdbdbd;
+    border-left: 0;
+    padding-left: 12px;
+}
+.f-btn {
+    width: 340px;
+    height: 40px;
+    background-color: #52c41a;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+}
