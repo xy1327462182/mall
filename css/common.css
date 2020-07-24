@@ -1,3 +1,14 @@
+/* 清除浮动 */
+.clearfix:after{
+    content: "";
+    clear: both;
+    display: block;
+    height: 0px;
+    visibility: hidden;
+}
+.clearfix{
+    *zoom:1;
+}
 body {
     font-size: 12px;
     background-color: #eee;
@@ -156,21 +167,28 @@ footer {
 .foo-hd {
     height: 145px;
     border-bottom: 1px solid #3d3d3d;
-    padding: 0 40px;
+    /* padding: 0 40px; */
 }
 .foo-hd ul li {
+    position: relative;
     float: left;
     height: 145px;
     line-height: 145px;
     font-size: 20px;
     color: #fff;
+    left: 45px;
 }
+
 .foo-hd ul li:nth-child(2) {
-    margin: 0 210px;
+    margin: 0 285px;
 }
+
 .foo-hd ul li span {
+    position: absolute;
+    left: -45px;
+    top: 0;
     font-family:'iconfont';
-    font-size: 28px;
+    font-size: 35px;
 
 }
 .foo-bd {
