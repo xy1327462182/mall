@@ -20,13 +20,6 @@ $(function() {
     $(".sort-price").on('click', function() {
         $(".sort-default").removeClass('sort-active');
         $(".sort-price").addClass('sort-active');
-        // if ($(".sort-price-top").hasClass('t')) {
-        //     $(".sort-price-top").removeClass('t');
-        //     $(".sort-price-bottom").addClass('b');
-        // } else {
-        //     $(".sort-price-top").addClass('t');
-        //     $(".sort-price-bottom").removeClass('b');
-        // }
     })
     $(".sort-price-top").on('click', function() {
         $(".sort-price-top").addClass('t');
