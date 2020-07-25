@@ -176,7 +176,7 @@
     width: 82px;
     position: fixed;
     top: 50%;
-    left: 40px;
+    left: 20px;
     opacity: .7;
     transform: translate(0, -50%);
 }

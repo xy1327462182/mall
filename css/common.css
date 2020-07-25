@@ -69,6 +69,25 @@ input {
 .top-bar .user-msg {
     float: right;
 }
+.user-msg li {
+  padding: 0 15px;
+}
+.user-msg li:first-child {
+  position: relative;
+  padding: 0 15px 0 25px;
+}
+.user-msg li:hover {
+  background-color: #fff;
+}
+.shop-car-box {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 420px;
+  height: 210px;
+  background-color: #fff;
+  z-index: 9;
+}
 .shop-car {
     position: relative;
 }
@@ -81,7 +100,7 @@ input {
 }
 .top-bar ul li {
     float: left;
-    margin: 0 11px;
+    margin: 0 3px;
 }
 /* 顶部导航栏结束 */
 

@@ -27,6 +27,9 @@
     line-height: 32px;
 }
 .order-select li a {
+    float: left;
+    width: 82px;
+    height: 32px;
     font-size: 12px;
     color: rgba(0,0,0,.45);
 }
