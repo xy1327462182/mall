@@ -11,6 +11,11 @@
     color: #666;
     margin-bottom: 20px;
 }
+.right-con-myorder h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: -10px;
+}
 .order-select li {
     float: left;
     width: 82px;
