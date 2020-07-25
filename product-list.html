@@ -9,7 +9,9 @@
 		<!-- 引入公共样式css文件 -->
 		<link rel="stylesheet" href="./css/common.css" />
 		<!-- 引入列表页专有的css -->
-		<link rel="stylesheet" href="./css/product-list.css" />
+        <link rel="stylesheet" href="./css/product-list.css" />
+        <script src="./js/jQuery.js"></script>
+        <script src="./js/product-list.js"></script>
 	</head>
 	<body>
 		<!-- 顶部导航栏开始 -->
@@ -84,12 +86,12 @@
                                 <dd><a href="javascript:;">全屏手机</a></dd>
                             </dl>
                             <dl>
-                                <dt><a href="javascript:;">食品生鲜</a><span class="fold">+</span></dt>
+                                <dt><a href="javascript:;">食品生鲜</a><span class="fold">-</span></dt>
                                 <dd><a href="javascript:;">水果</a></dd>
                             </dl>
 
                             <dl>
-                                <dt><a href="javascript:;">汽车保养</a><span class="fold">+</span></dt>
+                                <dt><a href="javascript:;">汽车保养</a><span class="fold">-</span></dt>
                                 <dd><a href="javascript:;">蓄电池</a></dd>
                             </dl>
 
@@ -138,7 +140,10 @@
                     <div class="right-goods">
                         <div class="right-goods-hd">
                             <button class="sort-default sort-active">默认排序</button>
-                            <button class="sort-price">按价格</button>
+                            <button class="sort-price">按价格
+                                <span class="sort-price-top t"></span>
+                                <span class="sort-price-bottom"></span>
+                            </button>
                         </div>
                         <div class="right-goods-bd">
                             <a href="javascript:;" class="goods-box">
