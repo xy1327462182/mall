@@ -36,6 +36,10 @@
     color: #fff;
     font-size: 16px;
 }
+.add-address:hover {
+  color: #fff;
+  opacity: .8;
+}
 /* 支付方式 */
 .pay {
     margin-bottom: 40px;
@@ -83,6 +87,7 @@
     bottom: 0;
     right: 0;
     background-color: rgba(0,0,0,.4);
+    display: none;
 }
 .address-hid {
     position: fixed;
@@ -105,8 +110,17 @@
     
 }
 .f-bd {
+  position: relative;
     margin-left: 50px;
     margin-top: 30px;
+}
+.err-msg {
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  transform: translate(-70%);
+  color: #ff0011;
+  font-size: 14px;
 }
 .f-bd p {
     margin-bottom: 15px;
@@ -145,7 +159,7 @@ form select {
 .f-btn {
     width: 340px;
     height: 40px;
-    background-color: #52c41a;
+    background-color: gray;
     text-align: center;
     line-height: 40px;
     color: #fff;

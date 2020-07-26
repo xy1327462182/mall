@@ -7,11 +7,13 @@
 		<!-- 引入初始化css文件 -->
 		<link rel="stylesheet" href="./css/base.css" />
 		<!-- 引入公共样式css文件 -->
-        <link rel="stylesheet" href="./css/common.css" />
-        <!-- 引入购物车部分css -->
-        <link rel="stylesheet" href="./css/shop-car.css">
+    <link rel="stylesheet" href="./css/common.css" />
+    <!-- 引入购物车部分css -->
+    <link rel="stylesheet" href="./css/shop-car.css">
 		<!-- 引入订单确认页专有css -->
-        <link rel="stylesheet" href="./css/order-confirm.css" />
+    <link rel="stylesheet" href="./css/order-confirm.css" />
+    <script src="./js/jQuery.js"></script>
+    <script src="./js/order-confirm.js"></script>
 	</head>
 	<body>
 		<!-- 顶部导航栏开始 -->
@@ -75,45 +77,37 @@
                     新增地址<span class="close-ico">&#xe620;</span>
                 </div>
                 <div class="f-bd">
-                    <form action="">
+                  <p class="err-msg"></p>
+                    <form action="http://www.baidu.com" method="get">
                         <p>
                             <span class="f-ico">&#xe602;</span>
-                            <input type="text" class="w310" placeholder="请输入收货人姓名">
+                            <input type="text" class="w310" placeholder="请输入收货人姓名" id="uname">
                         </p>
                         <p>
                             <span class="f-ico">&#xe718;</span>
-                            <select name="" id="">
-                                <option value="">请选择</option>
-                                <option value="北京市">北京市</option>
-                                <option value="上海市">上海市</option>
-                                <option value="天津市">天津市</option>
+                            <select name="sheng" id="sheng">
+                              <option value="">请选择</option>
                             </select>
-                            <select name="" id="">
-                                <option value="">请选择</option>
-                                <option value="北京市">北京市</option>
-                                <option value="上海市">上海市</option>
-                                <option value="天津市">天津市</option>
+                            <select name="shi" id="shi">
+                              <option value="">请选择</option>
                             </select>
-                            <select name="" id="">
-                                <option value="">请选择</option>
-                                <option value="北京市">北京市</option>
-                                <option value="上海市">上海市</option>
-                                <option value="天津市">天津市</option>
+                            <select name="qu" id="qu">
+                              <option value="">请选择</option>
                             </select>
                         </p>
                         <p>
                             <span class="f-ico">&#xe90a;</span>
-                            <input type="text" class="w310" placeholder="请输入详细地址到门牌号">
+                            <input type="text" class="w310" placeholder="请输入详细地址到门牌号" id="address">
                         </p>
                         <p>
                             <span class="f-ico">&#xe61c;</span>
-                            <input type="text" class="w310" placeholder="请输入手机号">
+                            <input type="text" class="w310" placeholder="请输入手机号" id="phoneNumber" oninput="value=value.replace(/[^\d]/g,'')">
                         </p>
                         <p>
                             <span class="f-ico">&#xe61b;</span>
-                            <input type="text" class="w310" placeholder="请输入邮编,如100001">
+                            <input type="text" class="w310" placeholder="请输入邮编,如100001" id="postCode" oninput="value=value.replace(/[^\d]/g,'')">
                         </p>
-                        <p><input type="submit" value="提交" class="f-btn"></p>
+                        <p><input type="submit" value="提交" class="f-btn" disabled></p>
                     </form>
                     
                 </div>

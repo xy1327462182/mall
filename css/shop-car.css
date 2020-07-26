@@ -24,6 +24,11 @@
 .select-all {
     position: absolute;
 }
+.count-reduce,
+.count,
+.count-add {
+  user-select: none;
+}
 /* 购物车头部 */
 .shop-hd {
     height: 40px;

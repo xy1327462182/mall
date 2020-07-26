@@ -1,0 +1,59 @@
+header {
+  height: 60px;
+  width: 100%;
+  background-color: #fff;
+  line-height: 60px;
+  border-bottom: 0;
+}
+header h1 {
+  height: 60px;
+  line-height: 60px;
+}
+header .logo {
+  float: left;
+  color: #52c41a;
+  font-size: 30px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.main {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-color: #eee;
+}
+.success-ico,
+.main p,
+.shopcar-success-a {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.success-ico {
+  width: 90px;
+  height: 75px;
+  top: 100px;
+}
+.main p {
+  top: 200px;
+  font-size: 28px;
+  color: rgba(0,0,0,.85);
+}
+.shopcar-success-a {
+  top: 280px;
+}
+.shopcar-success-a a {
+  float: left;
+  width: 120px;
+  height: 30px;
+  background-color: #52c41a;
+  text-align: center;
+  line-height: 30px;
+  color: #fff;
+  font-size: 14px;
+  margin: 0 10px;
+}
+.shopcar-success-a a:hover {
+  opacity: .8;
+}

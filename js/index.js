@@ -1,4 +1,13 @@
 $(function() {
+
+    //购物车鼠标悬浮 显示购物车盒子
+    $(".user-msg li:first-child").on('mouseover', function() {
+      $(".shop-car-box").show();
+    })
+    $(".user-msg li:first-child").on('mouseout', function() {
+      $(".shop-car-box").hide();
+    })
+
     //给侧边导航的子目录框动态设置top属性的值
     $.each($(".silde-nav li"), function(i, n) {
         $(n).find(".child-cate").css({"top":0 - (40 * i) - 20 + 'px'});
@@ -44,7 +53,4 @@ $(function() {
     $(".backtop").on('click', function() {
         $("html, body").stop().animate({scrollTop: 0});
     })
-    
-    
-
 })
