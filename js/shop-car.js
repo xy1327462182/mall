@@ -8,6 +8,8 @@ $(function() {
       $(".select-all").prop('checked',false);
       $(".select-one").prop('checked',false);
     }
+    //调用求总价函数
+    getPriceTotle();
   })
   //所有单选框选中时，全选框选中
   $(".select-one").on('click', function() {
@@ -20,6 +22,11 @@ $(function() {
     if (num == $(".select-one").length) {
       $(".select-all").prop('checked',true);
     }
+    if (num == 0) {
+        $(".select-all").prop('checked',false);
+    }
+    //调用求总价函数
+    getPriceTotle();
   })
 
   //购物车数量加减操作  价格随之变动
@@ -29,6 +36,7 @@ $(function() {
     count++;
     $(this).siblings('.count').attr('value', count);
     gettotle($(this));
+    //调用求总价函数
     getPriceTotle();
   })
   // 单击减少函数
@@ -41,6 +49,7 @@ $(function() {
     }
     $(this).siblings('.count').attr('value', count);
     gettotle($(this));
+    //调用求总价函数
     getPriceTotle();
   })
   //求每个商品的小计
@@ -55,11 +64,12 @@ $(function() {
   getPriceTotle();
   function getPriceTotle() {
     var sum = 0;
-    $.each($('.totle'), function(i, n) {
-      var num = $(n).html().split('￥')[1] - 0;
-      sum = sum + num;
+    $.each($(".shop-bd li"), function(i, n) {
+        if ($(n).find('.select-one').prop('checked') == true) {
+            sum = (sum - 0) + ($(n).find('.totle').html().split('￥')[1] - 0);
+        }
     })
-    sum = '￥' + sum;
+    sum = sum + '￥';
     $(".price-totle-number").html(sum);
   }
 })
