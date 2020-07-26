@@ -64,6 +64,7 @@ $(function() {
   getPriceTotle();
   function getPriceTotle() {
     var sum = 0;
+    
     $.each($(".shop-bd li"), function(i, n) {
         if ($(n).find('.select-one').prop('checked') == true) {
             sum = (sum - 0) + ($(n).find('.totle').html().split('￥')[1] - 0);
