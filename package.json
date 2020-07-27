@@ -1,0 +1,28 @@
+{
+  "name": "mall",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-art-template": "^1.0.1",
+    "session": "^0.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xy1327462182/mall.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xy1327462182/mall/issues"
+  },
+  "homepage": "https://github.com/xy1327462182/mall#readme"
+}

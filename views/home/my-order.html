@@ -1,0 +1,163 @@
+{{extend './layout.html'}}
+{{block 'title'}}我的订单{{/block}}
+
+{{block 'link'}}
+    <!-- 引入用户界面公共样式 -->
+    <link rel="stylesheet" href="/css/user-common.css" />
+    <!-- 引入我的订单页专有css -->
+    <link rel="stylesheet" href="/css/my-order.css" />
+{{/block}}
+{{block 'script'}}
+    <script src="/js/my-order.js"></script>
+{{/block}}
+{{block 'content'}}
+	<!-- 我的订单页专有部分开始 -->
+	<div class="main">
+			<div class="w clearfix">
+				<!-- 记录当前位置导航 -->
+				<div class="crumb">
+					<a href="javascript:;">首页</a><em>&#xe7a7;</em>
+					<span>我的订单</span>
+				</div>
+				<div class="wrapper">
+					<!-- 侧边导航 -->
+					<div class="slide-nav">
+						<ul>
+                            <li><a href="/home/user-center" class="">用户中心 <span class="slide-nav-ico">&#xe602;</span></a></li>
+                            <li><a href="/home/user-settings">基本设置 <span class="slide-nav-ico">&#xe62d;</span></a></li>
+                            <li><a href="/home/my-order" class="{{userCurrentPage =='myOrder' ? 'slide-nav-active' : ''}}">我的订单 <span class="slide-nav-ico">&#xe634;</span></a></li>
+                            <li><a href="/home/modify-password">修改密码 <span class="slide-nav-ico">&#xe644;</span></a></li>
+                        </ul>	
+					</div>
+					<!-- 右侧内容 -->
+					<div class="right-con-myorder clearfix">
+						<h2>订单列表</h2>
+						<ul class="order-select clearfix">
+							<li class="order-select-active">
+								<a href="#">全部</a>
+							</li>
+							<li><a href="#">待付款</a></li>
+							<li><a href="#">取消</a></li>
+							<li><a href="#">待发货</a></li>
+							<li><a href="#">已发货</a></li>
+							<li><a href="#">已完成</a></li>
+						</ul>
+						<!-- 订单头部 -->
+						<div class="order-hd">
+							<ul>
+								<li>商品</li>
+								<li>单价</li>
+								<li>数量</li>
+								<li>小计</li>
+							</ul>
+						</div>
+						<!-- 订单主体列表 -->
+						<div class="order-bd">
+							<div class="order-box">
+								<div class="order-box-hd">
+									<ul>    
+										<li>订单号:</li>
+										<li>15955492651018460</li>
+										<li>创建时间:</li>
+                                        <li>2020/7/24</li>
+                                        <li>上午</li>
+										<li>8:07:45</li>
+										<li>订单状态:</li>
+										<li>未支付</li>
+										<li>收件人:</li>
+										<li>音乐</li>
+										<li>订单金额:</li>
+                                        <li><span>￥13233</span></li>
+                                        <li><a href="#" class="look-more">查看详情</a></li>
+									</ul>
+								</div>
+								<div class="order-box-bd">
+									<ul>
+										<li>
+                                            <div class="order-box-img">
+                                                <a href="#"><img src="/upload/1587973772260.jpg" ></a>
+                                            </div>
+                                            <p class="order-box-title"><a href="#">宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配HDMI 梯形校正 商用机皇新升级 白天直投）</a></p>
+                                            <span class="danjia">￥999</span>
+                                            <span class="shuliang">1</span>
+                                            <span class="xiaoji">￥999</span>
+                                        </li>
+                                        <li>
+                                            <div class="order-box-img">
+                                                <img src="/upload/1587973772260.jpg" >
+                                            </div>
+                                            <p class="order-box-title">宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配HDMI 梯形校正 商用机皇新升级 白天直投）</p>
+                                            <span class="danjia">￥999</span>
+                                            <span class="shuliang">1</span>
+                                            <span class="xiaoji">￥999</span>
+                                        </li>
+                                        <li>
+                                            <div class="order-box-img">
+                                                <img src="/upload/1587973772260.jpg" >
+                                            </div>
+                                            <p class="order-box-title">宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配HDMI 梯形校正 商用机皇新升级 白天直投）</p>
+                                            <span class="danjia">￥999</span>
+                                            <span class="shuliang">1</span>
+                                            <span class="xiaoji">￥999</span>
+                                        </li>
+									</ul>
+								</div>
+                            </div>
+                            <div class="order-box">
+								<div class="order-box-hd">
+									<ul>    
+										<li>订单号:</li>
+										<li>15955492651018460</li>
+										<li>创建时间:</li>
+                                        <li>2020/7/24</li>
+                                        <li>上午</li>
+										<li>8:07:45</li>
+										<li>订单状态:</li>
+										<li>未支付</li>
+										<li>收件人:</li>
+										<li>音乐</li>
+										<li>订单金额:</li>
+                                        <li><span>￥13233</span></li>
+                                        <li><a href="#" class="look-more">查看详情</a></li>
+									</ul>
+								</div>
+								<div class="order-box-bd">
+									<ul>
+										<li>
+                                            <div class="order-box-img">
+                                                <img src="/upload/1587973772260.jpg" >
+                                            </div>
+                                            <p class="order-box-title">宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配HDMI 梯形校正 商用机皇新升级 白天直投）</p>
+                                            <span class="danjia">￥999</span>
+                                            <span class="shuliang">1</span>
+                                            <span class="xiaoji">￥999</span>
+                                        </li>
+                                        <li>
+                                            <div class="order-box-img">
+                                                <img src="/upload/1587973772260.jpg" >
+                                            </div>
+                                            <p class="order-box-title">宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配HDMI 梯形校正 商用机皇新升级 白天直投）</p>
+                                            <span class="danjia">￥999</span>
+                                            <span class="shuliang">1</span>
+                                            <span class="xiaoji">￥999</span>
+                                        </li>
+                                        <li>
+                                            <div class="order-box-img">
+                                                <img src="/upload/1587973772260.jpg" >
+                                            </div>
+                                            <p class="order-box-title">宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配HDMI 梯形校正 商用机皇新升级 白天直投）</p>
+                                            <span class="danjia">￥999</span>
+                                            <span class="shuliang">1</span>
+                                            <span class="xiaoji">￥999</span>
+                                        </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+    <!-- 我的订单页专有部分结束 -->
+{{/block}}
+

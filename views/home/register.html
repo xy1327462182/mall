@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+    <!-- 引入初始化css文件 -->
+	<link rel="stylesheet" href="/css/base.css" />
+	<!-- 引入公共样式css文件 -->
+	<link rel="stylesheet" href="/css/common.css" />
+	<!-- 引入登陆1专有的css文件 -->
+    <link rel="stylesheet" href="/css/login1.css" />
+    <!-- 引入注册页css -->
+    <link rel="stylesheet" href="/css/register.css">
+    <script src="/js/jQuery.js"></script>
+    <script src="/js/register.js"></script>
+</head>
+<body>
+    <!-- 登录1头部 -->
+    <div class="login-hd">
+        <div class="w">
+            <h1>
+                <a href="/home/" class="logo">SortMall</a>
+            </h1>
+        </div>
+    </div>
+
+    <!-- 登陆1主体部分 -->
+    <div class="wrapper">
+        <div class="login1-box">
+            <h2>用户注册</h2>
+            <p id="errmsg"></p>
+            <form action="http://www.baidu.com" method="GET">
+                <p><span class="login1-ico">&#xe61c;</span><input type="text" id="phone" class="w310" placeholder="请输入手机号"></p>
+                <p><span class="login1-ico">&#xe61b;</span><input type="email" id="email" class="w310" placeholder="请输入邮箱"></p>
+                <p><span class="login1-ico">&#xe644;</span><input type="password" id="pwd1" class="w310" placeholder="请输入密码"></p>
+                <p><span class="login1-ico">&#xe644;</span><input type="password" id="pwd2" class="w310" placeholder="请再次输入密码"></p>
+                <p><input type="submit" disabled value="注册" class="login1-btn"></p>
+            </form>
+            <a href="/home/login" class="re">已有账号去登录</a>
+        </div>
+    </div>
+        
+    
+
+    <!-- footer底部开始 -->
+	<footer>
+            <div class="w">
+                <div class="foo-hd">
+                    <ul>
+                        <li><span class="foo-ico1">&#xe606;</span> 7天无理由退换货</li>
+                        <li><span class="foo-ico2">&#xe90a;</span> 满99元全场免邮</li>
+                        <li><span class="foo-ico3">&#xe669;</span> 100%品质保证</li>
+                    </ul>
+                </div>
+                <div class="foo-bd">
+                    <div class="company">
+                        <a href="javascript:;">百度</a>
+                        <a href="javascript:;">淘宝</a>
+                        <a href="javascript:;">华为</a>
+                    </div>
+                    <p>© 2019 kuazhu.com 豫ICP备15027861号-2</p>
+                </div>
+            </div>
+    </footer>
+	<!-- footer底部结束 -->
+</body>
+</html>

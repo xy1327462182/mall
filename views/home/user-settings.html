@@ -1,0 +1,53 @@
+{{extend './layout.html'}}
+{{block 'title'}}用户-设置{{/block}}
+{{block 'link'}}
+        <!-- 引入用户界面公共样式 -->
+        <link rel="stylesheet" href="/css/user-common.css">
+        <!-- 引入用户设置页专有css -->
+        <link rel="stylesheet" href="/css/user-settings.css">
+{{/block}}
+{{block 'content'}}
+        <!-- 用户设置页专有部分开始 -->
+        <div class="main">
+            <div class="w">
+                <!-- 记录当前位置导航 -->
+                <div class="crumb">
+                    <a href="javascript:;">首页</a><em>&#xe7a7;</em>
+                    <span>基本设置</span>
+                </div>
+                <div class="wrapper">
+                    <!-- 侧边导航 -->
+                    <div class="slide-nav">
+                        <ul>
+                            <li><a href="/home/user-center" class="">用户中心 <span class="slide-nav-ico">&#xe602;</span></a></li>
+                            <li><a href="/home/user-settings" class="{{userCurrentPage =='userSettings' ? 'slide-nav-active' : ''}}">基本设置 <span class="slide-nav-ico">&#xe62d;</span></a></li>
+                            <li><a href="/home/my-order">我的订单 <span class="slide-nav-ico">&#xe634;</span></a></li>
+                            <li><a href="/home/modify-password">修改密码 <span class="slide-nav-ico">&#xe644;</span></a></li>
+                        </ul>
+                    </div>
+                    <!-- 右侧内容 -->
+                    <div class="right-con">
+                        <div class="right-con-hd">
+                            <div class="user-img"><img src="/images/fcac4dc411a64d5ab69308bdcc8d287f!400x400.jpg" alt=""></div>
+                            <div class="change-img" title="未选择任何文件">上传头像
+                                <span class="change-img-ico">&#xe632;</span>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>
+                                <span class="setting-ico">&#xe602;</span>
+                                <input type="text" class="setting-number" value="1234566">
+                                <input type="submit" class="set-btn" value="修改">
+                            </li>
+                            <li>
+                                <span class="setting-ico">&#xe61b;</span>
+                                <input type="email" class="setting-number" placeholder="请输入邮箱">
+                                <input type="submit" class="set-btn" value="修改">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 用户设置页专有部分结束 -->
+{{/block}}

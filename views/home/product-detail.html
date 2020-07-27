@@ -1,0 +1,70 @@
+{{extend './layout.html'}}
+{{block 'title'}}商品详情页{{/block}}
+{{block 'link'}}
+        <!-- 引入商品详情页专有的css -->
+        <link rel="stylesheet" href="/css/product-detail.css">
+{{/block}} 
+{{block 'script'}} 
+        <script src="/js/product-detail.js"></script>
+{{/block}} 
+{{block 'content'}} 
+        <!-- 商品详情页专有部分开始 -->
+        <div class="detail">
+            <div class="w">
+                <!-- 记录当前位置导航 -->
+                <div class="crumb">
+                    <a href="javascript:;">首页</a><em>&#xe7a7;</em>
+                    <span>商品详情页</span>
+                </div>
+                <!-- 商品图片与规格开始 -->
+                <div class="product-intro">
+                    <div class="bigimg"><img src="/upload/HUAWEI nova 5 Pro01.jpg" alt=""></div>
+                    <div class="product-img">
+                        <img src="/upload/HUAWEI nova 5 Pro01.jpg" alt="">
+                        <div class="mask"></div>
+                    </div>
+                    <div class="product-guige">
+                        <h2 class="product-title">联想(Lenovo)小新Air14英寸 AMD锐龙版(全新12nm)轻v薄笔记本电脑薄笔记本电脑</h2>
+                        <p class="product-info">联想(Lenovo)小新Air14英寸 AMD锐龙版(全新12nm)轻薄笔记本电脑(R5-3500U 12G 512G PCIE IPS)轻奢灰</p>
+                        <div class="product-price">价格: <span>￥5199</span></div>
+                        <div class="product-stock">库存: <span>233</span></div>
+                        <div class="product-color">颜色: 
+                            <ul><li class="product-color-active">白色</li><li>红色</li><li>黑色</li></ul>
+                        </div>
+                        <div class="product-number">数量: 
+                            <span class="product-count-reduce">-</span>
+                            <span class="product-count">1</span>
+                            <span class="product-count-add">+</span>
+                        </div>
+                        <button class="add-shopcar">添加购物车</button>
+                    </div>
+                    <ul class="product-img-list">
+                        <li class="product-img-list-active"><img src="/upload/HUAWEI nova 5 Pro01.jpg" alt=""></li>
+                        <li><img src="/upload/HUAWEI nova 5 Pro02.jpg" alt=""></li>
+                        <li><img src="/upload/HUAWEI nova 5 Pro03.jpg" alt=""></li>
+                        <li><img src="/upload/HUAWEI nova 5 Pro04.jpg" alt=""></li>
+                        <li><img src="/upload/HUAWEI nova 5 Pro05.jpg" alt=""></li>
+                    </ul>
+                </div>
+                <!-- 商品图片与规格结束 -->
+
+                <!-- 商品详情介绍开始 -->
+                <div class="detail-hd">
+                    <ul>
+                        <li class="detail-hd-active">商品详情</li>
+                        <li>商品评价</li>
+                        <li>买家秀</li>
+                        <li>好物点评</li>
+                    </ul>
+                </div>
+                <div class="detail-bd">
+                    <img src="/upload/1595243985852.jpg" alt="">
+                    <img src="/upload/1595243970839.jpg" alt="">
+                    <img src="/upload/1595243974710.jpg" alt="">
+                    <img src="/upload/1595243979366.jpg" alt="">
+                </div>
+                <!-- 商品详情介绍结束 -->
+            </div>
+        </div>
+        <!-- 商品详情页专有部分结束 -->
+{{/block}} 
