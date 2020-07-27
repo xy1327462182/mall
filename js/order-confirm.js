@@ -8,6 +8,48 @@ $(function() {
     $('.mask').hide();
   })
 
+  //监听所有的收货地址的编辑按钮点击事件，点击编辑，展开隐藏盒子及遮罩层，并将对应默认信息填入盒子
+  $(".address-msg .modify-address").on('click', function() {
+    //开启遮罩层
+    $('.mask').show();
+    //获取该收货地址的信息
+    var address1 =  $(this).parent('.address-msg').text().split(" ");
+    var address2 = [];
+    for (let i=0; i<address1.length; i++) {
+        if (i < 7) {
+            address2[i] = address1[i];
+        }
+    }
+    //填入默认信息
+    $("#phoneNumber").val(address2[0]);
+    $("#uname").val(address2[1]);
+    $("#address").val(address2[5]);
+    $("#postCode").val(address2[6]);
+    //遍历省下的option，将默认省份的selected改为true
+    $.each($("#sheng option"), function(i, n) {
+        if ($(n).val() == address2[2]) {
+            $(n).prop('selected', true);
+        }
+    })
+    //根据当前省份，动态创建城市
+        //直接调用省份改变事件
+    $("#sheng").change();
+        // 将默认城市的selected设为true
+    $.each($("#shi option"), function(i, n) {
+        if ($(n).val() == address2[3]) {
+            $(n).prop('selected', true);
+        }
+    })
+    //根据当前城市，动态创建区
+    $("#shi").change();
+        //将默认区的selected设置为true
+    $.each($("#qu option"), function(i, n) {
+        if ($(n).val() == address2[4]) {
+            $(n).prop('selected', true);
+        }
+    })
+  })
+
   //省市区三级联动
   var selectObj = {
     "河南省": [{

@@ -16,6 +16,7 @@
     position: relative;
 }
 .address-msg {
+    position: relative;
     padding-left: 10px;
     line-height: 43px;
     width: 100%;
@@ -23,6 +24,16 @@
     border: 1px dashed #52c41a;
     font-size: 14px;
     color: #666;
+    margin: 12px 0;
+    cursor: pointer;
+}
+.modify-address,
+.del-address {
+    position: absolute;
+    right: 10px;
+}
+.modify-address {
+    right: 50px;
 }
 .add-address {
     position: absolute;
