@@ -18,4 +18,12 @@ $(function() {
         }
 
     })
+    //更换头像时候，图片预览功能
+    $("#file").on('change', function() {
+        var reader = new FileReader();
+        reader.readAsDataURL(this.files[0]);
+        reader.onload = function () {
+			$("#pic").attr('src') = reader.result
+		}
+    })
 })
