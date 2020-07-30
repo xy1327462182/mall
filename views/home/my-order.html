@@ -23,10 +23,10 @@
 					<!-- 侧边导航 -->
 					<div class="slide-nav">
 						<ul>
-                            <li><a href="/home/user-center" class="">用户中心 <span class="slide-nav-ico">&#xe602;</span></a></li>
-                            <li><a href="/home/user-settings">基本设置 <span class="slide-nav-ico">&#xe62d;</span></a></li>
-                            <li><a href="/home/my-order" class="{{userCurrentPage =='myOrder' ? 'slide-nav-active' : ''}}">我的订单 <span class="slide-nav-ico">&#xe634;</span></a></li>
-                            <li><a href="/home/modify-password">修改密码 <span class="slide-nav-ico">&#xe644;</span></a></li>
+                            <li><a href="/home/user-center?id={{@uid}}" class="">用户中心 <span class="slide-nav-ico">&#xe602;</span></a></li>
+                            <li><a href="/home/user-settings?id={{@uid}}">基本设置 <span class="slide-nav-ico">&#xe62d;</span></a></li>
+                            <li><a href="/home/my-order?id={{@uid}}" class="{{userCurrentPage =='myOrder' ? 'slide-nav-active' : ''}}">我的订单 <span class="slide-nav-ico">&#xe634;</span></a></li>
+                            <li><a href="/home/modify-password?id={{@uid}}">修改密码 <span class="slide-nav-ico">&#xe644;</span></a></li>
                         </ul>	
 					</div>
 					<!-- 右侧内容 -->

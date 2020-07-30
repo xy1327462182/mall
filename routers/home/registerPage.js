@@ -1,3 +1,10 @@
 module.exports = (req, res) => {
-    res.render('./home/register');
+    if (req.query.errmsg) {
+        return res.render('./home/register', {
+            errmsg: req.query.errmsg
+        });
+    } else {
+        res.render('./home/register')
+    }
+    
 }

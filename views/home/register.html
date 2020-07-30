@@ -29,12 +29,12 @@
     <div class="wrapper">
         <div class="login1-box">
             <h2>用户注册</h2>
-            <p id="errmsg"></p>
-            <form action="http://www.baidu.com" method="GET">
-                <p><span class="login1-ico">&#xe61c;</span><input type="text" id="phone" class="w310" placeholder="请输入手机号"></p>
-                <p><span class="login1-ico">&#xe61b;</span><input type="email" id="email" class="w310" placeholder="请输入邮箱"></p>
-                <p><span class="login1-ico">&#xe644;</span><input type="password" id="pwd1" class="w310" placeholder="请输入密码"></p>
-                <p><span class="login1-ico">&#xe644;</span><input type="password" id="pwd2" class="w310" placeholder="请再次输入密码"></p>
+            <p id="errmsg">{{errmsg}}</p>
+            <form action="/home/register" method="POST">
+                <p><span class="login1-ico">&#xe61c;</span><input type="text" id="phone" name="phone" class="w310" placeholder="请输入手机号"></p>
+                <p><span class="login1-ico">&#xe61b;</span><input type="email" id="email" name="email" class="w310" placeholder="请输入邮箱"></p>
+                <p><span class="login1-ico">&#xe644;</span><input type="password" id="pwd1" name="pwd1" class="w310" placeholder="请输入密码"></p>
+                <p><span class="login1-ico">&#xe644;</span><input type="password" id="pwd2" name="pwd2" class="w310" placeholder="请再次输入密码"></p>
                 <p><input type="submit" disabled value="注册" class="login1-btn"></p>
             </form>
             <a href="/home/login" class="re">已有账号去登录</a>

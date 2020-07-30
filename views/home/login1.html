@@ -25,9 +25,10 @@
     <div class="wrapper">
         <div class="login1-box">
             <h2>用户登陆</h2>
-            <form action="">
-                <p><span class="login1-ico">&#xe602;</span><input type="text" class="w310" placeholder="请输入用户名或手机号"></p>
-                <p><span class="login1-ico">&#xe644;</span><input type="password" class="w310" placeholder="请输入密码"></p>
+            <p id="errmsg">{{errmsg}}</p>
+            <form action="/home/login" method="POST">
+                <p><span class="login1-ico">&#xe602;</span><input type="text" name="phone" class="w310" placeholder="请输入手机号"></p>
+                <p><span class="login1-ico">&#xe644;</span><input type="password" name="pwd" class="w310" placeholder="请输入密码"></p>
                 <p><input type="submit" value="登录" class="login1-btn"></p>
             </form>
             <a href="/home/register" class="re">还没有账号? 免费注册</a>

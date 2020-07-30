@@ -19,35 +19,58 @@
                     <!-- 侧边导航 -->
                     <div class="slide-nav">
                         <ul>
-                            <li><a href="/home/user-center" class="">用户中心 <span class="slide-nav-ico">&#xe602;</span></a></li>
-                            <li><a href="/home/user-settings" class="{{userCurrentPage =='userSettings' ? 'slide-nav-active' : ''}}">基本设置 <span class="slide-nav-ico">&#xe62d;</span></a></li>
-                            <li><a href="/home/my-order">我的订单 <span class="slide-nav-ico">&#xe634;</span></a></li>
-                            <li><a href="/home/modify-password">修改密码 <span class="slide-nav-ico">&#xe644;</span></a></li>
+                            <li><a href="/home/user-center?id={{@uid}}" class="">用户中心 <span class="slide-nav-ico">&#xe602;</span></a></li>
+                            <li><a href="/home/user-settings?id={{@uid}}" class="{{userCurrentPage =='userSettings' ? 'slide-nav-active' : ''}}">基本设置 <span class="slide-nav-ico">&#xe62d;</span></a></li>
+                            <li><a href="/home/my-order?id={{@uid}}">我的订单 <span class="slide-nav-ico">&#xe634;</span></a></li>
+                            <li><a href="/home/modify-password?id={{@uid}}">修改密码 <span class="slide-nav-ico">&#xe644;</span></a></li>
                         </ul>
                     </div>
                     <!-- 右侧内容 -->
                     <div class="right-con">
-                        <div class="right-con-hd">
-                            <div class="user-img"><img src="/images/fcac4dc411a64d5ab69308bdcc8d287f!400x400.jpg" alt=""></div>
-                            <div class="change-img" title="未选择任何文件">上传头像
-                                <span class="change-img-ico">&#xe632;</span>
+                        <form action="">
+                            <div class="right-con-hd">
+                                <div class="user-img"><img src="{{user.avatar}}" alt=""></div>
+                                
+                                <div class="change-img">上传头像
+                                    <input type="file" id="file">
+                                    <span class="change-img-ico">&#xe632;</span>
+                                </div>
+                                <input type="submit" value="提交" class="set-btn" id="img-btn">
                             </div>
-                        </div>
-                        <ul>
-                            <li>
-                                <span class="setting-ico">&#xe602;</span>
-                                <input type="text" class="setting-number" value="1234566">
-                                <input type="submit" class="set-btn" value="修改">
-                            </li>
-                            <li>
-                                <span class="setting-ico">&#xe61b;</span>
-                                <input type="email" class="setting-number" placeholder="请输入邮箱">
-                                <input type="submit" class="set-btn" value="修改">
-                            </li>
-                        </ul>
+                        </form>
+                            <ul>
+                                <li>
+                                    <form action="/home/userSetting" method="POST">
+                                    <span class="setting-ico">&#xe602;</span>
+                                    <input type="text" class="setting-number" name="uname" value="{{user.username}}" id="uname" placeholder="请输入用户名">
+                                    <input type="submit" class="set-btn" value="修改" disabled>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="/home/userSetting" method="POST">
+                                    <span class="setting-ico">&#xe602;</span>
+                                    <input type="text" class="setting-number" name="phone" placeholder="请输入手机号" id="phone">
+                                    <input type="submit" class="set-btn" value="修改" disabled>
+                                    <p class="err">{{phoneErr && phoneErr}}</p>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="/home/userSetting" method="POST">
+                                    <span class="setting-ico">&#xe61b;</span>
+                                    <input type="email" class="setting-number" name="email" placeholder="请输入邮箱" id="email">
+                                    <input type="submit" class="set-btn" value="修改" disabled>
+                                    <p class="err">{{emailErr && emailErr}}</p>
+                                    </form>
+                                </li>
+                            </ul>
+                        
                     </div>
                 </div>
             </div>
         </div>
         <!-- 用户设置页专有部分结束 -->
+{{/block}}
+{{block 'script'}}
+<script src="/js/jQuery.js"></script>
+<script src="/js/userSetting.js"></script>
 {{/block}}

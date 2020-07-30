@@ -7,15 +7,32 @@
     float: left;
     width: 100px;
     height: 30px;
+    background-color: #52c41a;
     margin-top: 35px;
     margin-left: 15px;
     padding-left: 15px;
-    background-color: #52c41a;
     color: #fff;
     font-size: 16px;
     text-align: center;
     line-height: 30px;
     cursor: pointer;
+}
+#file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100px;
+    height: 30px;
+    outline: none;
+    border: 0;
+    background-color: #52c41a;
+    text-align: center;
+    line-height: 30px;
+}
+#img-btn {
+    margin: 35px 0 0 20px;
+    background-color: #52c41a;
 }
 .change-img-ico {
     font-family: 'iconfont';
@@ -80,4 +97,11 @@
     color: #fff;
     cursor: pointer;
     margin-top: 30px;
+    background-color: gray;
+}
+.err {
+    float: left;
+    color: #ff0011;
+    font-size: 14px;
+    margin-left: 10px;
 }

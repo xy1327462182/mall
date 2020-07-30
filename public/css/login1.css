@@ -24,6 +24,14 @@
     height: 290px;
     background-color: #fff;
 }
+#errmsg {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 55px;
+    color: #ff0011;
+    font-size: 12px;
+}
 .login1-box h2 {
     color: #000;
     font-size: 20px;

@@ -20,14 +20,17 @@
 		<div class="top-bar">
 			<div class="w">
 				<div class="user-info">
-					<!-- <p>欢迎<span class="username">admin</span></p> -->
-					<!-- <a href="javascript:;">退出</a> -->
+                    {{if uname}}
+					<p>欢迎<span class="username">{{uname}}</span></p>
+                    <a href="/home/logout">退出</a>
+                        {{else}}
 					<a href="/home/login" class="user-login">登录</a>
-					<a href="/home/register" class="user-register">注册</a>
+                    <a href="/home/register" class="user-register">注册</a>
+                    {{/if}}
 				</div>
 				<ul class="user-msg">
 					<li>
-						<a href="/home/shopCar" class="shop-car">
+						<a href="/home/shopCar?id={{@uid}}" class="shop-car">
 							<span class="shopcar-ico">&#xe6b8;</span>购物车(<span class="count-num">0</span>)
             </a>
             <div class="shop-car-box">
@@ -49,8 +52,8 @@
               <a href="#" class="shop-car-box-a">查看我的购物车</a>
             </div>
 					</li>
-					<li><a href="/home/user-center">个人中心</a></li>
-					<li><a href="/home/my-order">我的订单</a></li>
+					<li><a href="/home/user-center?id={{@uid}}">个人中心</a></li>
+					<li><a href="/home/my-order?id={{@uid}}">我的订单</a></li>
 				</ul>
 			</div>
 		</div>

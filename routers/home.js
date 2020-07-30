@@ -6,12 +6,20 @@ const home = express.Router();
 
 //进入首页路由
 home.get('/', require('./home/indexPage'));
+home.get('/index', require('./home/indexPage'));
 //进入登录页面
 home.get('/login', require('./home/loginPage'));
 //进入注册页面
 home.get('/register', require('./home/registerPage'));
 //进入购物车页面
 home.get('/shopCar', require('./home/shopCarPage'));
+
+//登录提交路由
+home.post('/login', require('./home/login'));
+//注册提交路由
+home.post('/register', require('./home/register'));
+//登出功能路由
+home.get('/logout', require('./home/logout'));
 
 //进入个人中心(用户中心)页面
 home.get('/user-center', require('./home/userCenterPage'));
@@ -21,6 +29,9 @@ home.get('/user-settings', require('./home/userSettingPage'));
 home.get('/my-order', require('./home/myOrderPage'));
 //进入修改密码页面
 home.get('/modify-password', require('./home/modifyPasswordPage'));
+
+//用户设置修改提交路由
+home.post('/userSetting', require('./home/userSetting'));
 
 //进入商品列表页面
 home.get('/list', require('./home/listPage'));
