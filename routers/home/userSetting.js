@@ -32,6 +32,14 @@ module.exports = async (req, res) => {
             return res.redirect('/home/user-center?id=' + uid);
         }
     } else {
+        let p = path.join(__dirname, '../', '../', 'public', old.avatar);
+        //删除原来的图片
+        fs.unlink(p, function(err) {
+            if (err) {
+                console.log(err);
+            }
+        })
+
         var imgpath;
         //创建一个表单实例
 	    const form = new formidable.IncomingForm();
@@ -48,13 +56,7 @@ module.exports = async (req, res) => {
             //将数据更新进数据库
             await User.updateOne({_id: uid}, {avatar: imgpath});
         })
-        let p = path.join(__dirname, '../', '../', 'public', old.avatar);
-        //删除原来的图片
-        fs.unlink(p, function(err) {
-            if (err) {
-                console.log(err);
-            }
-        })
+        
         //重定向到用户中心
         res.redirect('/home/user-center?id=' + uid);
     } 

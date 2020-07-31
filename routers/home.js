@@ -32,6 +32,8 @@ home.get('/modify-password', require('./home/modifyPasswordPage'));
 
 //用户设置修改提交路由
 home.post('/userSetting', require('./home/userSetting'));
+//修改密码提交路由
+home.post('/modify-password', require('./home/modifyPassword'));
 
 //进入商品列表页面
 home.get('/list', require('./home/listPage'));

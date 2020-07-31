@@ -23,7 +23,9 @@ $(function() {
         var reader = new FileReader();
         reader.readAsDataURL(this.files[0]);
         reader.onload = function () {
-			$("#pic").attr('src') = reader.result
-		}
+            document.querySelector('#pic').src = reader.result;
+		    // $("#pic").attr('src') = reader.result
+        }
+        console.log(111);
     })
 })

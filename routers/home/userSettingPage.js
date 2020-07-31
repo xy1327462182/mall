@@ -8,6 +8,7 @@ module.exports = async (req, res) => {
     res.render('./home/user-settings', {
         userCurrentPage: req.app.locals.userCurrentPage,
         user: user,
+        uname: req.app.locals.username,
         phoneErr: req.query.phoneErr,
         emailErr: req.query.emailErr,
     })

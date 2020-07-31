@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 const home = require('./routers/home');
 const admin = require('./routers/admin');
 
-//登录拦截，判断登录状态，不是登录状态则拦截
+// 登录拦截，判断登录状态，不是登录状态则拦截
 app.use('/home', (req, res, next) => {
     if (req.session.login != true) {   
         if (req.url == '/login' || req.url == '/login?errmsg=1' || req.url == '/' || req.url == '/register') {
