@@ -141,7 +141,6 @@ a {
 }
 .manage-hd .add {
 	background-color: #009688;
-	margin-right: 670px;
 }
 .manage-hd p {
 	float: right;
@@ -150,7 +149,7 @@ a {
 .pagination {
 	position: absolute;
 	left: 20%;
-	bottom: 80px;
+	bottom: 20px;
 	margin-left: 20px;
 }
 .pagination a {
