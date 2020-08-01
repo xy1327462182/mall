@@ -1,230 +1,167 @@
 @font-face {
-    font-family: 'iconfont';
-    src: url('../../fonts/iconfont.eot');
-    src: url('../../fonts/iconfont.eot?#iefix') format('embedded-opentype'),
-        url('../../fonts/iconfont.woff2') format('woff2'),
-        url('../../fonts/iconfont.woff') format('woff'),
-        url('../../fonts/iconfont.ttf') format('truetype'),
-        url('../../fonts/iconfont.svg#iconfont') format('svg');
+	font-family: 'iconfont';
+	src: url('../../fonts/iconfont.eot');
+	src: url('../../fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+		url('../../fonts/iconfont.woff2') format('woff2'),
+		url('../../fonts/iconfont.woff') format('woff'),
+		url('../../fonts/iconfont.ttf') format('truetype'),
+		url('../../fonts/iconfont.svg#iconfont') format('svg');
 }
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 /* 顶部top-bar */
 .top-bar {
-    width: 100%;
-    height: 50px;
-    background-color: #393d49;
-    opacity: .9;
+	width: 100%;
+	height: 50px;
+	background-color: #393d49;
+	opacity: 0.9;
 }
 .top-bar h1 {
-    float: left;
-    width: 20%;
-    height: 51px;
-    text-align: center;
-    line-height: 50px;
-    color: #009688;
-    font-size: 20px;
-    padding: 0 10px;
-    border-bottom: 1px solid #ccc;
+	float: left;
+	width: 20%;
+	height: 51px;
+	text-align: center;
+	line-height: 50px;
+	color: #009688;
+	font-size: 20px;
+	padding: 0 10px;
+	border-bottom: 1px solid #ccc;
 }
 .bar-wrapper {
-    float: left;
-    width:80%;
-    height: 50px;
-    color: #fff;
-    line-height: 50px;
+	float: left;
+	width: 80%;
+	height: 50px;
+	color: #fff;
+	line-height: 50px;
 }
 .bar-wrapper a {
-    color: #fff;
-    text-decoration: none;
+	color: #fff;
+	text-decoration: none;
 }
 .bar-wrapper p {
-    float: left;
-    font-size: 16px;
+	float: left;
+	font-size: 16px;
 }
 .bar-wrapper span,
 .bar-wrapper a {
-    float: right;
-    margin-right: 40px;
-    font-size: 16px;
+	float: right;
+	margin-right: 40px;
+	font-size: 16px;
 }
 /* 侧边列表导航 */
 .main {
-    width: 100%;
-    position: fixed;
-    top: 51px;
-    bottom: 0;
-    left: 0;
-    right: 0;
+	width: 100%;
+	position: fixed;
+	top: 51px;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 .slide {
-    float: left;
-    width: 20%;
-    height: 100%;
-    background-color: #393d49;
-    padding-top: 15px;
+	float: left;
+	width: 20%;
+	height: 100%;
+	background-color: #393d49;
+	padding-top: 15px;
 }
 .slide li {
-    cursor: pointer;
-    width: 100%;
-    height: 60px;
-    padding: 0 50px 0 30px;
-    line-height: 60px;
+	cursor: pointer;
+	width: 100%;
+	height: 60px;
+	padding: 0 50px 0 30px;
+	line-height: 60px;
 }
 .slide-active {
-  background-color: #eee;
+	background-color: #eee;
 }
 .slide .slide-active p {
-  color: #393d49;
+	color: #393d49;
 }
 .slide li p {
-    float: left;
-    color: #e0e0e0;
-    margin: -2px 60px 0 15px;
+	float: left;
+	color: #e0e0e0;
+	margin: -2px 60px 0 15px;
 }
 .slide-ico,
 .arrow {
-    float: left;
-    font-family: 'iconfont';
-    color: #c9c06e;
+	float: left;
+	font-family: 'iconfont';
+	color: #c9c06e;
 }
 /* 右侧内容头部显示当前位置 */
 .con {
-    position: relative;
-    float: left;
-    width: 80%;
+	position: relative;
+	float: left;
+	width: 80%;
 }
 .crumb {
-  width: 100%;
-  height: 45px;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
-  line-height: 45px;
-  font-size: 14px;
-  color: #666;
-  padding-left: 20px;
+	width: 100%;
+	height: 45px;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+	line-height: 45px;
+	font-size: 14px;
+	color: #666;
+	padding-left: 20px;
 }
 .crumb i {
-  margin: 0 5px;
+	margin: 0 5px;
 }
 /* 右侧主体内容 */
 .main-con {
-    width: 100%;
-    padding: 10px 20px;
+	width: 100%;
+	padding: 10px 20px;
 }
 /* 搜索部分 */
 .searchBox {
-  width: 100%;
-  height: 45px;
-  background-color: #f1f1f1;
-  opacity: .3;
+	width: 100%;
+	height: 45px;
+	background-color: #f6f6f6;
+	margin-bottom: 15px;
 }
 .manage-hd {
-  width: 100%;
-  height: 50px;
-  background-color: #f2f2f2;
-  line-height: 50px;
-  padding: 0 10px 0 0;
+	width: 100%;
+	height: 50px;
+	background-color: #f2f2f2;
+	line-height: 50px;
+	padding: 0 10px 0 0;
 }
 .manage-hd a {
-  font-family: 'iconfont';
-  float: left;
-  height: 35px;
-  padding: 0 10px;
-  margin: 7px 15px 0 7px;
-  color: #fff;
-  font-size: 14px;
-  text-align: center;
-  line-height: 35px;
-  background-color: #ff5722;  
+	font-family: 'iconfont';
+	float: left;
+	height: 35px;
+	padding: 0 10px;
+	margin: 7px 15px 0 7px;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	line-height: 35px;
+	background-color: #ff5722;
 }
 .manage-hd .add {
-  background-color: #009688;
-  margin-right: 670px;
+	background-color: #009688;
+	margin-right: 670px;
 }
 .manage-hd p {
-  float: right;
-}
-/* 表格部分 */
-table {
-    margin-top: 15px;
-    width: 100%;
-    /* table-layout: fixed;
-    word-break: break-all;
-    word-wrap: break-word; */
-}
-table tr:first-child {
-    background-color: #f2f2f2;
-    
-}
-table tr:first-child td {
-    height: 35px;
-    line-height: 35px;
-}
-table td {
-    position: relative;
-    border: 1px solid #ddd;
-    border-collapse: collapse;
-    text-align: center;
-    height: 70px;
-    line-height: 70px;
-}
-tr td p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-tr td:first-child {
-    width: 270px;
-}
-tr td:first-child p {
-    width: 260px;
-}
-tr td:nth-child(2){
-    width: 310px;
-    padding-left: 5px;
-}
-tr td:nth-child(2) p {
-    width: 300px;
-}
-tr td:nth-child(3) {
-    width: 240px;
-}
-tr td:nth-child(3) p {
-    padding-left: 10px;
-    width: 230px;
-}
-table img {
-    position: absolute;
-    top: 5px;
-    left: 50%;
-    transform: translate(-50%);
-    width: 60px;
-    height: 60px;
-}
-.edit-product,
-.del-product {
-    font-family: 'iconfont';
-    color: #111;
-    margin: 0 5px;
+	float: right;
 }
 /* 分页器部分 */
 .pagination {
-    position: absolute;
-    left: 20%;
-    bottom: 80px;
-    margin-left: 20px;
+	position: absolute;
+	left: 20%;
+	bottom: 80px;
+	margin-left: 20px;
 }
 .pagination a {
-    height: 40px;
-    border: 1px solid #bdbdbd;
-    padding: 4px 12px;
-    margin-right: 5px;
-    color: #111;
-    font-size: 14px;
+	height: 40px;
+	border: 1px solid #bdbdbd;
+	padding: 4px 12px;
+	margin-right: 5px;
+	color: #111;
+	font-size: 14px;
 }
 .pagination .pageActive {
-    background-color: #009688;
-    color: #fff;
+	background-color: #009688;
+	color: #fff;
 }

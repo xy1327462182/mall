@@ -1,0 +1,55 @@
+/* 表格部分 */
+table {
+    margin-top: 15px;
+    width: 100%;
+}
+.main-con table tr:first-child {
+    background-color: #393d49;
+    color: #fff;
+    opacity: .8;
+}
+table tr:nth-child(2n + 1) {
+    background-color: #f2f2f2;
+}
+table tr:first-child td {
+    height: 35px;
+    line-height: 35px;
+}
+table td {
+    position: relative;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+}
+table tr td:first-child {
+    width: 260px;
+}
+table tr td:nth-child(3) {
+    width: 200px;
+}
+table tr td:nth-child(5) {
+    width: 70px;
+}
+table tr td:nth-child(6) {
+    width: 70px;
+}
+tr p {
+    width: 240px;
+    
+}
+table img {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 40px;
+    height: 40px;
+}
+.edit-product,
+.del-product {
+    font-family: 'iconfont';
+    color: #111;
+    margin: 0 5px;
+}
