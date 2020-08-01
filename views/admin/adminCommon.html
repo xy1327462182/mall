@@ -20,9 +20,10 @@
         </div>
     </div>
     <div class="main">
+        <!-- 左侧列表导航 -->
         <div class="slide">
             <ul>
-                <li>
+                <li class="slide-active">
                     <span class="slide-ico">&#xe602;</span>
                     <p>用户管理</p>
                     <span class="arrow">&#xe71a;</span>
@@ -39,8 +40,27 @@
                 </li>
             </ul>
         </div>
+        <!-- 右侧主体内容 -->
         <div class="con">
+          <!-- 记录当前位置 -->
+          <div class="crumb">
+            <span>首页</span>
+            <i>|</i>
+            <span>用户管理</span>
+          </div>
+          <!-- 按照条件筛选搜索部分 -->
+          <div class="searchBox">
 
+          </div>
+          <div class="manage">
+            <div class="manage-hd">
+              <a href="#" class="del"><span>&#xe62c;</span> 批量删除</a>
+              <a href="#" class="add"><span>&#xe620;</span> 添加</a>
+              <p>共有数据：
+                <span>60</span>条
+              </p>
+            </div>
+          </div>
         </div>
     </div>
 </body>

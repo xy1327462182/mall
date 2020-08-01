@@ -7,6 +7,9 @@
         url('../../fonts/iconfont.ttf') format('truetype'),
         url('../../fonts/iconfont.svg#iconfont') format('svg');
 }
+a {
+  text-decoration: none;
+}
 /* 顶部top-bar */
 .top-bar {
     width: 100%;
@@ -63,20 +66,78 @@
     padding-top: 15px;
 }
 .slide li {
-    
+    cursor: pointer;
     width: 100%;
     height: 60px;
     padding: 0 50px 0 30px;
     line-height: 60px;
 }
+.slide-active {
+  background-color: #eee;
+}
+.slide .slide-active p {
+  color: #393d49;
+}
 .slide li p {
     float: left;
     color: #e0e0e0;
-    margin-top: -2px;
+    margin: -2px 60px 0 15px;
 }
 .slide-ico,
 .arrow {
     float: left;
     font-family: 'iconfont';
     color: #c9c06e;
+}
+/* 右侧内容头部显示当前位置 */
+.con {
+  float: left;
+  width: 1000px;
+}
+.crumb {
+  width: 100%;
+  height: 45px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  line-height: 45px;
+  font-size: 14px;
+  color: #666;
+  padding-left: 20px;
+}
+.crumb i {
+  margin: 0 5px;
+}
+/* 搜索部分 */
+.searchBox {
+  width: 100%;
+  height: 45px;
+  background-color: #f1f1f1;
+  opacity: .3;
+  margin: 15px 0 0 20px;
+}
+.manage-hd {
+  width: 100%;
+  height: 50px;
+  background-color: #f2f2f2;
+  margin: 10px 0 0 20px;
+  line-height: 50px;
+}
+.manage-hd a {
+  font-family: 'iconfont';
+  float: left;
+  height: 35px;
+  padding: 0 10px;
+  margin: 7px 15px 0 7px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  line-height: 35px;
+  background-color: #ff5722;  
+}
+.manage-hd .add {
+  background-color: #009688;
+  margin-right: 670px;
+}
+.manage-hd p {
+  float: left;
 }
