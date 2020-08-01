@@ -91,8 +91,9 @@ a {
 }
 /* 右侧内容头部显示当前位置 */
 .con {
-  float: left;
-  width: 1000px;
+    position: relative;
+    float: left;
+    width: 80%;
 }
 .crumb {
   width: 100%;
@@ -107,20 +108,24 @@ a {
 .crumb i {
   margin: 0 5px;
 }
+/* 右侧主体内容 */
+.main-con {
+    width: 100%;
+    padding: 10px 20px;
+}
 /* 搜索部分 */
 .searchBox {
   width: 100%;
   height: 45px;
   background-color: #f1f1f1;
   opacity: .3;
-  margin: 15px 0 0 20px;
 }
 .manage-hd {
   width: 100%;
   height: 50px;
   background-color: #f2f2f2;
-  margin: 10px 0 0 20px;
   line-height: 50px;
+  padding: 0 10px 0 0;
 }
 .manage-hd a {
   font-family: 'iconfont';
@@ -139,5 +144,87 @@ a {
   margin-right: 670px;
 }
 .manage-hd p {
-  float: left;
+  float: right;
+}
+/* 表格部分 */
+table {
+    margin-top: 15px;
+    width: 100%;
+    /* table-layout: fixed;
+    word-break: break-all;
+    word-wrap: break-word; */
+}
+table tr:first-child {
+    background-color: #f2f2f2;
+    
+}
+table tr:first-child td {
+    height: 35px;
+    line-height: 35px;
+}
+table td {
+    position: relative;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+}
+tr td p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+tr td:first-child {
+    width: 270px;
+}
+tr td:first-child p {
+    width: 260px;
+}
+tr td:nth-child(2){
+    width: 310px;
+    padding-left: 5px;
+}
+tr td:nth-child(2) p {
+    width: 300px;
+}
+tr td:nth-child(3) {
+    width: 240px;
+}
+tr td:nth-child(3) p {
+    padding-left: 10px;
+    width: 230px;
+}
+table img {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 60px;
+    height: 60px;
+}
+.edit-product,
+.del-product {
+    font-family: 'iconfont';
+    color: #111;
+    margin: 0 5px;
+}
+/* 分页器部分 */
+.pagination {
+    position: absolute;
+    left: 20%;
+    bottom: 80px;
+    margin-left: 20px;
+}
+.pagination a {
+    height: 40px;
+    border: 1px solid #bdbdbd;
+    padding: 4px 12px;
+    margin-right: 5px;
+    color: #111;
+    font-size: 14px;
+}
+.pagination .pageActive {
+    background-color: #009688;
+    color: #fff;
 }
