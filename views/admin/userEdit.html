@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户编辑</title>
+    <link rel="stylesheet" href="../../public/css/base.css">
+    <link rel="stylesheet" href="../../public/css/admin/adminCommon.css">
+    <link rel="stylesheet" href="../../public/css/admin/productEdit.css">
+    <script src="../../public/js/jQuery.js"></script>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Mall后台管理系统</h1>
+        <div class="bar-wrapper">
+            <p>Mall后台</p>
+            <a href="javascript:;">前台首页</a>
+            <span>admin</span>
+        </div>
+    </div>
+    <div class="main">
+        <!-- 左侧列表导航 -->
+        <div class="slide">
+            <ul>
+                <li class="slide-active">
+                    <span class="slide-ico">&#xe602;</span>
+                    <p>用户管理</p>
+                    <span class="arrow">&#xe71a;</span>
+                </li>
+                <li class="">
+                    <span class="slide-ico">&#xe600;</span>
+                    <p>商品管理</p>
+                    <span class="arrow">&#xe71a;</span>
+                </li>
+                <li>
+                    <span class="slide-ico">&#xe607;</span>
+                    <p>订单管理</p>
+                    <span class="arrow">&#xe71a;</span>
+                </li>
+            </ul>
+        </div>
+        <!-- 右侧主体内容 -->
+        <div class="con">
+            <!-- 记录当前位置 -->
+            <div class="crumb">
+                <span>首页</span>
+                <i>|</i>
+                <span>商品管理</span>
+                <i>|</i>
+                <span>用户编辑</span>
+            </div>
+
+            <!-- 内容主体 -->
+            <div class="main-con">
+                <div class="wrap">
+                <form action="">
+                  <div class="wrap-line">
+                    <span class="wrap-left"><label for="">用户ID</label></span>
+                    <span class="wrap-right"> <input type="text" value="626963012d30d6" disabled class="w610"></span>
+                  </div>
+                  <div class="wrap-line">
+                    <span class="wrap-left"><label for="">用户名</label></span>
+                    <span class="wrap-right"> <input type="text" value="zhangsan" class="w610"></span>
+                  </div>
+                  <div class="wrap-line">
+                    <span class="wrap-left"><label for="">邮箱</label></span>
+                    <span class="wrap-right"> <input type="text" value="zhangsan@163.com" class="w610"></span>
+                  </div>
+                  
+                  <div class="wrap-line">
+                    <span class="wrap-left"><label for="">手机号</label></span>
+                    <span class="wrap-right"> <input type="text" value="15923452345"  class="w610"></span>
+                  </div>
+                  <div class="wrap-line">
+                    <span class="wrap-left"><label for="">订单数量</label></span>
+                    <span class="wrap-right"> <input type="text" value="1"  class="w185"></span>
+                  </div>
+                  
+                  <div class="wrap-line">
+                    <span class="wrap-left"><label for="">角色</label></span>
+                    <span class="wrap-right">
+                      <select name="" id="" class="w185">
+                        <option value="">管理员</option>
+                        <option value="">普通用户</option>
+                      </select>
+                    </span>
+                  </div>
+                  <div class="wrap-line">
+                    <span class="wrap-left"><label for="">注册时间</label></span>
+                    <span class="wrap-right"> <input type="text" value="2020-09-09"  class="w185"></span>
+                  </div>
+                  <div class="wrap-line">
+                    <span class="wrap-left"><label for="">用户头像</label></span>
+                    <div class="wrap-right">
+                      <div class="user-img">
+                        <img src="../../public/uploads/user-img/upload_14b07c626963012d30d6183bd0a9fd53.jpeg" class="user-img">
+                        <div class="user-img-change">更换
+                          <input type="file" name="xxx">
+                        </div>
+                      </div>
+                        
+                    </div>
+                  </div>
+                  <input type="submit" class="sub-btn" value="提交">
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

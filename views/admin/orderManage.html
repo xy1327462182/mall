@@ -3,10 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>订单管理页</title>
     <link rel="stylesheet" href="../../public/css/base.css">
+    <link rel="stylesheet" href="../../public/css/admin/adminCommon.css">
+    <!-- <link rel="stylesheet" href="../../public/css/admin/productManage.css"> -->
+    <link rel="stylesheet" href="../../public/css/admin/orderManage.css">
 </head>
 <body>
+    <!-- <div class="top-bar">
+        https://www.cnblogs.com/weibanggang/p/12805752.html
+    </div> -->
+    <div class="top-bar">
+        <h1>Mall后台管理系统</h1>
+        <div class="bar-wrapper">
+            <p>Mall后台</p>
+            <a href="javascript:;">前台首页</a>
+            <span>admin</span>
+        </div>
+    </div>
+    <div class="main">
+        <!-- 分页器 -->
+        <!-- <div class="pagination">
+            <a href="#" class="pageActive">上一页</a>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">下一页</a>
+        </div>  -->
+        <!-- 左侧列表导航 -->
+        <div class="slide">
+            <ul>
+                <li class="">
+                    <span class="slide-ico">&#xe602;</span>
+                    <p>用户管理</p>
+                    <span class="arrow">&#xe71a;</span>
+                </li>
+                <li class="">
+                    <span class="slide-ico">&#xe600;</span>
+                    <p>商品管理</p>
+                    <span class="arrow">&#xe71a;</span>
+                </li>
+                <li class="slide-active">
+                    <span class="slide-ico">&#xe607;</span>
+                    <p>订单管理</p>
+                    <span class="arrow">&#xe71a;</span>
+                </li>
+            </ul>
+        </div>
+        <!-- 右侧主体内容 -->
+        <div class="con">
+            <!-- 记录当前位置 -->
+            <div class="crumb">
+                <span>首页</span>
+                <i>|</i>
+                <span>订单管理</span>
+            </div>
+            <!-- 内容主体 -->
+            <div class="main-con">
+                <!-- 按照条件筛选搜索部分 -->
+                <div class="searchBox">
+                    
+                    <form action="">
+                        <input type="text" placeholder="请输入商品ID精确查找" id="num">
+                        <button type="submit" id="num-btn">&#xe637;</button>
+                    </form>
+                    <form action="">
+                      <input type="text" placeholder="请输入收货人手机号" id="num">
+                      <button type="submit" id="num-btn">&#xe637;</button>
+                  </form>
+                </div>
+                <!-- 管理头部 -->
+                <div class="manage-hd">
+                    <a href="javascript:;" class="del"><span>&#xe62c;</span> 批量删除</a>
+                    <a href="#" class="add"><span>&#xe620;</span> 添加</a>
+                    <p>共有数据：
+                        <span>60</span>条
+                    </p>
+                </div> 
+                <div class="order-box">
+                  
+                </div>
+                
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>

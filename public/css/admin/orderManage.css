@@ -1,0 +1,44 @@
+.con {
+  height: 100%;
+  overflow: auto;
+}
+.main-con {
+  overflow: auto;
+}
+/* 搜索查找部分 */
+.searchBox select,
+.searchBox button,
+.searchBox input {
+    float: left;
+}
+.searchBox select {
+    width: 120px;
+    color: #111;
+    height: 30px;
+    margin: 7px 0 0 5px;
+}
+#methods-btn,
+#num-btn {
+    font-family: 'iconfont';
+    background-color: #009688;
+    border: 0;
+    outline: none;
+    width: 80px;
+    height: 30px;
+    margin: 7px;
+    border-radius: 3px;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+}
+#num {
+    height: 30px;
+    margin-top: 7px;
+    margin-left: 50px;
+}
+/* 订单展示部分 */
+.order-box {
+  width: 100%;
+  background-color: #f2f2f2;
+  margin: 20px 0;
+}

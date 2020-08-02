@@ -4,7 +4,8 @@
   border-right: 0;
   margin-top: 5px;
 }
-.wrap p {
+.wrap .wrap-line {
+  width: 100%;
   height: 42px;
   line-height: 42px;
   margin: 15px 0;
@@ -46,9 +47,10 @@
   float: left;
   height: 40px;
   position: relative;
+  display: block;
 }
-
 .guige-item {
+  position: relative;
   box-sizing: border-box;
   float: left;
   height: 32px;
@@ -60,6 +62,41 @@
   margin: 4px 8px 0 0;
   border-radius: 4px;
 }
+/* .item-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 32px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: pink;
+} */
+.item-del {
+  background-color: #ff0011;
+  left: 0;
+  border-radius: 4px;
+}
+.item-del {
+  position: absolute;
+  top: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  font-size: 12px;
+  color: #fff;
+  user-select: none;
+  display: none;
+}
+/* .item-edit {
+  background-color: #17b2f0;
+  color: #fff;
+  left: 50%;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+} */
 .guige-text {
   float: left;
   width: 90px;
@@ -67,6 +104,7 @@
   border: 1px solid #e6e6e6;
   border-radius: 3px;
   margin-top: 4px;
+  display: none;
 }
 .guige-add {
   float: left;
@@ -79,17 +117,90 @@
   border-radius: 3px;
   margin: 4px 0 0 10px;
   cursor: pointer;
+  text-align: center;
+  line-height: 32px;
+  user-select: none;
+  font-size: 14px;
 }
-.wrap p:last-of-type {
+
+.wrap .wrap-line:last-of-type {
   height: 80px;
   line-height: 80px;
-  
 }
-.pro-img {
+.pro-img-box {
+  position: relative;
   float: left;
   width: 70px;
   height: 70px;
   margin-top: 5px;
+  border: 1px solid #eee;
+  margin-right: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.pro-img-del {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 70px;
+  height: 25px;
+  background-color: rgba(0,0,0,.45);
+  border-bottom: 1px solid #fff;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  line-height: 25px;
+  cursor: pointer;
+  display: none;
+}
+.pro-img-edit {
+  position: absolute;
+  left: 0;
+  top: 45px;
+  background-color: #17b2f0;
+  width: 70px;
+  height: 25px;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  line-height: 25px;
+  cursor: pointer;
+  user-select: none;
+}
+.pro-file {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 70px;
+  height: 25px;
+  opacity: 0;
+  cursor: pointer;
+}
+.pro-img {
+  width: 100%;
+  height: 100%;
+  display: none;
+  user-select: none;
+}
+.img-add,
+.img-cancel {
+  float: left;
+  margin-top: 5px;
+  margin-left: 10px;
+  width: 70px;
+  height: 70px;
+  border: 1px solid #eee;
+  cursor: pointer;
+  font-family: 'iconfont';
+  font-size: 30px;
+  text-align: center;
+  line-height: 70px;
+  color: #999;
+  user-select: none;
+}
+.img-cancel {
+  display: none;
+  user-select: none;
 }
 .sub-btn {
   width: 55px;
@@ -101,5 +212,41 @@
   font-size: 14px;
   border-radius: 3px;
   margin: 10px 0 10px 140px;
+  cursor: pointer;
+}
+/* 用户编辑页面的样式 */
+.user-img {
+  position: relative;
+  float: left;
+  width: 80px;
+  height: 80px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.user-img img {
+  width: 80px;
+  height: 80px;
+}
+.user-img-change {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 80px;
+  height: 24px;
+  background-color: rgba(0,0,0,.45);
+  text-align: center;
+  line-height: 24px;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+.user-img-change input {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 80px;
+  height: 24px;
+  opacity: 0;
   cursor: pointer;
 }
