@@ -1,92 +1,252 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>订单管理页</title>
-    <link rel="stylesheet" href="../../public/css/base.css">
-    <link rel="stylesheet" href="../../public/css/admin/adminCommon.css">
-    <!-- <link rel="stylesheet" href="../../public/css/admin/productManage.css"> -->
-    <link rel="stylesheet" href="../../public/css/admin/orderManage.css">
-</head>
-<body>
-    <!-- <div class="top-bar">
-        https://www.cnblogs.com/weibanggang/p/12805752.html
-    </div> -->
-    <div class="top-bar">
-        <h1>Mall后台管理系统</h1>
-        <div class="bar-wrapper">
-            <p>Mall后台</p>
-            <a href="javascript:;">前台首页</a>
-            <span>admin</span>
+{{extend './adminCommon.html'}}
+
+{{block 'title'}}订单管理页{{/block}}
+
+{{block 'link'}}
+<link rel="stylesheet" href="/css/admin/orderManage.css" />
+{{/block}}
+
+{{block 'crumb'}}
+<span>首页</span>
+					<i>|</i>
+					<span>订单管理</span>
+{{/block}}
+
+{{block 'content'}}
+<!-- 内容主体 -->
+<div class="main-con">
+    <!-- 按照条件筛选搜索部分 -->
+    <div class="searchBox">
+        <form action="">
+            <input
+                type="text"
+                placeholder="请输入商品ID精确查找"
+                id="num"
+            />
+            <button type="submit" id="num-btn">&#xe637;</button>
+        </form>
+        <form action="">
+            <input
+                type="text"
+                placeholder="请输入收货人手机号"
+                id="num"
+            />
+            <button type="submit" id="num-btn">&#xe637;</button>
+        </form>
+    </div>
+    <!-- 管理头部 -->
+    <div class="manage-hd">
+        
+        <p>共有数据： <span>60</span>条</p>
+    </div>
+    <div class="order-box">
+        <a href="#" class="order-del">删除该订单</a>
+        <div class="line">
+            <div class="line-left">
+                <span>订单ID: </span>
+            </div>
+            <div class="line-right">1asfsfa5833358414785</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>订单号: </span>
+            </div>
+            <div class="line-right">15955833358414785</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>创建时间: </span>
+            </div>
+            <div class="line-right">2020/7/24 下午5:35:35</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>收件人: </span>
+            </div>
+            <div class="line-right">音乐 (15936389235)</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>收件地址: </span>
+            </div>
+            <div class="line-right">河北省唐山市路南区北京市xxx路0021号(邮编:100001)</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>订单状态:</span>
+            </div>
+            <div class="line-right">未支付</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>订单金额: </span>
+            </div>
+            <div class="line-right">￥3123</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>支付方式: </span>
+            </div>
+            <div class="line-right">支付宝</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>商品列表: </span>
+            </div>
+            <div class="line-right">
+                <div class="order-products">
+                    <img src="/upload/HUAWEI nova 5 Pro01.jpg" alt="">
+                    <p class="order-title">联想(Lenovo)小新Air14英寸 AMD锐龙版(全新12nm)轻薄笔记</p>
+                    <p><span>单价：</span><span>￥1266</span></p>
+                    <p><span>数量：</span><span>6</span></p>
+                    <p><span>小计：</span><span>￥5866</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span></span>
+            </div>
+            <div class="line-right">
+                <div class="order-products">
+                    <img src="/upload/HUAWEI nova 5 Pro01.jpg" alt="">
+                    <p class="order-title">联想(Lenovo)小新Air14英寸 AMD锐龙版(全新12nm)轻薄笔记</p>
+                    <p><span>单价：</span><span>￥1266</span></p>
+                    <p><span>数量：</span><span>6</span></p>
+                    <p><span>小计：</span><span>￥5866</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span></span>
+            </div>
+            <div class="line-right">
+                <div class="order-products">
+                    <img src="/upload/HUAWEI nova 5 Pro01.jpg" alt="">
+                    <p class="order-title">联想(Lenovo)小新Air14英寸 AMD锐龙版(全新12nm)轻薄笔记</p>
+                    <p><span>单价：</span><span>￥1266</span></p>
+                    <p><span>数量：</span><span>6</span></p>
+                    <p><span>小计：</span><span>￥5866</span></p>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="main">
-        <!-- 分页器 -->
-        <!-- <div class="pagination">
-            <a href="#" class="pageActive">上一页</a>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">下一页</a>
-        </div>  -->
-        <!-- 左侧列表导航 -->
-        <div class="slide">
-            <ul>
-                <li class="">
-                    <span class="slide-ico">&#xe602;</span>
-                    <p>用户管理</p>
-                    <span class="arrow">&#xe71a;</span>
-                </li>
-                <li class="">
-                    <span class="slide-ico">&#xe600;</span>
-                    <p>商品管理</p>
-                    <span class="arrow">&#xe71a;</span>
-                </li>
-                <li class="slide-active">
-                    <span class="slide-ico">&#xe607;</span>
-                    <p>订单管理</p>
-                    <span class="arrow">&#xe71a;</span>
-                </li>
-            </ul>
-        </div>
-        <!-- 右侧主体内容 -->
-        <div class="con">
-            <!-- 记录当前位置 -->
-            <div class="crumb">
-                <span>首页</span>
-                <i>|</i>
-                <span>订单管理</span>
+    <div class="order-box">
+        <div class="line">
+            <div class="line-left">
+                <span>订单ID: </span>
             </div>
-            <!-- 内容主体 -->
-            <div class="main-con">
-                <!-- 按照条件筛选搜索部分 -->
-                <div class="searchBox">
-                    
-                    <form action="">
-                        <input type="text" placeholder="请输入商品ID精确查找" id="num">
-                        <button type="submit" id="num-btn">&#xe637;</button>
-                    </form>
-                    <form action="">
-                      <input type="text" placeholder="请输入收货人手机号" id="num">
-                      <button type="submit" id="num-btn">&#xe637;</button>
-                  </form>
-                </div>
-                <!-- 管理头部 -->
-                <div class="manage-hd">
-                    <a href="javascript:;" class="del"><span>&#xe62c;</span> 批量删除</a>
-                    <a href="#" class="add"><span>&#xe620;</span> 添加</a>
-                    <p>共有数据：
-                        <span>60</span>条
-                    </p>
-                </div> 
-                <div class="order-box">
-                  
-                </div>
+            <div class="line-right">1asfsfa5833358414785</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>订单号: </span>
+            </div>
+            <div class="line-right">15955833358414785</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>创建时间: </span>
+            </div>
+            <div class="line-right">2020/7/24 下午5:35:35</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>收件人: </span>
+            </div>
+            <div class="line-right">音乐 (15936389235)</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>收件地址: </span>
+            </div>
+            <div class="line-right">河北省唐山市路南区北京市xxx路0021号(邮编:100001)</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>订单状态:</span>
+            </div>
+            <div class="line-right">未支付</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>订单金额: </span>
+            </div>
+            <div class="line-right">￥3123</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>支付方式: </span>
+            </div>
+            <div class="line-right">支付宝</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>商品列表: </span>
+            </div>
+            <div class="line-right">
                 
             </div>
         </div>
     </div>
-    
-</body>
-</html>
+    <div class="order-box">
+        <div class="line">
+            <div class="line-left">
+                <span>订单ID: </span>
+            </div>
+            <div class="line-right">1asfsfa5833358414785</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>订单号: </span>
+            </div>
+            <div class="line-right">15955833358414785</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>创建时间: </span>
+            </div>
+            <div class="line-right">2020/7/24 下午5:35:35</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>收件人: </span>
+            </div>
+            <div class="line-right">音乐 (15936389235)</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>收件地址: </span>
+            </div>
+            <div class="line-right">河北省唐山市路南区北京市xxx路0021号(邮编:100001)</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>订单状态:</span>
+            </div>
+            <div class="line-right">未支付</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>订单金额: </span>
+            </div>
+            <div class="line-right">￥3123</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>支付方式: </span>
+            </div>
+            <div class="line-right">支付宝</div>
+        </div>
+        <div class="line">
+            <div class="line-left">
+                <span>商品列表: </span>
+            </div>
+            <div class="line-right">
+                
+            </div>
+        </div>
+    </div>
+</div>
+{{/block}}

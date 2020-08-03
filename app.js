@@ -49,8 +49,10 @@ app.use('/home', (req, res, next) => {
     } else {
         next();
     }
-    
 }) 
+
+//登录身份拦截 是管理员身份可以进入后台管理页 普通用户不可以
+
 
 app.use('/home', home);
 app.use('/admin', admin);

@@ -1,136 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>商品编辑</title>
-    <link rel="stylesheet" href="../../public/css/base.css">
-    <link rel="stylesheet" href="../../public/css/admin/adminCommon.css">
-    <link rel="stylesheet" href="../../public/css/admin/productEdit.css">
-    <script src="../../public/js/jQuery.js"></script>
-    <script src="../../public/js/admin/productEdit.js"></script>
-</head>
-<body>
-    <div class="top-bar">
-        <h1>Mall后台管理系统</h1>
-        <div class="bar-wrapper">
-            <p>Mall后台</p>
-            <a href="javascript:;">前台首页</a>
-            <span>admin</span>
-        </div>
-    </div>
-    <div class="main">
-        <!-- 左侧列表导航 -->
-        <div class="slide">
-            <ul>
-                <li class="">
-                    <span class="slide-ico">&#xe602;</span>
-                    <p>用户管理</p>
-                    <span class="arrow">&#xe71a;</span>
-                </li>
-                <li class="slide-active">
-                    <span class="slide-ico">&#xe600;</span>
-                    <p>商品管理</p>
-                    <span class="arrow">&#xe71a;</span>
-                </li>
-                <li>
-                    <span class="slide-ico">&#xe607;</span>
-                    <p>订单管理</p>
-                    <span class="arrow">&#xe71a;</span>
-                </li>
-            </ul>
-        </div>
-        <!-- 右侧主体内容 -->
-        <div class="con">
-            <!-- 记录当前位置 -->
-            <div class="crumb">
-                <span>首页</span>
+{{extend './adminCommon.html'}}
+
+{{block 'title'}}商品编辑页{{/block}}
+
+{{block 'link'}}
+<link rel="stylesheet" href="/css/admin/productEdit.css">
+{{/block}}
+
+{{block 'script'}}
+<script src="/js/admin/productEdit.js"></script>
+{{/block}}
+
+{{block 'crumb'}}
+<span>首页</span>
                 <i>|</i>
                 <span>商品管理</span>
                 <i>|</i>
                 <span>商品编辑</span>
-            </div>
+{{/block}}
 
-            <!-- 内容主体 -->
-            <div class="main-con">
-                <div class="wrap">
-                <form action="">
-                  <div class="wrap-line">
-                    <span class="wrap-left"><label for="">商品ID</label></span>
-                    <span class="wrap-right"> <input type="text" value="626963012d30d6" disabled class="w610"></span>
-                  </div>
-                  <div class="wrap-line">
-                    <span class="wrap-left"><label for="">商品名称</label></span>
-                    <span class="wrap-right"> <input type="text" value="宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配" class="w610"></span>
-                  </div>
-                  <div class="wrap-line">
-                    <span class="wrap-left"><label for="">商品类目</label></span>
-                    <span class="wrap-right">
-                      <select name="" id="" class="w185">
-                        <option value="">手机通讯</option>
-                        <option value="">手机通讯</option>
-                        <option value="">手机通讯</option>
-                      </select>
-                    </span>
-                  </div>
-                  <div class="wrap-line">
-                    <span class="wrap-left"><label for="">商品规格</label></span>
-                    <div class="wrap-right">
-                      <div class="guige-item">6+128G
-                          <a href="javascript:;" class="item-del">删除</a>
-                          <!-- <a href="javascript:;" class="item-edit">编辑</a> -->
-                      </div>
-                      <div class="guige-item">天蓝色
-                        <a href="javascript:;" class="item-del">删除</a>
-                        <!-- <a href="javascript:;" class="item-edit">编辑</a> -->
-                      </div>
-                      <div class="guige-item">6+128G
-                        <a href="javascript:;" class="item-del">删除</a>
-                        <!-- <a href="javascript:;" class="item-edit">编辑</a> -->
-                      </div>
-                      
-                      <input type="text" class="guige-text">
-                      <div class="guige-add">点击添加</div>
-                      <!-- <div class="guige-cancel">取消添加</div> -->
-                    </div>
-                  </div>
-                  <div class="wrap-line">
-                    <span class="wrap-left"><label for="">商品库存</label></span>
-                    <span class="wrap-right"> <input type="text" value="1232"  class="w185"></span>
-                  </div>
-                  <div class="wrap-line">
-                    <span class="wrap-left"><label for="">商品价格</label></span>
-                    <span class="wrap-right"> <input type="text" value="1099"  class="w185">&nbsp;元</span>
-                  </div>
-                  <div class="wrap-line">
-                    <span class="wrap-left"><label for="">商品状态</label></span>
-                    <span class="wrap-right">
-                      <select name="" id="" class="w185">
-                        <option value="">在售</option>
-                        <option value="">下架</option>
-                      </select>
-                    </span>
-                  </div>
-                  <div class="wrap-line">
-                    <span class="wrap-left"><label for="">商品主图</label></span>
-                    <div class="wrap-right">
-                      <!-- <div class="pro-img-box">
-                        <img src="../../public/upload/HUAWEI nova 5 Pro01.jpg" class="pro-img">
-                        <div class="pro-img-edit">上传
-                          <input type="file" name="file1" class="pro-file">
-                        </div>
-                        <div class="pro-img-del">删除</div>
-                      </div> -->
-                      <div class="img-cancel" title="取消添加">&#xe604;</div>
-                      <div class="img-add" title="点击添加图片">&#xe605;</div>
-                      <!-- &#xe604; 减号   &#xe605; 加号 -->
-                    </div>
-                  </div>
-                  <input type="submit" class="sub-btn" value="提交">
-                </form>
-                </div>
-            </div>
+{{block 'content'}}
+<!-- 内容主体 -->
+<div class="main-con">
+    <div class="wrap">
+    <form action="">
+      <div class="wrap-line">
+        <span class="wrap-left"><label for="">商品ID</label></span>
+        <span class="wrap-right"> <input type="text" value="626963012d30d6" disabled class="w610"></span>
+      </div>
+      <div class="wrap-line">
+        <span class="wrap-left"><label for="">商品名称</label></span>
+        <span class="wrap-right"> <input type="text" value="宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配" class="w610"></span>
+      </div>
+      <div class="wrap-line">
+        <span class="wrap-left"><label for="">商品类目</label></span>
+        <span class="wrap-right">
+          <select name="" id="" class="w185">
+            <option value="">手机通讯</option>
+            <option value="">手机通讯</option>
+            <option value="">手机通讯</option>
+          </select>
+        </span>
+      </div>
+      <div class="wrap-line">
+        <span class="wrap-left"><label for="">商品规格</label></span>
+        <div class="wrap-right">
+          <div class="guige-item">6+128G
+              <a href="javascript:;" class="item-del">删除</a>
+              <!-- <a href="javascript:;" class="item-edit">编辑</a> -->
+          </div>
+          <div class="guige-item">天蓝色
+            <a href="javascript:;" class="item-del">删除</a>
+            <!-- <a href="javascript:;" class="item-edit">编辑</a> -->
+          </div>
+          <div class="guige-item">6+128G
+            <a href="javascript:;" class="item-del">删除</a>
+            <!-- <a href="javascript:;" class="item-edit">编辑</a> -->
+          </div>
+          
+          <input type="text" class="guige-text">
+          <div class="guige-add">点击添加</div>
+          <!-- <div class="guige-cancel">取消添加</div> -->
         </div>
+      </div>
+      <div class="wrap-line">
+        <span class="wrap-left"><label for="">商品库存</label></span>
+        <span class="wrap-right"> <input type="text" value="1232"  class="w185"></span>
+      </div>
+      <div class="wrap-line">
+        <span class="wrap-left"><label for="">商品价格</label></span>
+        <span class="wrap-right"> <input type="text" value="1099"  class="w185">&nbsp;元</span>
+      </div>
+      <div class="wrap-line">
+        <span class="wrap-left"><label for="">商品状态</label></span>
+        <span class="wrap-right">
+          <select name="" id="" class="w185">
+            <option value="">在售</option>
+            <option value="">下架</option>
+          </select>
+        </span>
+      </div>
+      <div class="wrap-line">
+        <span class="wrap-left"><label for="">商品主图</label></span>
+        <div class="wrap-right">
+          <!-- <div class="pro-img-box">
+            <img src="/upload/HUAWEI nova 5 Pro01.jpg" class="pro-img">
+            <div class="pro-img-edit">上传
+              <input type="file" name="file1" class="pro-file">
+            </div>
+            <div class="pro-img-del">删除</div>
+          </div> -->
+          <div class="img-cancel" title="取消添加">&#xe604;</div>
+          <div class="img-add" title="点击添加图片">&#xe605;</div>
+          <!-- &#xe604; 减号   &#xe605; 加号 -->
+        </div>
+      </div>
+      <input type="submit" class="sub-btn" value="提交">
+    </form>
     </div>
-</body>
-</html>
+</div>
+{{/block}}

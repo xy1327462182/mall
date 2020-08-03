@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin公共</title>
-    <link rel="stylesheet" href="../../public/css/base.css">
-    <link rel="stylesheet" href="../../public/css/admin/adminCommon.css">
+    <title>{{block 'title'}}{{/block}}</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/admin/adminCommon.css">
+    {{block 'link'}}{{/block}}
+
+    <script src="/js/jQuery.js"></script>
+    {{block 'script'}}{{/block}}
+
 </head>
 <body>
     <!-- <div class="top-bar">
         https://www.cnblogs.com/weibanggang/p/12805752.html
     </div> -->
-
     <div class="top-bar">
         <h1>Mall后台管理系统</h1>
         <div class="bar-wrapper">
             <p>Mall后台</p>
-            <a href="javascript:;">前台首页</a>
+            <a href="/home/index">前台首页</a>
             <span>admin</span>
         </div>
     </div>
@@ -33,19 +37,25 @@
         <div class="slide">
             <ul>
                 <li class="slide-active">
-                    <span class="slide-ico">&#xe602;</span>
-                    <p>用户管理</p>
-                    <span class="arrow">&#xe71a;</span>
+                    <a href="/admin/userManagePage">
+                        <span class="slide-ico">&#xe602;</span>
+                        <p>用户管理</p>
+                        <span class="arrow">&#xe71a;</span>
+                    </a>
                 </li>
                 <li>
-                    <span class="slide-ico">&#xe600;</span>
-                    <p>商品管理</p>
-                    <span class="arrow">&#xe71a;</span>
+                    <a href="/admin/productManagePage">
+                        <span class="slide-ico">&#xe600;</span>
+                        <p>商品管理</p>
+                        <span class="arrow">&#xe71a;</span>
+                    </a>
                 </li>
                 <li>
-                    <span class="slide-ico">&#xe607;</span>
-                    <p>订单管理</p>
-                    <span class="arrow">&#xe71a;</span>
+                    <a href="/admin/orderManagePage">
+                        <span class="slide-ico">&#xe607;</span>
+                        <p>订单管理</p>
+                        <span class="arrow">&#xe71a;</span>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -53,25 +63,15 @@
         <div class="con">
             <!-- 记录当前位置 -->
             <div class="crumb">
-                <span>首页</span>
+                <!-- <span>首页</span>
                 <i>|</i>
-                <span>用户管理</span>
+                <span>用户管理</span> -->
+                {{block 'crumb'}}
+                {{/block}}
             </div>
 
-            <!-- 内容主体 -->
-            <div class="main-con">
-                <!-- 按照条件筛选搜索部分 -->
-                <div class="searchBox"></div>
-                <!-- 管理头部 -->
-                <div class="manage-hd">
-                    <a href="javascript:;" class="del"><span>&#xe62c;</span> 批量删除</a>
-                    <a href="#" class="add"><span>&#xe620;</span> 添加</a>
-                    <p>共有数据：
-                        <span>60</span>条
-                    </p>
-                </div> 
-                
-            </div>
+            {{block 'content'}}
+            {{/block}}
         </div>
     </div>
 </body>

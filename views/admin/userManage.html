@@ -1,147 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>用户管理页</title>
-    <link rel="stylesheet" href="../../public/css/base.css">
-    <link rel="stylesheet" href="../../public/css/admin/adminCommon.css">
-    <link rel="stylesheet" href="../../public/css/admin/userManage.css">
-</head>
-<body>
-    <!-- <div class="top-bar">
-        https://www.cnblogs.com/weibanggang/p/12805752.html
-    </div> -->
-    <div class="top-bar">
-        <h1>Mall后台管理系统</h1>
-        <div class="bar-wrapper">
-            <p>Mall后台</p>
-            <a href="javascript:;">前台首页</a>
-            <span>admin</span>
-        </div>
-    </div>
-    <div class="main">
-        <!-- 分页器 -->
-        <div class="pagination">
-            <a href="#" class="pageActive">上一页</a>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">下一页</a>
-        </div> 
-        <!-- 左侧列表导航 -->
-        <div class="slide">
-            <ul>
-                <li class="slide-active">
-                    <span class="slide-ico">&#xe602;</span>
-                    <p>用户管理</p>
-                    <span class="arrow">&#xe71a;</span>
-                </li>
-                <li class="">
-                    <span class="slide-ico">&#xe600;</span>
-                    <p>商品管理</p>
-                    <span class="arrow">&#xe71a;</span>
-                </li>
-                <li>
-                    <span class="slide-ico">&#xe607;</span>
-                    <p>订单管理</p>
-                    <span class="arrow">&#xe71a;</span>
-                </li>
-            </ul>
-        </div>
-        <!-- 右侧主体内容 -->
-        <div class="con">
-            <!-- 记录当前位置 -->
-            <div class="crumb">
-                <span>首页</span>
-                <i>|</i>
-                <span>用户管理</span>
-            </div>
-            <!-- 内容主体 -->
-            <div class="main-con">
-                <!-- 按照条件筛选搜索部分 -->
-                <div class="searchBox"></div>
-                <!-- 管理头部 -->
-                <div class="manage-hd">
-                    <a href="javascript:;" class="del"><span>&#xe62c;</span> 批量删除</a>
-                    <a href="#" class="add"><span>&#xe620;</span> 添加</a>
-                    <p>共有数据：
-                        <span>60</span>条
-                    </p>
-                </div> 
-                <!-- 数据表格 -->
-                <table>
-                    <tr>
-                        <td>用户ID</td>
-                        <td>用户名</td>
-                        <td>邮箱</td>
-                        <td>手机号</td>
-                        <td>订单数量</td>
-                        <td>头像</td>
-                        <td>角色</td>
-                        <td>注册时间</td>
-                        <td>操作</td>
-                    </tr>
-                    <tr>
-                        <td>626963012d30d6183bd0a9fd53</td>
-                        <td>zhangsan</td>
-                        <td>zhangsan@163.com</td>
-                        <td>15936389235</td>
-                        <td>0</td>
-                        <td><img src="../../public/uploads/user-img/upload_14b07c626963012d30d6183bd0a9fd53.jpeg" alt=""></td>
-                        <td>管理员</td>
-                        <td>2020-07-30T03:01:43</td>
-                        <td>
-                            <a href="#" class="edit-product">&#xe607;</a>
-                            <a href="#" class="del-product">&#xe62c;</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>626963012d30d6183bd0a9fd53</td>
-                        <td>zhangsan</td>
-                        <td>zhangsan@163.com</td>
-                        <td>15936389235</td>
-                        <td>0</td>
-                        <td><img src="../../public/uploads/user-img/upload_14b07c626963012d30d6183bd0a9fd53.jpeg" alt=""></td>
-                        <td>管理员</td>
-                        <td>2020-07-30T03:01:43</td>
-                        <td>
-                            <a href="#" class="edit-product">&#xe607;</a>
-                            <a href="#" class="del-product">&#xe62c;</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>626963012d30d6183bd0a9fd53</td>
-                        <td>zhangsan</td>
-                        <td>zhangsan@163.com</td>
-                        <td>15936389235</td>
-                        <td>0</td>
-                        <td><img src="../../public/uploads/user-img/upload_14b07c626963012d30d6183bd0a9fd53.jpeg" alt=""></td>
-                        <td>管理员</td>
-                        <td>2020-07-30T03:01:43</td>
-                        <td>
-                            <a href="#" class="edit-product">&#xe607;</a>
-                            <a href="#" class="del-product">&#xe62c;</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>626963012d30d6183bd0a9fd53</td>
-                        <td>zhangsan</td>
-                        <td>zhangsan@163.com</td>
-                        <td>15936389235</td>
-                        <td>0</td>
-                        <td><img src="../../public/uploads/user-img/upload_14b07c626963012d30d6183bd0a9fd53.jpeg" alt=""></td>
-                        <td>管理员</td>
-                        <td>2020-07-30T03:01:43</td>
-                        <td>
-                            <a href="#" class="edit-product">&#xe607;</a>
-                            <a href="#" class="del-product">&#xe62c;</a>
-                        </td>
-                    </tr>
-  
-                </table>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+{{extend './adminCommon.html'}}
+
+{{block 'title'}}用户管理页{{/block}}
+
+{{block 'link'}}
+<link rel="stylesheet" href="/css/admin/userManage.css">
+{{/block}}
+
+{{block 'crumb'}}
+<span>首页</span>
+<i>|</i>
+<span>用户管理</span>
+{{/block}}
+
+{{block 'content'}}
+<!-- 内容主体 -->
+<div class="main-con">
+    <!-- 按照条件筛选搜索部分 -->
+    <div class="searchBox"></div>
+    <!-- 管理头部 -->
+    <div class="manage-hd">
+        <a href="javascript:;" class="del"><span>&#xe62c;</span> 批量删除</a>
+        <a href="/admin/userAddPage" class="add"><span>&#xe620;</span> 添加</a>
+        <p>共有数据：
+            <span>60</span>条
+        </p>
+    </div> 
+    <!-- 数据表格 -->
+    <table>
+        <tr>
+            <td>用户ID</td>
+            <td>用户名</td>
+            <td>邮箱</td>
+            <td>手机号</td>
+            <td>订单数量</td>
+            <td>头像</td>
+            <td>角色</td>
+            <td>注册时间</td>
+            <td>操作</td>
+        </tr>
+        <tr>
+            <td>626963012d30d6183bd0a9fd53</td>
+            <td>zhangsan</td>
+            <td>zhangsan@163.com</td>
+            <td>15936389235</td>
+            <td>0</td>
+            <td><img src="/uploads/user-img/upload_14b07c626963012d30d6183bd0a9fd53.jpeg" alt=""></td>
+            <td>管理员</td>
+            <td>2020-07-30T03:01:43</td>
+            <td>
+                <a href="/admin/userModifyPage" class="edit-product">&#xe607;</a>
+                <a href="#" class="del-product">&#xe62c;</a>
+            </td>
+        </tr>
+        <tr>
+            <td>626963012d30d6183bd0a9fd53</td>
+            <td>zhangsan</td>
+            <td>zhangsan@163.com</td>
+            <td>15936389235</td>
+            <td>0</td>
+            <td><img src="/uploads/user-img/upload_14b07c626963012d30d6183bd0a9fd53.jpeg" alt=""></td>
+            <td>管理员</td>
+            <td>2020-07-30T03:01:43</td>
+            <td>
+                <a href="#" class="edit-product">&#xe607;</a>
+                <a href="#" class="del-product">&#xe62c;</a>
+            </td>
+        </tr>
+        <tr>
+            <td>626963012d30d6183bd0a9fd53</td>
+            <td>zhangsan</td>
+            <td>zhangsan@163.com</td>
+            <td>15936389235</td>
+            <td>0</td>
+            <td><img src="/uploads/user-img/upload_14b07c626963012d30d6183bd0a9fd53.jpeg" alt=""></td>
+            <td>管理员</td>
+            <td>2020-07-30T03:01:43</td>
+            <td>
+                <a href="#" class="edit-product">&#xe607;</a>
+                <a href="#" class="del-product">&#xe62c;</a>
+            </td>
+        </tr>
+        <tr>
+            <td>626963012d30d6183bd0a9fd53</td>
+            <td>zhangsan</td>
+            <td>zhangsan@163.com</td>
+            <td>15936389235</td>
+            <td>0</td>
+            <td><img src="/uploads/user-img/upload_14b07c626963012d30d6183bd0a9fd53.jpeg" alt=""></td>
+            <td>管理员</td>
+            <td>2020-07-30T03:01:43</td>
+            <td>
+                <a href="#" class="edit-product">&#xe607;</a>
+                <a href="#" class="del-product">&#xe62c;</a>
+            </td>
+        </tr>
+
+    </table>
+</div>
+{{/block}}

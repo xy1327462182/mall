@@ -1,182 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>商品管理页</title>
-    <link rel="stylesheet" href="../../public/css/base.css">
-    <link rel="stylesheet" href="../../public/css/admin/adminCommon.css">
-    <link rel="stylesheet" href="../../public/css/admin/productManage.css">
-</head>
-<body>
-    <!-- <div class="top-bar">
-        https://www.cnblogs.com/weibanggang/p/12805752.html
-    </div> -->
-    <div class="top-bar">
-        <h1>Mall后台管理系统</h1>
-        <div class="bar-wrapper">
-            <p>Mall后台</p>
-            <a href="javascript:;">前台首页</a>
-            <span>admin</span>
-        </div>
+{{extend './adminCommon.html'}}
+
+{{block 'title'}}商品管理页{{/block}}
+
+{{block 'link'}}
+<link rel="stylesheet" href="/css/admin/productManage.css">
+{{/block}}
+
+{{block 'crumb'}}
+<span>首页</span>
+<i>|</i>
+<span>用户管理</span>
+{{/block}}
+
+{{block 'content'}}
+<!-- 右侧主体内容 -->
+<div class="con">
+    <!-- 记录当前位置 -->
+    <div class="crumb">
+        
     </div>
-    <div class="main">
-        <!-- 分页器 -->
-        <div class="pagination">
-            <a href="#" class="pageActive">上一页</a>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">下一页</a>
-        </div> 
-        <!-- 左侧列表导航 -->
-        <div class="slide">
-            <ul>
-                <li class="">
-                    <span class="slide-ico">&#xe602;</span>
-                    <p>用户管理</p>
-                    <span class="arrow">&#xe71a;</span>
-                </li>
-                <li class="slide-active">
-                    <span class="slide-ico">&#xe600;</span>
-                    <p>商品管理</p>
-                    <span class="arrow">&#xe71a;</span>
-                </li>
-                <li>
-                    <span class="slide-ico">&#xe607;</span>
-                    <p>订单管理</p>
-                    <span class="arrow">&#xe71a;</span>
-                </li>
-            </ul>
+    <!-- 内容主体 -->
+    <div class="main-con">
+        <!-- 按照条件筛选搜索部分 -->
+        <div class="searchBox">
+            <form action="">
+                <select name="status" id="status">
+                    <option value="">在售</option>
+                    <option value="">全部</option>
+                    <option value="">下架</option>
+                </select>
+                <select name="category" id="category">
+                    <option value="">全部类目</option>
+                    <option value="">手机通讯</option>
+                    <option value="">食品生鲜</option>
+                </select>
+                <button type="submit" id="methods-btn">&#xe637;</button>
+            </form>
+            <form action="">
+                <input type="text" placeholder="请输入商品ID精确查找" id="num">
+                <button type="submit" id="num-btn">&#xe637;</button>
+            </form>
         </div>
-        <!-- 右侧主体内容 -->
-        <div class="con">
-            <!-- 记录当前位置 -->
-            <div class="crumb">
-                <span>首页</span>
-                <i>|</i>
-                <span>用户管理</span>
-            </div>
-            <!-- 内容主体 -->
-            <div class="main-con">
-                <!-- 按照条件筛选搜索部分 -->
-                <div class="searchBox">
-                    <form action="">
-                        <select name="status" id="status">
-                            <option value="">在售</option>
-                            <option value="">全部</option>
-                            <option value="">下架</option>
-                        </select>
-                        <select name="category" id="category">
-                            <option value="">全部类目</option>
-                            <option value="">手机通讯</option>
-                            <option value="">食品生鲜</option>
-                        </select>
-                        <button type="submit" id="methods-btn">&#xe637;</button>
-                    </form>
-                    <form action="">
-                        <input type="text" placeholder="请输入商品ID精确查找" id="num">
-                        <button type="submit" id="num-btn">&#xe637;</button>
-                    </form>
-                </div>
-                <!-- 管理头部 -->
-                <div class="manage-hd">
-                    <a href="javascript:;" class="del"><span>&#xe62c;</span> 批量删除</a>
-                    <a href="#" class="add"><span>&#xe620;</span> 添加</a>
-                    <p>共有数据：
-                        <span>60</span>条
-                    </p>
-                </div> 
-                <!-- 数据表格 -->
-                <table>
-                    <tr>
-                        <td>商品ID</td>
-                        <td>商品名称</td>
-                        <td>商品类目</td>
-                        <td>商品规格</td>
-                        <td>商品库存</td>
-                        <td>商品价格</td>
-                        <td>商品主图</td>
-                        <td>商品状态</td>
-                        <td>操作</td>
-                    </tr>
-                    <tr>
-                        <td><p>626963012d30d6183bd0a9fd53</p></td>
-                        <td><p>宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配</p></td>
-                        <td><p>手机通讯</p></td>
-                        <td>
-                            <p>
-                                <span>6+64G</span>
-                                <span>6+128G</span>
-                                <span>8+128G</span>
-                            </p>
-                        </td>
-                        <td><p>1575</p></td>
-                        <td><p>￥1599</p></td>
-                        <td><img src="../../public/upload/HUAWEI nova 5 Pro01.jpg" alt=""></td>
-                        <td>
-                            <span class="pro-status">在售</span>
-                        </td>
-                        <td><a href="#" class="edit-product">&#xe607;</a><a href="#" class="del-product">&#xe62c;</a></td>
-                    </tr>
-                    <tr>
-                      <td><p>626963012d30d6183bd0a9fd53</p></td>
-                      <td><p>宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配</p></td>
-                      <td><p>手机通讯</p></td>
-                      <td>
-                          <p>
-                              <span>6+64G</span>
-                              <span>6+128G</span>
-                              <span>8+128G</span>
-                          </p>
-                      </td>
-                      <td><p>1575</p></td>
-                      <td><p>￥1599</p></td>
-                      <td><img src="../../public/upload/HUAWEI nova 5 Pro01.jpg" alt=""></td>
-                      <td>
-                          <span class="pro-status">在售</span>
-                      </td>
-                      <td><a href="#" class="edit-product">&#xe607;</a><a href="#" class="del-product">&#xe62c;</a></td>
-                  </tr>
-                  <tr>
-                    <td><p>626963012d30d6183bd0a9fd53</p></td>
-                    <td><p>宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配</p></td>
-                    <td><p>手机通讯</p></td>
-                    <td>
-                        <p>
-                            <span>6+64G</span>
-                            <span>6+128G</span>
-                            <span>8+128G</span>
-                        </p>
-                    </td>
-                    <td><p>1575</p></td>
-                    <td><p>￥1599</p></td>
-                    <td><img src="../../public/upload/HUAWEI nova 5 Pro01.jpg" alt=""></td>
-                    <td>
-                        <span class="pro-status">在售</span>
-                    </td>
-                    <td><a href="#" class="edit-product">&#xe607;</a><a href="#" class="del-product">&#xe62c;</a></td>
-                </tr>
-                <tr>
-                  <td><p>626963012d30d6183bd0a9fd53</p></td>
-                  <td><p>宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配</p></td>
-                  <td><p>手机通讯</p></td>
-                  <td>
-                      <p>
-                          <span>6+64G</span>
-                          <span>6+128G</span>
-                          <span>8+128G</span>
-                      </p>
-                  </td>
-                  <td><p>1575</p></td>
-                  <td><p>￥1599</p></td>
-                  <td><img src="../../public/upload/HUAWEI nova 5 Pro01.jpg" alt=""></td>
-                  <td>
-                      <span class="pro-status">在售</span>
-                  </td>
-                  <td><a href="#" class="edit-product">&#xe607;</a><a href="#" class="del-product">&#xe62c;</a></td>
-              </tr>
-              <tr>
+        <!-- 管理头部 -->
+        <div class="manage-hd">
+            <a href="javascript:;" class="del"><span>&#xe62c;</span> 批量删除</a>
+            <a href="/admin/productAddPage" class="add"><span>&#xe620;</span> 添加</a>
+            <p>共有数据：
+                <span>60</span>条
+            </p>
+        </div> 
+        <!-- 数据表格 -->
+        <table>
+            <tr>
+                <td>商品ID</td>
+                <td>商品名称</td>
+                <td>商品类目</td>
+                <td>商品规格</td>
+                <td>商品库存</td>
+                <td>商品价格</td>
+                <td>商品主图</td>
+                <td>商品状态</td>
+                <td>操作</td>
+            </tr>
+            <tr>
                 <td><p>626963012d30d6183bd0a9fd53</p></td>
                 <td><p>宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配</p></td>
                 <td><p>手机通讯</p></td>
@@ -189,17 +75,90 @@
                 </td>
                 <td><p>1575</p></td>
                 <td><p>￥1599</p></td>
-                <td><img src="../../public/upload/HUAWEI nova 5 Pro01.jpg" alt=""></td>
+                <td><img src="/upload/HUAWEI nova 5 Pro01.jpg" alt=""></td>
                 <td>
                     <span class="pro-status">在售</span>
                 </td>
-                <td><a href="#" class="edit-product">&#xe607;</a><a href="#" class="del-product">&#xe62c;</a></td>
+                <td><a href="/admin/productModifyPage" class="edit-product">&#xe607;</a><a href="#" class="del-product">&#xe62c;</a></td>
             </tr>
-                    
-                </table>
-            </div>
-        </div>
+            <tr>
+              <td><p>626963012d30d6183bd0a9fd53</p></td>
+              <td><p>宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配</p></td>
+              <td><p>手机通讯</p></td>
+              <td>
+                  <p>
+                      <span>6+64G</span>
+                      <span>6+128G</span>
+                      <span>8+128G</span>
+                  </p>
+              </td>
+              <td><p>1575</p></td>
+              <td><p>￥1599</p></td>
+              <td><img src="/upload/HUAWEI nova 5 Pro01.jpg" alt=""></td>
+              <td>
+                  <span class="pro-status">在售</span>
+              </td>
+              <td><a href="#" class="edit-product">&#xe607;</a><a href="#" class="del-product">&#xe62c;</a></td>
+          </tr>
+          <tr>
+            <td><p>626963012d30d6183bd0a9fd53</p></td>
+            <td><p>宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配</p></td>
+            <td><p>手机通讯</p></td>
+            <td>
+                <p>
+                    <span>6+64G</span>
+                    <span>6+128G</span>
+                    <span>8+128G</span>
+                </p>
+            </td>
+            <td><p>1575</p></td>
+            <td><p>￥1599</p></td>
+            <td><img src="/upload/HUAWEI nova 5 Pro01.jpg" alt=""></td>
+            <td>
+                <span class="pro-status">在售</span>
+            </td>
+            <td><a href="#" class="edit-product">&#xe607;</a><a href="#" class="del-product">&#xe62c;</a></td>
+        </tr>
+        <tr>
+          <td><p>626963012d30d6183bd0a9fd53</p></td>
+          <td><p>宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配</p></td>
+          <td><p>手机通讯</p></td>
+          <td>
+              <p>
+                  <span>6+64G</span>
+                  <span>6+128G</span>
+                  <span>8+128G</span>
+              </p>
+          </td>
+          <td><p>1575</p></td>
+          <td><p>￥1599</p></td>
+          <td><img src="/upload/HUAWEI nova 5 Pro01.jpg" alt=""></td>
+          <td>
+              <span class="pro-status">在售</span>
+          </td>
+          <td><a href="#" class="edit-product">&#xe607;</a><a href="#" class="del-product">&#xe62c;</a></td>
+      </tr>
+      <tr>
+        <td><p>626963012d30d6183bd0a9fd53</p></td>
+        <td><p>宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配</p></td>
+        <td><p>手机通讯</p></td>
+        <td>
+            <p>
+                <span>6+64G</span>
+                <span>6+128G</span>
+                <span>8+128G</span>
+            </p>
+        </td>
+        <td><p>1575</p></td>
+        <td><p>￥1599</p></td>
+        <td><img src="/upload/HUAWEI nova 5 Pro01.jpg" alt=""></td>
+        <td>
+            <span class="pro-status">在售</span>
+        </td>
+        <td><a href="#" class="edit-product">&#xe607;</a><a href="#" class="del-product">&#xe62c;</a></td>
+    </tr>
+            
+        </table>
     </div>
-    
-</body>
-</html>
+</div>
+{{/block}}
