@@ -21,6 +21,10 @@ admin.get('/productManagePage', require('./admin/productManagePage'));
 admin.get('/productAddPage', require('./admin/productAddPage'));
 //进入商品修改页路由
 admin.get('/productModifyPage', require('./admin/productModifyPage'));
+//商品添加提交路由
+admin.post('/productAdd', require('./admin/productAdd'));
+//商品搜索结果显示路由
+admin.post('/productManagePage', require('./admin/productManagePage'));
 
 //进入订单管理页面
 admin.get('/orderManagePage', require('./admin/orderManagePage'));

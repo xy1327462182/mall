@@ -26,31 +26,48 @@
     </div>
     <div class="main">
         <!-- 分页器 -->
+        {{if currentPage == 'productManage'}}
+        <div class="pagination">
+            {{if page > 1}}
+            <a href="/admin/productManagePage?page={{page-1}}" >上一页</a>
+            {{/if}}
+            {{each pages}}
+            <a href="/admin/productManagePage?page={{$value}}" class="{{$value == page ? 'pageActive' :''}}">{{$value}}</a>
+            {{/each}}
+            {{if page-0 != pages.length - 0}}
+            <a href="/admin/productManagePage?page={{page-0+1}}">下一页</a>
+            {{/if}}
+        </div>
+        {{else if currentPage == 'userManage'}}
         <div class="pagination">
             <a href="#" class="pageActive">上一页</a>
             <a href="#">1</a>
             <a href="#">2</a>
             <a href="#">3</a>
             <a href="#">下一页</a>
-        </div> 
+        </div>
+        {{/if}}
+        <!-- 分页器部分结束 -->
+
         <!-- 左侧列表导航 -->
         <div class="slide">
             <ul>
-                <li class="slide-active">
+                <li class="{{currentPage == 'userManage' ? 'slide-active' : ''}}">
+                    <!-- <li class="slide-active"> -->
                     <a href="/admin/userManagePage">
                         <span class="slide-ico">&#xe602;</span>
                         <p>用户管理</p>
                         <span class="arrow">&#xe71a;</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/admin/productManagePage">
+                <li class="{{currentPage == 'productManage' ? 'slide-active' : ''}}">
+                    <a href="/admin/productManagePage?page=1">
                         <span class="slide-ico">&#xe600;</span>
                         <p>商品管理</p>
                         <span class="arrow">&#xe71a;</span>
                     </a>
                 </li>
-                <li>
+                <li class="{{currentPage == 'orderManage' ? 'slide-active' : ''}}">
                     <a href="/admin/orderManagePage">
                         <span class="slide-ico">&#xe607;</span>
                         <p>订单管理</p>
@@ -63,9 +80,7 @@
         <div class="con">
             <!-- 记录当前位置 -->
             <div class="crumb">
-                <!-- <span>首页</span>
-                <i>|</i>
-                <span>用户管理</span> -->
+                
                 {{block 'crumb'}}
                 {{/block}}
             </div>

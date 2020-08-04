@@ -15,24 +15,30 @@
 {{block 'content'}}
 <!-- 右侧主体内容 -->
 <div class="con">
+    
     <!-- 记录当前位置 -->
-    <div class="crumb">
-        
-    </div>
+    
     <!-- 内容主体 -->
     <div class="main-con">
         <!-- 按照条件筛选搜索部分 -->
         <div class="searchBox">
-            <form action="">
-                <select name="status" id="status">
-                    <option value="">在售</option>
+            <form action="/admin/productManagePage" method="POST">
+                <select name="searchStatus" id="status">
+                    <option value="0">在售</option>
                     <option value="">全部</option>
-                    <option value="">下架</option>
+                    <option value="1">下架</option>
                 </select>
-                <select name="category" id="category">
+                <select name="searchCategory" id="category">
                     <option value="">全部类目</option>
-                    <option value="">手机通讯</option>
-                    <option value="">食品生鲜</option>
+                    <option value="手机通讯">手机通讯</option>
+                    <option value="食品生鲜">食品生鲜</option>
+                    <option value="汽车保养">汽车保养</option>
+                    <option value="内衣配饰">内衣配饰</option>
+                    <option value="母婴童装">母婴童装</option>
+                    <option value="美妆护肤">美妆护肤</option>
+                    <option value="酒水饮料">酒水饮料</option>
+                    <option value="家用电器">家用电器</option>
+                    <option value="电脑耗材">电脑耗材</option>
                 </select>
                 <button type="submit" id="methods-btn">&#xe637;</button>
             </form>
@@ -62,101 +68,30 @@
                 <td>商品状态</td>
                 <td>操作</td>
             </tr>
+            {{each pros}}
             <tr>
-                <td><p>626963012d30d6183bd0a9fd53</p></td>
-                <td><p>宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配</p></td>
-                <td><p>手机通讯</p></td>
+                <td><p>{{@$value._id}}</p></td>
+                <td><p>{{$value.title}}</p></td>
+                <td><p>{{$value.category}}</p></td>
                 <td>
                     <p>
-                        <span>6+64G</span>
-                        <span>6+128G</span>
-                        <span>8+128G</span>
+                        {{each $value.attribute}}
+                        <span>{{$value}}</span>
+                        {{/each}}
                     </p>
                 </td>
-                <td><p>1575</p></td>
-                <td><p>￥1599</p></td>
-                <td><img src="/upload/HUAWEI nova 5 Pro01.jpg" alt=""></td>
+                <td><p>{{$value.stock}}</p></td>
+                <td><p>￥{{$value.price}}</p></td>
+                <td><img src="{{$value.images[0]}}" alt=""></td>
                 <td>
-                    <span class="pro-status">在售</span>
+                    <span class="pro-status">{{$value.status == 0 ? '在售': '下架'}}</span>
                 </td>
-                <td><a href="/admin/productModifyPage" class="edit-product">&#xe607;</a><a href="#" class="del-product">&#xe62c;</a></td>
+                <td>
+                    <a href="/admin/productModifyPage?id={{@$value._id}}" class="edit-product">&#xe607;</a>
+                    <a href="/admin/productDel?id={{@$value._id}}" class="del-product">&#xe62c;</a>
+                </td>
             </tr>
-            <tr>
-              <td><p>626963012d30d6183bd0a9fd53</p></td>
-              <td><p>宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配</p></td>
-              <td><p>手机通讯</p></td>
-              <td>
-                  <p>
-                      <span>6+64G</span>
-                      <span>6+128G</span>
-                      <span>8+128G</span>
-                  </p>
-              </td>
-              <td><p>1575</p></td>
-              <td><p>￥1599</p></td>
-              <td><img src="/upload/HUAWEI nova 5 Pro01.jpg" alt=""></td>
-              <td>
-                  <span class="pro-status">在售</span>
-              </td>
-              <td><a href="#" class="edit-product">&#xe607;</a><a href="#" class="del-product">&#xe62c;</a></td>
-          </tr>
-          <tr>
-            <td><p>626963012d30d6183bd0a9fd53</p></td>
-            <td><p>宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配</p></td>
-            <td><p>手机通讯</p></td>
-            <td>
-                <p>
-                    <span>6+64G</span>
-                    <span>6+128G</span>
-                    <span>8+128G</span>
-                </p>
-            </td>
-            <td><p>1575</p></td>
-            <td><p>￥1599</p></td>
-            <td><img src="/upload/HUAWEI nova 5 Pro01.jpg" alt=""></td>
-            <td>
-                <span class="pro-status">在售</span>
-            </td>
-            <td><a href="#" class="edit-product">&#xe607;</a><a href="#" class="del-product">&#xe62c;</a></td>
-        </tr>
-        <tr>
-          <td><p>626963012d30d6183bd0a9fd53</p></td>
-          <td><p>宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配</p></td>
-          <td><p>手机通讯</p></td>
-          <td>
-              <p>
-                  <span>6+64G</span>
-                  <span>6+128G</span>
-                  <span>8+128G</span>
-              </p>
-          </td>
-          <td><p>1575</p></td>
-          <td><p>￥1599</p></td>
-          <td><img src="/upload/HUAWEI nova 5 Pro01.jpg" alt=""></td>
-          <td>
-              <span class="pro-status">在售</span>
-          </td>
-          <td><a href="#" class="edit-product">&#xe607;</a><a href="#" class="del-product">&#xe62c;</a></td>
-      </tr>
-      <tr>
-        <td><p>626963012d30d6183bd0a9fd53</p></td>
-        <td><p>宏碁 (Acer) 极光 D606D 投影仪 投影机办公（普清 3500流明 标配</p></td>
-        <td><p>手机通讯</p></td>
-        <td>
-            <p>
-                <span>6+64G</span>
-                <span>6+128G</span>
-                <span>8+128G</span>
-            </p>
-        </td>
-        <td><p>1575</p></td>
-        <td><p>￥1599</p></td>
-        <td><img src="/upload/HUAWEI nova 5 Pro01.jpg" alt=""></td>
-        <td>
-            <span class="pro-status">在售</span>
-        </td>
-        <td><a href="#" class="edit-product">&#xe607;</a><a href="#" class="del-product">&#xe62c;</a></td>
-    </tr>
+            {{/each}}
             
         </table>
     </div>

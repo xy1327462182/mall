@@ -25,10 +25,10 @@ $(function () {
     }
   })
 
-  //输入框监听键盘事件，按下enter，添加规格项
+  //输入框监听键盘事件，按下enter，添加规格项 并将所有的规格项的值存进隐藏的input内
   $('.guige-text').on('keyup', function (e) {
     let code = e.keyCode;
-    let va = $(this).val()
+    let va = $(this).val();
     if (va.length > 0 && code == 13) {
       //创建节点
       let node = document.createElement('div');
@@ -47,8 +47,16 @@ $(function () {
       $(node).find('.item-del').on('click', function () {
         $(this).parent().remove();
       })
+      
       //追加元素到输入框之前 输入框内容置空
       $(this).before(node).val('');
+
+      //向隐藏的input存值
+      let guige = [];
+      $.each($('.guige-item'), function(i, d) {
+        guige.push(d.innerText.split('/r')[0])
+      })
+      $('.guige-hide').val(guige);
     }
     //esc == 27
     //enter == 13

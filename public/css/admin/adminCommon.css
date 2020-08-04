@@ -110,6 +110,7 @@ a {
 }
 /* 右侧主体内容 */
 .main-con {
+    position: relative;
 	width: 100%;
 	padding: 10px 20px;
 }
@@ -149,7 +150,7 @@ a {
 .pagination {
 	position: absolute;
 	left: 20%;
-	bottom: 20px;
+	bottom: 34px;
 	margin-left: 20px;
 }
 .pagination a {
