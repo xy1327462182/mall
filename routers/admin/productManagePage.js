@@ -5,28 +5,27 @@ const pagination = require('mongoose-sex-page');
 
 module.exports = async (req, res) => {
 
-    console.log(req.body);
     //设置查询条件
     let search = {};
-    if (req.body.searchStatus != '' && req.body.searchCategory != '') {
-        search = req.body;
-        
-    }
+    req.body.searchStatus ? search.status = req.body.searchStatus : null;
+    req.body.searchCategory ? search.category = req.body.searchCategory : null;
+    
     //如果没有传page，默认打开第一页
     if (!req.query.page) {
       req.query.page = 1;
     }
     //获取到page参数
     const page = req.query.page;
-
     //根据分页条件以及用户查询条件   从数据库中查询数据
-    const pros = await pagination(Product).find().page(page).size(5).display(3).exec();
+    const pros = await pagination(Product).find(search).page(page).size(5).display(3).exec();
     res.render('./admin/productManage', {
         //标记当前页位置
         currentPage: 'productManage',
         pros: pros.records,
         pages: pros.display,
-        page: page
+        page: page,
+        searchCategory: search.category,
+        searchStatus: search.status
     });
 }
 

@@ -5,7 +5,7 @@ module.exports = (req, res) => {
     } else {
         res.render('./admin/productEdit', {
             //标记当前页位置
-            currentPage: 'productManage'
+            currentPage: 'productAddPage'
         });
     }
 }
