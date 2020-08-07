@@ -7,8 +7,8 @@ module.exports = async (req, res) => {
 
     //设置查询条件
     let search = {};
-    req.body.searchStatus ? search.status = req.body.searchStatus : null;
-    req.body.searchCategory ? search.category = req.body.searchCategory : null;
+    req.query.searchStatus ? search.status = req.query.searchStatus : null;
+    req.query.searchCategory ? search.category = req.query.searchCategory : null;
     
     //如果没有传page，默认打开第一页
     if (!req.query.page) {

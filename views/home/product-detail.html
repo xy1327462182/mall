@@ -18,18 +18,23 @@
                 </div>
                 <!-- 商品图片与规格开始 -->
                 <div class="product-intro">
-                    <div class="bigimg"><img src="/upload/HUAWEI nova 5 Pro01.jpg" alt=""></div>
+                    <div class="bigimg"><img src="{{product.images[0]}}" alt=""></div>
                     <div class="product-img">
-                        <img src="/upload/HUAWEI nova 5 Pro01.jpg" alt="">
+                        <img src="{{product.images[0]}}" alt="">
                         <div class="mask"></div>
                     </div>
                     <div class="product-guige">
-                        <h2 class="product-title">联想(Lenovo)小新Air14英寸 AMD锐龙版(全新12nm)轻v薄笔记本电脑薄笔记本电脑</h2>
-                        <p class="product-info">联想(Lenovo)小新Air14英寸 AMD锐龙版(全新12nm)轻薄笔记本电脑(R5-3500U 12G 512G PCIE IPS)轻奢灰</p>
-                        <div class="product-price">价格: <span>￥5199</span></div>
-                        <div class="product-stock">库存: <span>233</span></div>
+                        <h2 class="product-title">{{product.title}}</h2>
+                        <p class="product-info">{{product.title}}</p>
+                        <div class="product-price">价格: <span>￥{{product.price}}</span></div>
+                        <div class="product-stock">库存: <span>{{product.stock - product.sold}}</span></div>
                         <div class="product-color">颜色: 
-                            <ul><li class="product-color-active">白色</li><li>红色</li><li>黑色</li></ul>
+                            <ul>
+                                {{each product.attribute}}
+                                <li class="">{{$value}}</li>
+                                {{/each}}
+                               
+                            </ul>
                         </div>
                         <div class="product-number">数量: 
                             <span class="product-count-reduce">-</span>
@@ -39,11 +44,13 @@
                         <button class="add-shopcar">添加购物车</button>
                     </div>
                     <ul class="product-img-list">
-                        <li class="product-img-list-active"><img src="/upload/HUAWEI nova 5 Pro01.jpg" alt=""></li>
-                        <li><img src="/upload/HUAWEI nova 5 Pro02.jpg" alt=""></li>
+                        {{each product.images}}
+                        <li class=""><img src="{{$value}}" alt=""></li>
+                        {{/each}}
+                        <!-- <li><img src="/upload/HUAWEI nova 5 Pro02.jpg" alt=""></li>
                         <li><img src="/upload/HUAWEI nova 5 Pro03.jpg" alt=""></li>
                         <li><img src="/upload/HUAWEI nova 5 Pro04.jpg" alt=""></li>
-                        <li><img src="/upload/HUAWEI nova 5 Pro05.jpg" alt=""></li>
+                        <li><img src="/upload/HUAWEI nova 5 Pro05.jpg" alt=""></li> -->
                     </ul>
                 </div>
                 <!-- 商品图片与规格结束 -->
@@ -58,10 +65,9 @@
                     </ul>
                 </div>
                 <div class="detail-bd">
-                    <img src="/upload/1595243985852.jpg" alt="">
-                    <img src="/upload/1595243970839.jpg" alt="">
-                    <img src="/upload/1595243974710.jpg" alt="">
-                    <img src="/upload/1595243979366.jpg" alt="">
+                    {{each product.images}}
+                    <img src="{{$value}}" alt="">
+                    {{/each}}
                 </div>
                 <!-- 商品详情介绍结束 -->
             </div>

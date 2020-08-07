@@ -29,13 +29,13 @@
         {{if currentPage == 'productManage'}}
         <div class="pagination">
             {{if page > 1}}
-            <a href="/admin/productManagePage?page={{page-1}}" >上一页</a>
+            <a href="/admin/productManagePage?page={{page-1}}&searchStatus={{searchStatus}}&searchCategory={{searchCategory}}" >上一页</a>
             {{/if}}
             {{each pages}}
-            <a href="/admin/productManagePage?page={{$value}}" class="{{$value == page ? 'pageActive' :''}}">{{$value}}</a>
+            <a href="/admin/productManagePage?page={{$value}}&searchStatus={{searchStatus}}&searchCategory={{searchCategory}}" class="{{$value == page ? 'pageActive' :''}}">{{$value}}</a>
             {{/each}}
             {{if page-0 != pages.length - 0}}
-            <a href="/admin/productManagePage?page={{page-0+1}}">下一页</a>
+            <a href="/admin/productManagePage?page={{page-0+1}}&searchStatus={{searchStatus}}&searchCategory={{searchCategory}}">下一页</a>
             {{/if}}
         </div>
         {{else if currentPage == 'userManage'}}

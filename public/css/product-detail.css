@@ -101,7 +101,8 @@
 }
 .product-color ul li {
     float: left;
-    width: 44px;
+    /* width: 44px; */
+    padding: 0 6px;
     height: 36px;
     border: 1px solid #ccc;
     margin-right: 6px;

@@ -29,6 +29,9 @@ const productSchema = new mongoose.Schema({
     status: {
         type: Number,
         default: 0 //0在售 1下架
+    },
+    sold: {
+        type: Number
     }
 }, {
     timestamps: true

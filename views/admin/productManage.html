@@ -22,7 +22,7 @@
     <div class="main-con">
         <!-- 按照条件筛选搜索部分 -->
         <div class="searchBox">
-            <form action="/admin/productManagePage" method="POST">
+            <form action="/admin/productManagePage" method="GET">
                 <select name="searchStatus" id="status">
                     <option value="0">在售</option>
                     <option value="">全部</option>
@@ -42,10 +42,7 @@
                 </select>
                 <button type="submit" id="methods-btn">&#xe637;</button>
             </form>
-            <form action="">
-                <input type="text" placeholder="请输入商品ID精确查找" id="num">
-                <button type="submit" id="num-btn">&#xe637;</button>
-            </form>
+            
         </div>
         <!-- 管理头部 -->
         <div class="manage-hd">

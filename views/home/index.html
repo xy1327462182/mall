@@ -701,7 +701,7 @@
                 </div>
                 <div class="floor-bd clearfix">
                     {{each shouJiTongXunPros}}
-                    <a href="javascript:;" class="goods-box">
+                    <a href="/home/product-detail?productId={{@ $value.id}}" class="goods-box">
                         <img src="{{$value.images[0]}}" class="goods-img" />
                         <p class="goods-title">
                             {{$value.title}}
@@ -710,7 +710,7 @@
                             ￥{{$value.price}}<span class="goods-price-old"></span>
                         </div>
                         <div class="goods-sold">
-                            剩余<span class="goods-sold-num">{{$value.stock}}</span>件
+                            <span class="goods-sold-num"></span>{{$value.sold}}人已买
                         </div>
                     </a>
                     {{/each}}
@@ -720,7 +720,7 @@
             </div>
             <div class="floor2 fl-box">
                 <div class="floor-hd">
-                    <h3><a href="javascript:;">F2 家用电器</a></h3>
+                    <h3><a href="javascript:;">F2 食品生鲜</a></h3>
                     <a href="javascript:;" class="more">查看更多<span class="more-ico">&#xe71a;</span></a>
                 </div>
                 <div class="floor-bd clearfix">
