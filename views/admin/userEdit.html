@@ -18,49 +18,53 @@
 <!-- 内容主体 -->
 <div class="main-con">
     <div class="wrap">
-    <form action="">
-      <div class="wrap-line">
+    <form action="/admin/userAdd" method="POST" enctype="multipart/form-data">
+      <!-- <div class="wrap-line">
         <span class="wrap-left"><label for="">用户ID</label></span>
-        <span class="wrap-right"> <input type="text" value="626963012d30d6" disabled class="w610"></span>
-      </div>
+        <span class="wrap-right"> <input type="text" value="" disabled class="w610"></span>
+      </div> -->
       <div class="wrap-line">
         <span class="wrap-left"><label for="">用户名</label></span>
-        <span class="wrap-right"> <input type="text" value="zhangsan" class="w610"></span>
+        <span class="wrap-right"> <input type="text" value="" class="w610" name="username"></span>
       </div>
       <div class="wrap-line">
         <span class="wrap-left"><label for="">邮箱</label></span>
-        <span class="wrap-right"> <input type="text" value="zhangsan@163.com" class="w610"></span>
+        <span class="wrap-right"> <input type="text" value="" class="w610" name="email"></span>
       </div>
       
       <div class="wrap-line">
         <span class="wrap-left"><label for="">手机号</label></span>
-        <span class="wrap-right"> <input type="text" value="15923452345"  class="w610"></span>
+        <span class="wrap-right"> <input type="text" value=""  class="w610" name="phone"></span>
+      </div>
+      <div class="wrap-line">
+        <span class="wrap-left"><label for="">密码</label></span>
+        <span class="wrap-right"> <input type="password" value=""  class="w610" name="password"></span>
       </div>
       <div class="wrap-line">
         <span class="wrap-left"><label for="">订单数量</label></span>
-        <span class="wrap-right"> <input type="text" value="1"  class="w185"></span>
+        <span class="wrap-right"> <input type="text" value=""  class="w185" name="orders"></span>
       </div>
       
       <div class="wrap-line">
         <span class="wrap-left"><label for="">角色</label></span>
         <span class="wrap-right">
-          <select name="" id="" class="w185">
-            <option value="">管理员</option>
-            <option value="">普通用户</option>
+          <select name="role" id="" class="w185">
+            <option value="admin">管理员</option>
+            <option value="normal">普通用户</option>
           </select>
         </span>
       </div>
-      <div class="wrap-line">
+      <!-- <div class="wrap-line">
         <span class="wrap-left"><label for="">注册时间</label></span>
-        <span class="wrap-right"> <input type="text" value="2020-09-09"  class="w185"></span>
-      </div>
+        <span class="wrap-right"> <input type="text" value=""  class="w185" disabled></span>
+      </div> -->
       <div class="wrap-line">
         <span class="wrap-left"><label for="">用户头像</label></span>
         <div class="wrap-right">
           <div class="user-img">
-            <img src="/uploads/user-img/upload_14b07c626963012d30d6183bd0a9fd53.jpeg" class="user-img">
+            <img src="" class="user-img">
             <div class="user-img-change">更换
-              <input type="file" name="xxx">
+              <input type="file" name="avatar">
             </div>
           </div>
             

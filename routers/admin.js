@@ -11,9 +11,11 @@ admin.get('/', require('./admin/userManagePage'));
 //进入用户管理页路由
 admin.get('/userManagePage', require('./admin/userManagePage'));
 //进入用户添加页路由
-admin.get('/userAddPage', require('./admin/userEditPage'));
+admin.get('/userAddPage', require('./admin/userAddPage'));
+//用户添加提交路由
+admin.post('/userAdd', require('./admin/userAdd'));
 //进入用户修改页路由
-admin.get('/userModifyPage', require('./admin/userEditPage'));
+admin.get('/userModifyPage', require('./admin/userAddPage'));
 
 //进入商品管理页 商品搜索展示管理页
 admin.get('/productManagePage', require('./admin/productManagePage'));

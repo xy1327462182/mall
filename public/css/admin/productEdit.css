@@ -129,7 +129,8 @@
   height: 80px;
   line-height: 80px;
 }
-.pro-img-box {
+.pro-img-box,
+.pro-detail-box {
   position: relative;
   float: left;
   width: 70px;
@@ -140,7 +141,8 @@
   border-radius: 4px;
   overflow: hidden;
 }
-.pro-img-del {
+.pro-img-del,
+.pro-detail-del {
   position: absolute;
   top: 45px;
   left: 0;
@@ -155,7 +157,8 @@
   cursor: pointer;
   display: none;
 }
-.pro-img-edit {
+.pro-img-edit,
+.pro-detail-edit {
   position: absolute;
   left: 0;
   top: 45px;
@@ -178,14 +181,17 @@
   opacity: 0;
   cursor: pointer;
 }
-.pro-img {
+.pro-img,
+.pro-detail {
   width: 100%;
   height: 100%;
   display: none;
   user-select: none;
 }
 .img-add,
-.img-cancel {
+.detail-add,
+.img-cancel,
+.detail-cancel {
   float: left;
   margin-top: 5px;
   margin-left: 10px;
@@ -200,7 +206,8 @@
   color: #999;
   user-select: none;
 }
-.img-cancel {
+.img-cancel,
+.detail-cancel {
   display: none;
   user-select: none;
 }
@@ -213,7 +220,7 @@
   color: #fff;
   font-size: 14px;
   border-radius: 3px;
-  margin: 10px 0 10px 140px;
+  margin: 2px 0 10px 140px;
   cursor: pointer;
 }
 /* 用户编辑页面的样式 */

@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
         return res.redirect('/home/register?errmsg=邮箱已经存在')
     } else {
         //2.进行密码加密
-		const salt = await bcrypt.genSalt(10);
+		    const salt = await bcrypt.genSalt(10);
         const password = await bcrypt.hash(req.body.pwd1, salt);
         req.body.pwd1 = password;    
         //3.存入数据库

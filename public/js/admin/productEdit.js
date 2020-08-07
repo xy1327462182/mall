@@ -77,7 +77,6 @@ $(function () {
       //给新节点绑定事件
       //图片预览效果
       $(div).find('input').on('change', function () {
-        console.log(1111);
         let reader = new FileReader();
         reader.readAsDataURL($(this)[0].files[0]);
         reader.onload = function () {
@@ -104,4 +103,46 @@ $(function () {
     $(this).hide();
     $('.img-add').show();
   })
+
+  //商品详情图片选择模块
+  //点击添加图片 创建一个类名为pro-detail-box的div节点 取消按钮显示
+  $('.detail-add').on('click', function () {
+    //动态获取当前所有pro-img-box的长度
+    let len = $('.pro-detail-box').length;
+    //创建div节点
+    let div = document.createElement('div');
+    div.className = 'pro-detail-box';
+    //拼接div内容
+    let inner = '<img class="pro-detail"><div class="pro-detail-edit">上传<input type="file" name="' + 'details' + len + '" ' + 'class="pro-file"></div><div class="pro-detail-del">删除</div>';
+    div.innerHTML = inner;
+
+    //给新节点绑定事件
+    //图片预览效果
+    $(div).find('input').on('change', function () {
+      let reader = new FileReader();
+      reader.readAsDataURL($(this)[0].files[0]);
+      reader.onload = function () {
+        //将读取到的结果放在图片的 src 属性中 让图片显示在页面中
+        $(div).find('.pro-detail').attr('src', reader.result).show();
+        $(div).find('.pro-detail-del').show().on('click', function () {
+          $(this).parent().remove();
+        });
+        $(div).find('.pro-detail-edit').hide();
+        $('.detail-cancel').hide();
+        $('.detail-add').show();
+      }
+    })
+    //追加元素 取消按钮显示
+    $('.detail-cancel').show().before(div);
+    //添加按钮隐藏
+    $(this).hide();
+})
+
+//图片添加取消按钮绑定点击事件
+$('.detail-cancel').on('click', function() {
+  // 删除自己前面的节点  自己隐藏 添加按钮显示
+  $(this).prev('.pro-detail-box').remove();
+  $(this).hide();
+  $('.detail-add').show();
+})
 }) 

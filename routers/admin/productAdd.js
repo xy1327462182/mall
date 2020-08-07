@@ -6,7 +6,7 @@ const path = require('path');
 const formidable = require('formidable');
 
 module.exports = async (req, res) => {
-    //创建一个表单实例
+  //创建一个表单实例
 	const form = new formidable.IncomingForm();
 	//配置模块
 	//设置表单域的编码类型
@@ -16,24 +16,181 @@ module.exports = async (req, res) => {
 	//保留文件默认后缀
 	form.keepExtensions = true;
 	form.parse(req, async (err, fields, file) => {
-    //将图片路径分割处理 将图片路径保存进数组   
+
+    // 将图片路径分割处理 将图片路径保存进数组   
     let images = [];
-    for (let f in file) {
-        images.push(file[f]['path'].split('public')[1]);
+    let details = [];
+
+    for (let attr in file) {
+      if (attr.indexOf('file') != -1) {
+        //主图
+        images.push(file[attr]['path'].split('public')[1]);
+      } else if (attr.indexOf('details') != -1) {
+        //详情图
+        details.push(file[attr]['path'].split('public')[1]);
+      }
     }
 
-    //将规格切成数组
+    // 将规格切成数组
     fields.attribute = fields.attribute.split(',');
-    //将数据赋值给最终数据
+    // 将数据赋值给最终数据
     let data = fields;
-    //将处理好的图片路径放到最终数据中
+    // 将处理好的图片路径放到最终数据中
     data.images = images;
-    //将最终数据存入数据库
+    data.details = details;
+    // 将最终数据存入数据库
     await Product.create(data);
   })
   //重定向到商品管理页
   res.redirect('/admin/productManagePage');
 }
+
+/*
+数据库连接成功
+服务器创建成功
+(node:3780) DeprecationWarning: collection.count is deprecated, and will be removed in a future version. Use Collection.countDocuments or Collection.estimatedDocumentCount instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+{
+  title: '荣耀笔记本电脑MagicBook 14 14英寸全面屏轻薄本（AMD锐龙5 8G 256G 多屏协同 指纹Win10）',
+  category: '手机通讯',
+  attribute: '128G,256G',
+  stock: '90',
+  price: '3499',
+  status: '0'
+}
+{
+  file0: File {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    size: 73025,
+    path: 'C:\\Users\\user\\Desktop\\WEB前端案例\\TianMall\\mall\\public\\uploads\\product-img\\upload_08074e334e5c3012ee3aec77f222a3a8.jpg',
+    name: '荣耀笔记本电脑MagicBook 14-01.jpg',
+    type: 'image/jpeg',
+    hash: null,
+    lastModifiedDate: 2020-08-07T11:49:49.486Z,
+    _writeStream: WriteStream {
+      _writableState: [WritableState],
+      _events: [Object: null prototype] {},
+      _eventsCount: 0,
+      _maxListeners: undefined,
+      path: 'C:\\Users\\user\\Desktop\\WEB前端案例\\TianMall\\mall\\public\\uploads\\product-img\\upload_08074e334e5c3012ee3aec77f222a3a8.jpg',
+      fd: null,
+      flags: 'w',
+      mode: 438,
+      start: undefined,
+      autoClose: true,
+      pos: undefined,
+      bytesWritten: 73025,
+      closed: true,
+      [Symbol(kFs)]: [Object],
+      [Symbol(kCapture)]: false,
+      [Symbol(kIsPerformingIO)]: false
+    },
+    [Symbol(kCapture)]: false
+  },
+  file1: File {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    size: 59720,
+    path: 'C:\\Users\\user\\Desktop\\WEB前端案例\\TianMall\\mall\\public\\uploads\\product-img\\upload_4bf3619b77d0ac32b7ef2ce07f110e21.jpg',
+    name: '荣耀笔记本电脑MagicBook 14-02.jpg',
+    type: 'image/jpeg',
+    hash: null,
+    lastModifiedDate: 2020-08-07T11:49:49.493Z,
+    _writeStream: WriteStream {
+      _writableState: [WritableState],
+      _events: [Object: null prototype] {},
+      _eventsCount: 0,
+      _maxListeners: undefined,
+      path: 'C:\\Users\\user\\Desktop\\WEB前端案例\\TianMall\\mall\\public\\uploads\\product-img\\upload_4bf3619b77d0ac32b7ef2ce07f110e21.jpg',
+      fd: null,
+      flags: 'w',
+      mode: 438,
+      start: undefined,
+      autoClose: true,
+      pos: undefined,
+      bytesWritten: 59720,
+      closed: true,
+      [Symbol(kFs)]: [Object],
+      [Symbol(kCapture)]: false,
+      [Symbol(kIsPerformingIO)]: false
+    },
+    [Symbol(kCapture)]: false
+  },
+  details0: File {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    size: 271555,
+    path: 'C:\\Users\\user\\Desktop\\WEB前端案例\\TianMall\\mall\\public\\uploads\\product-img\\upload_420bae32f6c9175afbee93895ac30309.jpg',
+    name: '荣耀笔记本电脑MagicBook 14-detail01.jpg',
+    type: 'image/jpeg',
+    hash: null,
+    lastModifiedDate: 2020-08-07T11:49:49.502Z,
+    _writeStream: WriteStream {
+      _writableState: [WritableState],
+      _events: [Object: null prototype] {},
+      _eventsCount: 0,
+      _maxListeners: undefined,
+      path: 'C:\\Users\\user\\Desktop\\WEB前端案例\\TianMall\\mall\\public\\uploads\\product-img\\upload_420bae32f6c9175afbee93895ac30309.jpg',
+      fd: null,
+      flags: 'w',
+      mode: 438,
+      start: undefined,
+      autoClose: true,
+      pos: undefined,
+      bytesWritten: 271555,
+      closed: true,
+      [Symbol(kFs)]: [Object],
+      [Symbol(kCapture)]: false,
+      [Symbol(kIsPerformingIO)]: false
+    },
+    [Symbol(kCapture)]: false
+  },
+  details1: File {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    size: 306698,
+    path: 'C:\\Users\\user\\Desktop\\WEB前端案例\\TianMall\\mall\\public\\uploads\\product-img\\upload_c34ef1a32db406f817e4fe1ea415d8b7.jpg',
+    name: '荣耀笔记本电脑MagicBook 14-detail02.jpg',
+    type: 'image/jpeg',
+    hash: null,
+    lastModifiedDate: 2020-08-07T11:49:49.511Z,
+    _writeStream: WriteStream {
+      _writableState: [WritableState],
+      _events: [Object: null prototype] {},
+      _eventsCount: 0,
+      _maxListeners: undefined,
+      path: 'C:\\Users\\user\\Desktop\\WEB前端案例\\TianMall\\mall\\public\\uploads\\product-img\\upload_c34ef1a32db406f817e4fe1ea415d8b7.jpg',
+      fd: 4,
+      flags: 'w',
+      mode: 438,
+      start: undefined,
+      autoClose: true,
+      pos: undefined,
+      bytesWritten: 306698,
+      closed: false,
+      [Symbol(kFs)]: [Object],
+      [Symbol(kCapture)]: false,
+      [Symbol(kIsPerformingIO)]: false
+    },
+    [Symbol(kCapture)]: false
+  }
+}
+*/
+
+
+
+
+
+
+
+
+
+
 
 /*
 {

@@ -15,6 +15,12 @@ table tr:first-child td {
     height: 35px;
     line-height: 35px;
 }
+.uid {
+  width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 table td {
     position: relative;
     border: 1px solid #ddd;
@@ -24,7 +30,7 @@ table td {
     line-height: 45px;
 }
 table tr td:first-child {
-    width: 260px;
+    width: 190px;
 }
 table tr td:nth-child(3) {
     width: 200px;
@@ -37,7 +43,6 @@ table tr td:nth-child(6) {
 }
 tr p {
     width: 240px;
-    
 }
 table img {
     position: absolute;

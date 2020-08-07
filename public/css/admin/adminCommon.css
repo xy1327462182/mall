@@ -93,7 +93,7 @@ a {
 .con {
 	position: relative;
 	float: left;
-	width: 80%;
+	width: auto;
 }
 .crumb {
 	width: 100%;
