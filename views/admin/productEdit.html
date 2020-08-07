@@ -25,20 +25,20 @@
     <form action="/admin/productAdd" method="POST" enctype="multipart/form-data">
       <div class="wrap-line">
         <span class="wrap-left"><label for="">商品ID</label></span>
-        <span class="wrap-right"> <input type="text" value="不可输入" disabled class="w610"></span>
+        <span class="wrap-right"> <input type="text"  disabled class="w610" value="{{pro ? pro.id : '不可输入'}}"></span>
       </div>
       <div class="wrap-line">
         <span class="wrap-left"><label for="">商品名称</label></span>
-        <span class="wrap-right"> <input type="text" value="" class="w610" name="title"></span>
+        <span class="wrap-right"> <input type="text" value="{{pro && pro.title}}" class="w610" name="title"></span>
       </div>
       <div class="wrap-line">
         <span class="wrap-left"><label for="">商品类目</label></span>
         <span class="wrap-right">
           <select name="category"  class="w185">
             <option value="">未选择</option>
-            <option value="手机通讯">手机通讯</option>
-            <option value="食品生鲜">食品生鲜</option>
-            <option value="汽车保养">汽车保养</option>
+            <option value="手机通讯" selected={{pro&&pro.category=='手机通讯'?true:false}}>手机通讯</option>
+            <option value="食品生鲜" >食品生鲜</option>
+            <option value="汽车保养" >汽车保养</option>
             <option value="内衣配饰">内衣配饰</option>
             <option value="母婴童装">母婴童装</option>
             <option value="美妆护肤">美妆护肤</option>
@@ -86,7 +86,7 @@
       </div>
       <br>
       
-      <input type="submit" class="sub-btn" value="提交">
+      <input type="submit" class="sub-btn" value="{{btn}}">
     </form>
     </div>
 </div>
