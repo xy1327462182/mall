@@ -32,7 +32,8 @@ $(function () {
     if (va.length > 0 && code == 13) {
       //创建节点
       let node = document.createElement('div');
-      let inner = va + '<a href="javascript:;" class="item-del">删除</a>';
+      let len = $('.guige-hide').length;
+      let inner = va + '<input type="hidden" name="attribute' + len + '" class="guige-hide" value="' + va + '"><a href="javascript:;" class="item-del">删除</a>'
       //给新节点添加类 添加内容
       node.className = 'guige-item';
       node.innerHTML = inner;
@@ -43,24 +44,35 @@ $(function () {
       $(node).on('mouseout', function () {
         $(this).find('.item-del').hide();
       })
-      //给新节点下的删除和编辑按钮添加点击事件
+      //给新节点下的删除按钮添加点击事件
       $(node).find('.item-del').on('click', function () {
         $(this).parent().remove();
       })
       
       //追加元素到输入框之前 输入框内容置空
       $(this).before(node).val('');
-
-      //向隐藏的input存值
-      let guige = [];
-      $.each($('.guige-item'), function(i, d) {
-        guige.push(d.innerText.split('/r')[0])
-      })
-      $('.guige-hide').val(guige);
     }
     //esc == 27
     //enter == 13
   })
+
+    //   打开页面时 商品主图绑定事件
+  if ($('.pro-img-box').length > 0) {
+      $('.pro-img-del').show().on('click', function () {
+        $(this).parent().remove();
+      })
+      $('.pro-img-edit').hide();
+      $('.pro-img').show();
+  }
+   //   打开页面时 商品详情图绑定事件
+   if ($('.pro-detail-box').length > 0) {
+    $('.pro-detail-del').show().on('click', function () {
+      $(this).parent().remove();
+    })
+    $('.pro-detail-edit').hide();
+    $('.pro-detail').show();
+}
+
 
   //图片选择模块
   //点击添加图片 创建一个类名为pro-img-box的div节点 取消按钮显示

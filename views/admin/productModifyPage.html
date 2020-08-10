@@ -1,0 +1,160 @@
+{{extend './adminCommon.html'}} {{block 'title'}}商品编辑页{{/block}} {{block
+'link'}}
+<link rel="stylesheet" href="/css/admin/productEdit.css" />
+{{/block}} {{block 'script'}}
+<script src="/js/admin/productEdit.js"></script>
+{{/block}} {{block 'crumb'}}
+<span>首页</span>
+<i>|</i>
+<span>商品管理</span>
+<i>|</i>
+<span>商品修改</span>
+{{/block}} {{block 'content'}}
+<!-- 内容主体 -->
+<div class="main-con">
+	<div class="wrap">
+		<form
+			action="/admin/productModify"
+			method="POST"
+			enctype="multipart/form-data"
+		>
+			<!-- <div class="wrap-line">
+        <span class="wrap-left"><label for="">商品ID</label></span>
+        <span class="wrap-right"> <input type="text"  disabled class="w610" value="{{pro ? pro.id : '不可输入'}}"></span>
+      </div> -->
+			<div class="wrap-line">
+				<span class="wrap-left"><label for="">商品名称</label></span>
+				<span class="wrap-right">
+					<input
+						type="text"
+						value="{{pro.title}}"
+						class="w610"
+						name="title"
+				/></span>
+			</div>
+			<div class="wrap-line">
+				<span class="wrap-left"><label for="">商品类目</label></span>
+				<span class="wrap-right">
+					<div class="category-hide" style="display: none;">{{pro.category}}</div>
+					<select name="category" class="w185 category">
+						<option value="">未选择</option>
+						<option value="手机通讯">手机通讯</option>
+						<option value="食品生鲜">食品生鲜</option>
+						<option value="汽车保养">汽车保养</option>
+						<option value="内衣配饰">内衣配饰</option>
+						<option value="母婴童装">母婴童装</option>
+						<option value="美妆护肤">美妆护肤</option>
+						<option value="酒水饮料">酒水饮料</option>
+						<option value="家用电器">家用电器</option>
+						<option value="电脑耗材">电脑耗材</option>
+					</select>
+					<script>
+						var secOptions = document.querySelectorAll('.category option')
+                        var cateHide = document.querySelector('.category-hide')
+						for (let i = 0; i < secOptions.length; i++) {
+							if (secOptions[i].value == cateHide.innerHTML) {
+								secOptions[i].selected = true
+								break
+							}
+						}
+					</script>
+				</span>
+			</div>
+			<div class="wrap-line">
+				<span class="wrap-left"><label for="">商品规格</label></span>
+				<div class="wrap-right">
+					{{each pro.attribute}}
+					<div class="guige-item">
+                        <input type="hidden" name="attribute{{$index}}" class="guige-hide" value="{{$value}}">
+					    <a href="javascript:;" class="item-del">删除</a>
+					</div>
+					{{/each}}
+					<input
+						type="text"
+						class="guige-text"
+						value=""
+						onkeydown="if(event.keyCode==13){return false;}"
+					/>
+					
+					<div class="guige-add">点击添加</div>
+				</div>
+			</div>
+			<div class="wrap-line">
+				<span class="wrap-left"><label for="">商品库存</label></span>
+				<span class="wrap-right">
+					<input
+						type="text"
+						value="{{pro.stock}}"
+						class="w185"
+						name="stock"
+				/></span>
+			</div>
+			<div class="wrap-line">
+				<span class="wrap-left"><label for="">商品价格</label></span>
+				<span class="wrap-right">
+					<input
+						type="text"
+						value="{{pro.price}}"
+						class="w185"
+						name="price"
+					/>&nbsp;元</span
+				>
+			</div>
+			<div class="wrap-line">
+				<span class="wrap-left"><label for="">商品状态</label></span>
+				<span class="wrap-right">
+                    <div id="pro-status" style="display: none;">{{pro.status}}</div>
+					<select name="status" class="w185 status">
+						<option value="0">在售</option>
+						<option value="1">下架</option>
+					</select>
+					<script>
+						var statusHide = document.querySelector('#pro-status')
+                        var seOptions = document.querySelectorAll('.status option')
+						for (let i = 0; i < seOptions.length; i++) {
+							if (seOptions[i].value == statusHide.innerHTML) {
+								seOptions[i].selected = true
+								break
+							}
+						}
+					</script>
+				</span>
+			</div>
+			<div class="wrap-line">
+				<span class="wrap-left"><label for="">商品主图</label></span>
+				<div class="wrap-right">
+                    {{each pro.images}}
+                    <div class="pro-img-box">
+                        <img src="{{$value}}" class="pro-img" style="display: block;">
+                        <div class="pro-img-edit">上传<input type="file" name="file{{$index}}" class="pro-file"></div>
+                        <div class="pro-img-del" >删除</div>
+                    </div>
+                    {{/each}}
+					<div class="img-cancel" title="取消添加">&#xe604;</div>
+					<div class="img-add" title="点击添加图片">&#xe605;</div>
+					<div class="pro-img-hide" style="display: none;">{{pro.images}}</div>
+					<!-- &#xe604; 减号   &#xe605; 加号 -->
+					
+				</div>
+			</div>
+			<br />
+			<div class="wrap-line">
+				<span class="wrap-left"><label for="">商品详情</label></span>
+				<div class="wrap-right">
+                    {{each pro.details}}
+                    <div class="pro-detail-box">
+                        <img class="pro-detail" src="{{$value}}">
+                        <div class="pro-detail-edit">上传<input type="file" name="details{{$index}}" class="pro-file"></div>
+                        <div class="pro-detail-del">删除</div>
+                    </div>
+                    {{/each}}
+					<div class="detail-cancel" title="取消添加">&#xe604;</div>
+					<div class="detail-add" title="点击添加图片">&#xe605;</div>
+					<!-- &#xe604; 减号   &#xe605; 加号 -->
+				</div>
+			</div>
+			<input type="submit" class="sub-btn" value="修改" />
+		</form>
+	</div>
+</div>
+{{/block}}

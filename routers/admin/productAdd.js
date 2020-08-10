@@ -6,7 +6,7 @@ const path = require('path');
 const formidable = require('formidable');
 
 module.exports = async (req, res) => {
-  //创建一个表单实例
+    //创建一个表单实例
 	const form = new formidable.IncomingForm();
 	//配置模块
 	//设置表单域的编码类型
@@ -32,12 +32,23 @@ module.exports = async (req, res) => {
     }
 
     // 将规格切成数组
-    fields.attribute = fields.attribute.split(',');
+    let attribute = [];
+    for (let attr in fields) {
+        if (attr.indexOf('attribute') != -1) {
+            //规格
+            attribute.push(attr);
+        }
+    }
+    
+
+
     // 将数据赋值给最终数据
     let data = fields;
     // 将处理好的图片路径放到最终数据中
     data.images = images;
     data.details = details;
+    //将处理好的规格放到最终数据中
+    data.attribute = attribute;
     // 将最终数据存入数据库
     await Product.create(data);
   })

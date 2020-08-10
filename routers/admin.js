@@ -21,10 +21,12 @@ admin.get('/userModifyPage', require('./admin/userAddPage'));
 admin.get('/productManagePage', require('./admin/productManagePage'));
 //进入商品添加页路由
 admin.get('/productAddPage', require('./admin/productAddPage'));
-//进入商品修改页路由
-admin.get('/productModifyPage', require('./admin/productModifyPage'));
 //商品添加提交路由
 admin.post('/productAdd', require('./admin/productAdd'));
+//进入商品修改页路由
+admin.get('/productModifyPage', require('./admin/productModifyPage'));
+//商品修改提交路由
+admin.post('/productModify', require('./admin/productModify'));
 
 
 //进入订单管理页面
