@@ -16,12 +16,11 @@
 		<form
 			action="/admin/productModify"
 			method="POST"
-			enctype="multipart/form-data"
-		>
-			<!-- <div class="wrap-line">
-        <span class="wrap-left"><label for="">商品ID</label></span>
-        <span class="wrap-right"> <input type="text"  disabled class="w610" value="{{pro ? pro.id : '不可输入'}}"></span>
-      </div> -->
+			enctype="multipart/form-data">
+		    <div class="wrap-line" style="display: none;">
+                <span class="wrap-left"><label for="">商品ID</label></span>
+                <span class="wrap-right"> <input type="text"  disabled class="w610" value="{{pro.id}}" name="id"></span>
+            </div>
 			<div class="wrap-line">
 				<span class="wrap-left"><label for="">商品名称</label></span>
 				<span class="wrap-right">
@@ -65,7 +64,8 @@
 				<div class="wrap-right">
 					{{each pro.attribute}}
 					<div class="guige-item">
-                        <input type="hidden" name="attribute{{$index}}" class="guige-hide" value="{{$value}}">
+                        {{$value}}
+                        <input type="hidden" name="attribute{{$index}}" class="guige-hide" value="{{$value}}" style="display: block;">
 					    <a href="javascript:;" class="item-del">删除</a>
 					</div>
 					{{/each}}

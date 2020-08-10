@@ -33,28 +33,59 @@ module.exports = async (req, res) => {
 
     // 将规格切成数组
     let attribute = [];
-    for (let attr in fields) {
-        if (attr.indexOf('attribute') != -1) {
+    for (let attri in fields) {
+        if (attri.indexOf('attribute') != -1) {
             //规格
-            attribute.push(attr);
+            attribute.push(fields[attri]);
         }
-    }
-    
-
+    }    
 
     // 将数据赋值给最终数据
-    let data = fields;
+    let data = {};
+    data.title = fields.title;
+    data.category = fields.category;
+    data.stock = fields.stock;
+    data.price = fields.price;
+    data.status = fields.status;
+
     // 将处理好的图片路径放到最终数据中
     data.images = images;
     data.details = details;
     //将处理好的规格放到最终数据中
     data.attribute = attribute;
+    console.log(data);
     // 将最终数据存入数据库
     await Product.create(data);
   })
   //重定向到商品管理页
   res.redirect('/admin/productManagePage');
 }
+
+/*
+[ '100g', '200g' ]
+{
+  title: '三只松鼠小贱麻辣味小米锅巴 休闲零食地方特产膨化食品儿童食品小吃锅巴60g/袋',
+  category: '食品生鲜',
+  attribute0: '100g',
+  attribute1: '200g',
+  stock: '90',
+  price: '8.9',
+  status: '0',
+  images: [
+    '\\uploads\\product-img\\upload_e3a6cc87bb6a14c0fbe0fe4b3be6f128.jpg',
+    '\\uploads\\product-img\\upload_38d779f4775a34dcbbe581880ab07761.jpg',
+    '\\uploads\\product-img\\upload_99fba91b9290f9c65234b72f620895ba.jpg'
+  ],
+  details: [
+    '\\uploads\\product-img\\upload_4e8c41ccf376fc39018e597c96d7488c.jpg',
+    '\\uploads\\product-img\\upload_d3cb12273a247b772d420063c59c92bf.jpg'
+  ],
+  attribute: [ '100g', '200g' ]
+}
+*/
+
+
+
 
 /*
 数据库连接成功

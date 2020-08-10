@@ -3,32 +3,32 @@ const Product = require('../../model/product');
 module.exports = async (req, res) => {
     const productId = req.query.id;
     const pro = await Product.findOne({_id: productId})
-    console.log(pro);
     res.render('./admin/productModifyPage', {
         currentPage: 'productEdit',
         pro,
         btn: '修改'
     });
 }
-
 /*
 {
-  attribute: [ '全网通6+128G', '全网通8+128G', '全网通8+256G' ],
+  attribute: [ '128G', '256G' ],
   images: [
-    '\\uploads\\product-img\\upload_ce1c8b8a271e73a3a61c34a77bd5549d.jpg',
-    '\\uploads\\product-img\\upload_37b7693f34d754b578b36a42d8f8350e.jpg',
-    '\\uploads\\product-img\\upload_61eb7c7f431648ae4a7f798b15cfd5e5.jpg'
+    '\\uploads\\product-img\\upload_7891605a5d5836850a3bf7eb9a4c9710.jpg',
+    '\\uploads\\product-img\\upload_a8abfc8f18c6b9058af3072540bd6ba5.jpg'
   ],
-  details: [],
+  details: [
+    '\\uploads\\product-img\\upload_93da49f92fe1f1c224c8f1c02ed64f2c.jpg',
+    '\\uploads\\product-img\\upload_50652b48f677e783af06e6b1c50b7517.jpg'
+  ],
   status: 0,
-  sold: 20,
-  _id: 5f28f37e8b00b21d50373b49,
-  title: '荣耀30S 麒麟820 5G芯片 3倍光学变焦 20倍数字变焦 全网通版8GB+128GB 蝶羽白',
+  sold: 0,
+  _id: 5f2d42cb5c1bed13b48a09d7,
+  title: '荣耀笔记本电脑MagicBook 14 14英寸全面屏轻薄本（AMD锐龙5 8G 256G 多屏协同 指纹Win10）',
   category: '手机通讯',
-  stock: 80,
-  price: 2399,
-  createdAt: 2020-08-04T05:34:54.582Z,
-  updatedAt: 2020-08-04T05:34:54.582Z,
+  stock: 90,
+  price: 3499,
+  createdAt: 2020-08-07T12:02:19.985Z,
+  updatedAt: 2020-08-07T12:02:19.985Z,
   __v: 0
 }
 */
