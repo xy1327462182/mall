@@ -4,12 +4,3 @@ module.exports = (req, res) => {
             currentPage: 'productEdit',
         });
 }
-
-/*
-荣耀30S 麒麟820 5G芯片 3倍光学变焦 20倍数字变焦 全网通版8GB+128GB 蝶羽白
-全网通6+128G
-全网通8+128G
-全网通8+256G
-2399
-
-*/

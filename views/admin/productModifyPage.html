@@ -2,7 +2,7 @@
 'link'}}
 <link rel="stylesheet" href="/css/admin/productEdit.css" />
 {{/block}} {{block 'script'}}
-<script src="/js/admin/productEdit.js"></script>
+<script src="/js/admin/productModifyPage.js"></script>
 {{/block}} {{block 'crumb'}}
 <span>首页</span>
 <i>|</i>
@@ -17,10 +17,10 @@
 			action="/admin/productModify"
 			method="POST"
 			enctype="multipart/form-data">
-		    <div class="wrap-line" style="display: none;">
-                <span class="wrap-left"><label for="">商品ID</label></span>
-                <span class="wrap-right"> <input type="text"  disabled class="w610" value="{{pro.id}}" name="id"></span>
-            </div>
+		   
+               
+            <input type="hidden" class="w610" value="{{pro.id}}" name="proId">
+          
 			<div class="wrap-line">
 				<span class="wrap-left"><label for="">商品名称</label></span>
 				<span class="wrap-right">
@@ -64,19 +64,13 @@
 				<div class="wrap-right">
 					{{each pro.attribute}}
 					<div class="guige-item">
-                        {{$value}}
-                        <input type="hidden" name="attribute{{$index}}" class="guige-hide" value="{{$value}}" style="display: block;">
-					    <a href="javascript:;" class="item-del">删除</a>
+                        <span class="guige-inner">{{$value}}</span>
+					    <a   href="javascript:;" class="item-del">删除</a>
 					</div>
 					{{/each}}
-					<input
-						type="text"
-						class="guige-text"
-						value=""
-						onkeydown="if(event.keyCode==13){return false;}"
-					/>
-					
-					<div class="guige-add">点击添加</div>
+					<input type="text" class="guige-text" value="" onkeydown="if(event.keyCode==13){return false;}">
+                    <div class="guige-add">点击添加</div>
+                    <input type="hidden" class="guige-res" name="attribute" value="">
 				</div>
 			</div>
 			<div class="wrap-line">
@@ -121,38 +115,59 @@
 				</span>
 			</div>
 			<div class="wrap-line">
-				<span class="wrap-left"><label for="">商品主图</label></span>
-				<div class="wrap-right">
+                <span class="wrap-left"><label for="">商品主图</label></span>
+                <div class="wrap-right">
+                    <span class="imagesLen" style="display: none;">{{imagesLen}}</span>
                     {{each pro.images}}
                     <div class="pro-img-box">
-                        <img src="{{$value}}" class="pro-img" style="display: block;">
-                        <div class="pro-img-edit">上传<input type="file" name="file{{$index}}" class="pro-file"></div>
-                        <div class="pro-img-del" >删除</div>
+                        <img class="pro-img" src="{{$value}}" style="display: block;">
+                        <div class="pro-img-edit" style="display: none;">上传<input type="file" name="images{{$index}}" class="pro-file"></div>
+                        <div class="pro-img-del" style="display: block;">删除</div>
                     </div>
                     {{/each}}
-					<div class="img-cancel" title="取消添加">&#xe604;</div>
-					<div class="img-add" title="点击添加图片">&#xe605;</div>
-					<div class="pro-img-hide" style="display: none;">{{pro.images}}</div>
-					<!-- &#xe604; 减号   &#xe605; 加号 -->
-					
-				</div>
-			</div>
-			<br />
-			<div class="wrap-line">
-				<span class="wrap-left"><label for="">商品详情</label></span>
-				<div class="wrap-right">
+                    <script>
+                        var imagesLen = $('.imagesLen').html();
+                        console.log(imagesLen);
+                        for (let i=0; i<imagesLen; i++) {
+                            let node1 = document.createElement('div');
+                            node1.innerHTML = '<img class="pro-img" style="display: none">' + 
+                            '<div class="pro-img-edit" style="display:block;">上传<input type="file" name="' + 'images' + ('{{pro.images.length-0}}'-0+i) + '" class="pro-file"></div>' + 
+                            '<div class="pro-img-del" >删除</div>';
+                            node1.className = 'pro-img-box';
+                            $('.imagesLen').parent().append(node1);
+                        }
+                        
+                    </script>
+                  <!-- &#xe604; 减号   &#xe605; 加号 -->
+                </div>
+            </div>
+            <br>
+            <div class="wrap-line">
+                <span class="wrap-left"><label for="">商品详情</label></span>
+                <div class="wrap-right">
+                    <span class="detailsLen" style="display: none;">{{detailsLen}}</span>
+
                     {{each pro.details}}
                     <div class="pro-detail-box">
-                        <img class="pro-detail" src="{{$value}}">
-                        <div class="pro-detail-edit">上传<input type="file" name="details{{$index}}" class="pro-file"></div>
-                        <div class="pro-detail-del">删除</div>
+                        <img class="pro-img" src="{{$value}}" style="display: block;">
+                        <div class="pro-img-edit" style="display: none;">上传<input type="file" name="details{{$index}}" class="pro-file"></div>
+                        <div class="pro-img-del" style="display: block;">删除</div>
                     </div>
                     {{/each}}
-					<div class="detail-cancel" title="取消添加">&#xe604;</div>
-					<div class="detail-add" title="点击添加图片">&#xe605;</div>
-					<!-- &#xe604; 减号   &#xe605; 加号 -->
-				</div>
-			</div>
+                   <script>
+                       var detailsLen = $('.detailsLen').html();
+                        for (let i=0; i<detailsLen; i++) {
+                            let node2 = document.createElement('div');
+                            node2.innerHTML = '<img class="pro-img" style="display: none">' + 
+                            '<div class="pro-detail-edit" style="display:block;">上传<input type="file" name="' + 'details' + ('{{pro.details.length-0}}'-0+i) + '" class="pro-file"></div>' + 
+                            '<div class="pro-img-del" >删除</div>';
+                            node2.className = 'pro-img-box';
+                            $('.detailsLen').parent().append(node2);
+                        }
+                   </script>
+                </div>
+            </div>
+			
 			<input type="submit" class="sub-btn" value="修改" />
 		</form>
 	</div>

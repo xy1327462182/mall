@@ -33,6 +33,7 @@ $(function () {
     $('.guige-res').val(result);
     console.log($('.guige-res').val());
   }
+  getGuige();
   //输入框监听键盘事件，按下enter，添加规格项 并将所有的规格项的值存进隐藏的input内
   $('.guige-text').on('keyup', function (e) {
         let code = e.keyCode;
@@ -65,15 +66,15 @@ $(function () {
   })
 
     //商品主图模块 商品详情模块 默认图片隐藏 添加按钮显示
-    $('.pro-img-box').find('.pro-img').attr('src') ? $('.pro-img-box').find('.pro-img').show() : $('.pro-img-box').find('.pro-img').hide()
+    // $('.pro-img-box').find('.pro-img').attr('src').length > 0 ? $('.pro-img-box').find('.pro-img').show() : $('.pro-img-box').find('.pro-img').hide()
 
-    $('.pro-img-box').find('.pro-img').attr('src') ? $('.pro-img-box').find('.pro-img-edit').hide() : $('.pro-img-box').find('.pro-img-edit').show();
+    // $('.pro-img-box').find('.pro-img').attr('src').length > 0 ? $('.pro-img-box').find('.pro-img-edit').hide() : $('.pro-img-box').find('.pro-img-edit').show();
 
     //给图片的删除按钮事件绑定
     $('.pro-img-del').on('click', function() {
         $(this).hide().siblings('.pro-img').attr('src','').hide();
-        $(this).siblings('.pro-img-edit').show();
-
+        $(this).siblings('.pro-img-edit').show().children('.pro-file').val('');
+        
     })
 
     //监听图片上传事件
