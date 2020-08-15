@@ -23,11 +23,11 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     images: {
-        type: [],
+        type: Object,
         required: true
     },
     details: {
-      type: []
+        type: Object
     },
     status: {
         type: Number,
