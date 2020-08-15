@@ -117,27 +117,14 @@
 			<div class="wrap-line">
                 <span class="wrap-left"><label for="">商品主图</label></span>
                 <div class="wrap-right">
-                    <span class="imagesLen" style="display: none;">{{imagesLen}}</span>
-                    {{each pro.images}}
+                    {{each imgArr}}
                     <div class="pro-img-box">
-                        <img class="pro-img" src="{{$value}}" style="display: block;">
-                        <div class="pro-img-edit" style="display: none;">上传<input type="file" name="images{{$index}}" class="pro-file"></div>
-                        <div class="pro-img-del" style="display: block;">删除</div>
+                        <img class="pro-img" src="{{imgs[('images' + $value)].path}}">
+                        <div class="pro-img-edit">上传<input type="file" name="images{{$value}}" class="pro-file"></div>
+                        <div class="pro-img-del">删除</div>
                     </div>
                     {{/each}}
-                    <script>
-                        var imagesLen = $('.imagesLen').html();
-                        console.log(imagesLen);
-                        for (let i=0; i<imagesLen; i++) {
-                            let node1 = document.createElement('div');
-                            node1.innerHTML = '<img class="pro-img" style="display: none">' + 
-                            '<div class="pro-img-edit" style="display:block;">上传<input type="file" name="' + 'images' + ('{{pro.images.length-0}}'-0+i) + '" class="pro-file"></div>' + 
-                            '<div class="pro-img-del" >删除</div>';
-                            node1.className = 'pro-img-box';
-                            $('.imagesLen').parent().append(node1);
-                        }
-                        
-                    </script>
+                    
                   <!-- &#xe604; 减号   &#xe605; 加号 -->
                 </div>
             </div>
@@ -145,26 +132,15 @@
             <div class="wrap-line">
                 <span class="wrap-left"><label for="">商品详情</label></span>
                 <div class="wrap-right">
-                    <span class="detailsLen" style="display: none;">{{detailsLen}}</span>
 
-                    {{each pro.details}}
+                    {{each imgArr}}
                     <div class="pro-detail-box">
-                        <img class="pro-img" src="{{$value}}" style="display: block;">
-                        <div class="pro-img-edit" style="display: none;">上传<input type="file" name="details{{$index}}" class="pro-file"></div>
-                        <div class="pro-img-del" style="display: block;">删除</div>
+                        <img class="pro-img" src="{{dets[('details' + $value)].path}}" >
+                        <div class="pro-img-edit">上传<input type="file" name="details{{$value}}" class="pro-file"></div>
+                        <div class="pro-img-del">删除</div>
                     </div>
                     {{/each}}
-                   <script>
-                       var detailsLen = $('.detailsLen').html();
-                        for (let i=0; i<detailsLen; i++) {
-                            let node2 = document.createElement('div');
-                            node2.innerHTML = '<img class="pro-img" style="display: none">' + 
-                            '<div class="pro-detail-edit" style="display:block;">上传<input type="file" name="' + 'details' + ('{{pro.details.length-0}}'-0+i) + '" class="pro-file"></div>' + 
-                            '<div class="pro-img-del" >删除</div>';
-                            node2.className = 'pro-img-box';
-                            $('.detailsLen').parent().append(node2);
-                        }
-                   </script>
+                  
                 </div>
             </div>
 			

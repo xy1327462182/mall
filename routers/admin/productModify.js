@@ -25,22 +25,41 @@ module.exports = async (req, res) => {
         let details = pro.details
         
         //遍历所有图片  根据修改情况做不同处理
-        for (let attr in file) {
-            if (file[attr]['path'].split('.')[1]) {
-                console.log('走到图片改了');
-                //图片修改了
-                if (attr.split('s')[0] == 'image') {
-                    //主图
-                    console.log('走到主图修改了');
-                    images[attr.split('s')[1]] = attr['path'].split('public')[1]
-                } else if (attr.split('s')[0] == 'detail') {
-                    console.log('走到详情图修改了');
-                    //详情图
-                    details[attr.split('s')[1]] = attr['path'].split('public')[1]
-                }
+        // for (let attr in file) {
+        //     if (attr.indexOf('image') != -1) {
+        //         //是主图
+        //         if (file[attr]['path'].split('.')[1]) {
+        //             //上传图片了
+        //             images[attr] = {
+        //                 path: file[attr]['path'].split('public')[1],
+        //                 imagesId: attr.split('s')[1]
+        //             }
+        //         } else {
+        //             //没传图
+        //             images[attr] = {
+        //                 path: '',
+        //                 imagesId: attr.split('s')[1]
+        //             }
+        //         }
                 
-            }
-        }
+        //     } else if (attr.indexOf('detail') != -1) {
+        //         //是详情图
+        //         if (file[attr]['path'].split('.')[1]) {
+        //             //传图了
+        //             details[attr] = {
+        //                 path: file[attr]['path'].split('public')[1],
+        //                 detailsId: attr.split('s')[1]
+        //             }
+        //         } else {
+        //             //没传图
+        //             details[attr] = {
+        //                 path: '',
+        //                 detailsId: attr.split('s')[1]
+        //             }
+        //         }
+        //     }
+        // }
+    
 
         data.title = fields.title;
         data.category = fields.category;
@@ -48,8 +67,10 @@ module.exports = async (req, res) => {
         data.stock = fields.stock;
         data.price = fields.price;
         data.status = fields.status;
+
         data.images = images;
         data.details = details;
+        
         data.attribute = data.attribute.split(',');
         console.log(data);
         //更新数据库
