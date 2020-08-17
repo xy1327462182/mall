@@ -120,7 +120,7 @@
                     {{each imgArr}}
                     <div class="pro-img-box">
                         <img class="pro-img" src="{{imgs[('images' + $value)].path}}">
-                        <div class="pro-img-edit">上传<input type="file" name="images{{$value}}" class="pro-file"></div>
+                        <div class="pro-img-edit">上传<input type="file" name="images{{$value}}" value="{{imgs[('images' + $value)].path}}" class="pro-file"></div>
                         <div class="pro-img-del">删除</div>
                     </div>
                     {{/each}}
@@ -136,7 +136,7 @@
                     {{each imgArr}}
                     <div class="pro-detail-box">
                         <img class="pro-img" src="{{dets[('details' + $value)].path}}" >
-                        <div class="pro-img-edit">上传<input type="file" name="details{{$value}}" class="pro-file"></div>
+                        <div class="pro-img-edit">上传<input type="file" name="details{{$value}}" class="pro-file" value="{{dets[('details' + $value)].path}}"></div>
                         <div class="pro-img-del">删除</div>
                     </div>
                     {{/each}}

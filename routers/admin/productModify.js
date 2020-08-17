@@ -18,49 +18,73 @@ module.exports = async (req, res) => {
 	form.keepExtensions = true;
 	form.parse(req, async (err, fields, file) => {
         let data = {}
-        
+        console.log(file);
         //根据商品id 查询原有数据
         let pro = await Product.findOne({_id: fields.proId})
         let images = pro.images
         let details = pro.details
-        
         //遍历所有图片  根据修改情况做不同处理
         // for (let attr in file) {
         //     if (attr.indexOf('image') != -1) {
         //         //是主图
         //         if (file[attr]['path'].split('.')[1]) {
-        //             //上传图片了
-        //             images[attr] = {
-        //                 path: file[attr]['path'].split('public')[1],
-        //                 imagesId: attr.split('s')[1]
-        //             }
+        //             //修改图片了
+        //             //删除原来图片
+        //             await fs.unlink(path.join(__dirname,'../','../','public',images[attr]['path']), function(err) {
+        //                 if (err) {
+        //                     console.log(err);
+        //                 }//更改图片最新地址
+                        
+        //             })
+        //             console.log(images[attr]['path']);
+        //             console.log(file[attr]['path'].split('public')[1]);
+        //             images[attr]['path'] = file[attr]['path'].split('public')[1]
+                    
         //         } else {
-        //             //没传图
-        //             images[attr] = {
-        //                 path: '',
-        //                 imagesId: attr.split('s')[1]
-        //             }
+        //             //没修改图
+        //             //判断原来有没有这张图
+        //             if (images[attr]['path']) {
+        //                 //如果原来有  则证明图片是删除了
+        //                 //删除该图片文件
+        //                 await fs.unlink(path.join(__dirname,'../','../','public',images[attr]['path']), function(err) {
+        //                     if (err) {
+        //                         console.log(err);
+        //                     }
+        //                 })
+        //             } 
+        //             //如果原来就没有图 则不做处理
         //         }
                 
         //     } else if (attr.indexOf('detail') != -1) {
         //         //是详情图
         //         if (file[attr]['path'].split('.')[1]) {
-        //             //传图了
-        //             details[attr] = {
-        //                 path: file[attr]['path'].split('public')[1],
-        //                 detailsId: attr.split('s')[1]
-        //             }
+        //             //修改图片了
+        //             //删除原来图片
+        //             await fs.unlink(path.join(__dirname,'../','../','public',details[attr]['path']), function(err) {
+        //                 if (err) {
+        //                     console.log(err);
+        //                 }
+                        
+        //             })
+        //             //更改图片最新地址
+        //             details[attr]['path'] = file[attr]['path'].split('public')[1]
+                    
         //         } else {
-        //             //没传图
-        //             details[attr] = {
-        //                 path: '',
-        //                 detailsId: attr.split('s')[1]
-        //             }
+        //             //没修改图
+        //             //判断原来有没有这张图
+        //             if (details[attr]['path']) {
+        //                 //如果原来有  则证明图片是删除了
+        //                 //删除该图片文件
+        //                 await fs.unlink(path.join(__dirname,'../','../','public',details[attr]['path']), function(err) {
+        //                     if (err) {
+        //                         console.log(err);
+        //                     }
+        //                 })
+        //             } 
+        //             //如果原来就没有图 则不做处理
         //         }
         //     }
         // }
-    
-
         data.title = fields.title;
         data.category = fields.category;
         data.attribute = fields.attribute;
@@ -68,15 +92,13 @@ module.exports = async (req, res) => {
         data.price = fields.price;
         data.status = fields.status;
 
-        data.images = images;
-        data.details = details;
+        // data.images = images;
+        // data.details = details;
         
         data.attribute = data.attribute.split(',');
-        console.log(data);
+        // console.log(data);
         //更新数据库
-        await Product.updateOne({_id: fields.proId}, data)
-            .then( res => console.log(res))
-            .catch(err => console.log(err))
+        // await Product.findByIdAndUpdate(fields.proId,data)
   })
   //重定向到商品管理页
   res.redirect('/admin/productManagePage');

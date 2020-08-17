@@ -78,7 +78,6 @@ $(function () {
     $('.pro-img-del').on('click', function() {
         $(this).hide().siblings('.pro-img').attr('src','').hide();
         $(this).siblings('.pro-img-edit').show().children('.pro-file').val('');
-        
     })
 
     //监听图片上传事件
