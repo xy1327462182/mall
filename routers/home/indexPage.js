@@ -5,24 +5,33 @@ module.exports = async (req, res) => {
     req.app.locals.currentPage = 'index';
 
     const shouJiTongXunPros = await Product.find({category: '手机通讯'}).limit(10)
-    console.log(shouJiTongXunPros);
-
+    const diannaoPros = await Product.find({category: '电脑耗材'}).limit(10)
+    const shipinPros = await Product.find({category: '食品生鲜'}).limit(10)
 
     if (req.session.login) {
         return res.render('./home/index', {
             currentPage: req.app.locals.currentPage,
             uname: req.app.locals.username,
-            shouJiTongXunPros
+            shouJiTongXunPros,
+            diannaoPros,
+            shipinPros
         });
     } else {
         return res.render('./home/index', {
             currentPage: req.app.locals.currentPage,
-            shouJiTongXunPros
+            shouJiTongXunPros,
+            diannaoPros,
+            shipinPros
         });
     }
     
 }
 
-/*[
+/*
+6G 128G
+
+8G 128G
+
+8G 256G
 
 */

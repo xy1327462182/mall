@@ -23,117 +23,26 @@
 				<li>
                     <a href="javascript:;">手机通讯 <span class="right-arrow">&#xe7a7;</span></a>
                     <div class="child-cate">
+
+                        {{each shouJiTongXunPros}}
                         <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
+                            <img src="{{$value.images[0].path}}" alt="">
+                            <p>{{$value.title}}</p>
                         </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
-                        <div class="child-item">
-                            <img src="/upload/1587973772260.jpg" alt="">
-                            <p>小米手机</p>
-                        </div>
+                        {{/each}}
+                        
                     </div>
 				</li>
 				<li>
 					<a href="javascript:;"
                         >食品生鲜 <span class="right-arrow">&#xe7a7;</span></a>
                         <div class="child-cate">
+                            {{each shipinPros}}
                             <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
+                                <img src="{{$value.images[0].path}}" alt="">
+                                <p>{{$value.title}}</p>
                             </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            
+                            {{/each}}
                             
                         </div>
 				</li>
@@ -620,67 +529,59 @@
 			<div class="goods-box rec-hd">
 				<h2>热销推荐</h2>
 				<span class="rec-hd-ico">&#xe6b8;</span>
-			</div>
-			<a href="/home/product-detail?id=133" class="goods-box">
-				<img src="/upload/1587973772260.jpg" class="goods-img" />
+            </div>
+            
+			<a href="/home/product-detail?productId={{@diannaoPros[0].id}}" class="goods-box">
+				<img src="{{@diannaoPros[0].images[0].path}}" class="goods-img" />
 				<p class="goods-title">
-					宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
+					{{@diannaoPros[0].title}}
 				</p>
 				<div class="goods-price">
-					￥1599<span class="goods-price-old">￥1699</span>
+					￥{{@diannaoPros[0].price}}<span class="goods-price-old"></span>
 				</div>
 				<div class="goods-sold">
-					<span class="goods-sold-num">12</span>人已购买
+					<span class="goods-sold-num">{{@diannaoPros[0].sold}}</span>人已购买
 				</div>
-			</a>
-			<a href="javascript:;" class="goods-box">
-				<img
-					src="/upload/1595243507580.jpg"
-					alt=""
-					class="goods-img"
-				/>
+            </a>
+            
+			<a href="/home/product-detail?productId={{@diannaoPros[1].id}}" class="goods-box">
+				<img src="{{diannaoPros[1].images[0].path}}" class="goods-img" />
 				<p class="goods-title">
-					宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
+					{{diannaoPros[1].title}}
 				</p>
 				<div class="goods-price">
-					￥1599<span class="goods-price-old">￥1699</span>
+					￥{{diannaoPros[1].price}}<span class="goods-price-old"></span>
 				</div>
 				<div class="goods-sold">
-					<span class="goods-sold-num">12</span>人已购买
+					<span class="goods-sold-num">{{diannaoPros[1].sold}}</span>人已购买
 				</div>
-			</a>
-			<a href="javascript:;" class="goods-box">
-				<img
-					src="/upload/1595243848881.jpg"
-					alt=""
-					class="goods-img"
-				/>
+            </a>
+            
+			<a href="/home/product-detail?productId={{@shouJiTongXunPros[0].id}}" class="goods-box">
+				<img src="{{shouJiTongXunPros[0].images[0].path}}" class="goods-img" />
 				<p class="goods-title">
-					宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
+					{{shouJiTongXunPros[0].title}}
 				</p>
 				<div class="goods-price">
-					￥1599<span class="goods-price-old">￥1699</span>
+					￥{{shouJiTongXunPros[0].price}}<span class="goods-price-old"></span>
 				</div>
 				<div class="goods-sold">
-					<span class="goods-sold-num">12</span>人已购买
+					<span class="goods-sold-num">{{shouJiTongXunPros[0].sold}}</span>人已购买
 				</div>
-			</a>
-			<a href="javascript:;" class="goods-box">
-				<img
-					src="/upload/1595243903896.jpg"
-					alt=""
-					class="goods-img"
-				/>
+            </a>
+            
+			<a href="/home/product-detail?productId={{@shouJiTongXunPros[1].id}}" class="goods-box">
+				<img src="{{shouJiTongXunPros[1].images[0].path}}" class="goods-img" />
 				<p class="goods-title">
-					宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
+					{{shouJiTongXunPros[1].title}}
 				</p>
 				<div class="goods-price">
-					￥1599<span class="goods-price-old">￥1699</span>
+					￥{{shouJiTongXunPros[1].price}}<span class="goods-price-old"></span>
 				</div>
 				<div class="goods-sold">
-					<span class="goods-sold-num">12</span>人已购买
+					<span class="goods-sold-num">{{shouJiTongXunPros[1].sold}}</span>人已购买
 				</div>
-			</a>
+            </a>
 		</div>
 		<!-- 热销推荐部分结束 -->
 
@@ -700,9 +601,10 @@
                     <a href="javascript:;" class="more">查看更多<span class="more-ico">&#xe71a;</span></a>
                 </div>
                 <div class="floor-bd clearfix">
-                    {{each shouJiTongXunPros}}
+
+                    {{each diannaoPros}}
                     <a href="/home/product-detail?productId={{@ $value.id}}" class="goods-box">
-                        <img src="{{$value.images[0]}}" class="goods-img" />
+                        <img src="{{$value.images[0].path}}" class="goods-img" />
                         <p class="goods-title">
                             {{$value.title}}
                         </p>
@@ -710,7 +612,7 @@
                             ￥{{$value.price}}<span class="goods-price-old"></span>
                         </div>
                         <div class="goods-sold">
-                            <span class="goods-sold-num"></span>{{$value.sold}}人已买
+                            <span class="goods-sold-num">{{$value.sold}}</span>人已买
                         </div>
                     </a>
                     {{/each}}
@@ -720,258 +622,50 @@
             </div>
             <div class="floor2 fl-box">
                 <div class="floor-hd">
-                    <h3><a href="javascript:;">F2 食品生鲜</a></h3>
+                    <h3><a href="javascript:;">F2 手机通讯</a></h3>
                     <a href="javascript:;" class="more">查看更多<span class="more-ico">&#xe71a;</span></a>
                 </div>
                 <div class="floor-bd clearfix">
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
+
+                    {{each shouJiTongXunPros}}
+                    <a href="/home/product-detail?productId={{@ $value.id}}" class="goods-box">
+                        <img src="{{$value.images[0].path}}" class="goods-img" />
                         <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
+                            {{$value.title}}
                         </p>
                         <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
+                            ￥{{$value.price}}<span class="goods-price-old"></span>
                         </div>
                         <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
+                            <span class="goods-sold-num">{{$value.sold}}</span>人已买
                         </div>
                     </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
+                    {{/each}}
+                   
                 </div>
             </div> 
-            <div class="floor2 fl-box">
+            <div class="floor3 fl-box">
                 <div class="floor-hd">
-                    <h3><a href="javascript:;">F3 健身器材</a></h3>
+                    <h3><a href="javascript:;">F3 食品生鲜</a></h3>
                     <a href="javascript:;" class="more">查看更多<span class="more-ico">&#xe71a;</span></a>
                 </div>
                 <div class="floor-bd clearfix">
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
+
+                    {{each shipinPros}}
+                    <a href="/home/product-detail?productId={{@ $value.id}}" class="goods-box">
+                        <img src="{{$value.images[0].path}}" class="goods-img" />
                         <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
+                            {{$value.title}}
                         </p>
                         <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
+                            ￥{{$value.price}}<span class="goods-price-old"></span>
                         </div>
                         <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
+                            <span class="goods-sold-num">{{$value.sold}}</span>人已买
                         </div>
                     </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
-                    <a href="javascript:;" class="goods-box">
-                        <img src="/upload/1587973772260.jpg" class="goods-img" />
-                        <p class="goods-title">
-                            宏碁 (Acer) 极光 D606D 投影仪 投影机办公投影机
-                        </p>
-                        <div class="goods-price">
-                            ￥1599<span class="goods-price-old">￥1699</span>
-                        </div>
-                        <div class="goods-sold">
-                            <span class="goods-sold-num">12</span>人已购买
-                        </div>
-                    </a>
+                    {{/each}}
+                   
                 </div>
             </div>           
         </div>

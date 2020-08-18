@@ -18,9 +18,9 @@
                 </div>
                 <!-- 商品图片与规格开始 -->
                 <div class="product-intro">
-                    <div class="bigimg"><img src="{{product.images[0]}}" alt=""></div>
+                    <div class="bigimg"><img src="{{product.images[0].path}}" alt=""></div>
                     <div class="product-img">
-                        <img src="{{product.images[0]}}" alt="">
+                        <img src="{{product.images[0].path}}" alt="">
                         <div class="mask"></div>
                     </div>
                     <div class="product-guige">
@@ -45,12 +45,10 @@
                     </div>
                     <ul class="product-img-list">
                         {{each product.images}}
-                        <li class=""><img src="{{$value}}" alt=""></li>
+                            {{if $value.path}}
+                                <li class=""><img src="{{$value.path}}" alt=""></li>
+                            {{/if}}
                         {{/each}}
-                        <!-- <li><img src="/upload/HUAWEI nova 5 Pro02.jpg" alt=""></li>
-                        <li><img src="/upload/HUAWEI nova 5 Pro03.jpg" alt=""></li>
-                        <li><img src="/upload/HUAWEI nova 5 Pro04.jpg" alt=""></li>
-                        <li><img src="/upload/HUAWEI nova 5 Pro05.jpg" alt=""></li> -->
                     </ul>
                 </div>
                 <!-- 商品图片与规格结束 -->
@@ -66,7 +64,9 @@
                 </div>
                 <div class="detail-bd">
                     {{each product.details}}
-                    <img src="{{$value}}" alt="">
+                        {{if $value.path}}
+                            <img src="{{$value.path}}" alt="">
+                        {{/if}}
                     {{/each}}
                 </div>
                 <!-- 商品详情介绍结束 -->
