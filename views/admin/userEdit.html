@@ -6,52 +6,69 @@
 <link rel="stylesheet" href="/css/admin/productEdit.css">
 {{/block}}
 
+{{block 'script'}}
+<script src="/js/admin/userAdd.js"></script>
+{{/block}}
+
 {{block 'crumb'}}
 <span>首页</span>
                 <i>|</i>
                 <span>商品管理</span>
                 <i>|</i>
-                <span>用户编辑</span>
+                <span>用户修改</span>
 {{/block}}
 
 {{block 'content'}}
 <!-- 内容主体 -->
 <div class="main-con">
     <div class="wrap">
-    <form action="/admin/userAdd" method="POST" enctype="multipart/form-data">
-      <!-- <div class="wrap-line">
+    <form action="{{userMsg ? '/admin/userModify?id=' + userMsg.id : '/admin/userAdd'}}" method="POST" enctype="multipart/form-data">
+        {{if userMsg}}
+      <div class="wrap-line">
         <span class="wrap-left"><label for="">用户ID</label></span>
-        <span class="wrap-right"> <input type="text" value="" disabled class="w610"></span>
-      </div> -->
+        <span class="wrap-right"> <input type="text" value="{{userMsg.id}}" disabled name="id" class="w610"></span>
+      </div>
+      {{/if}}
       <div class="wrap-line">
         <span class="wrap-left"><label for="">用户名</label></span>
-        <span class="wrap-right"> <input type="text" value="" class="w610" name="username"></span>
+        <span class="wrap-right"> <input type="text" value="{{userMsg && userMsg.username}}" class="w610" name="username"></span>
       </div>
       <div class="wrap-line">
         <span class="wrap-left"><label for="">邮箱</label></span>
-        <span class="wrap-right"> <input type="text" value="" class="w610" name="email"></span>
+        <span class="wrap-right"> <input type="text" value="{{userMsg && userMsg.email}}" class="w610" name="email"></span>
       </div>
       
       <div class="wrap-line">
         <span class="wrap-left"><label for="">手机号</label></span>
-        <span class="wrap-right"> <input type="text" value=""  class="w610" name="phone"></span>
+        <span class="wrap-right"> <input type="text" value="{{userMsg && userMsg.phone}}"  class="w610" name="phone"></span>
       </div>
+      {{if !userMsg}}
       <div class="wrap-line">
         <span class="wrap-left"><label for="">密码</label></span>
         <span class="wrap-right"> <input type="password" value=""  class="w610" name="password"></span>
       </div>
+      {{/if}}
       <div class="wrap-line">
         <span class="wrap-left"><label for="">订单数量</label></span>
-        <span class="wrap-right"> <input type="text" value=""  class="w185" name="orders"></span>
+        <span class="wrap-right"> <input type="text" value="{{userMsg && userMsg.orders}}"  class="w185" name="orders"></span>
       </div>
       
       <div class="wrap-line">
         <span class="wrap-left"><label for="">角色</label></span>
         <span class="wrap-right">
+            {{if userMsg}}
+            <select name="role" id="" class="w185">
+                <option value="">未选择</option>
+                <option value="admin" {{userMsg.role == 'admin' ? 'selected':''}}>管理员</option>
+                <option value="normal" {{userMsg.role == 'normal' ? 'selected':''}}>普通用户</option>
+              </select>
+            {{else}}
           <select name="role" id="" class="w185">
+            <option value="">未选择</option>
             <option value="admin">管理员</option>
             <option value="normal">普通用户</option>
           </select>
+          {{/if}}
         </span>
       </div>
       <!-- <div class="wrap-line">
@@ -62,12 +79,11 @@
         <span class="wrap-left"><label for="">用户头像</label></span>
         <div class="wrap-right">
           <div class="user-img">
-            <img src="" class="user-img">
-            <div class="user-img-change">更换
-              <input type="file" name="avatar">
+            <img src="{{userMsg && userMsg.avatar}}" class="user-imgs">
+            <div class="user-img-change">上传
+              <input type="file" name="avatar" id="upload-img">
             </div>
           </div>
-            
         </div>
       </div>
       <input type="submit" class="sub-btn" value="提交">

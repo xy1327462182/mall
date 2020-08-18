@@ -8,7 +8,7 @@ const User = require('../../model/user');
 const bcrypt = require('bcryptjs');
 
 module.exports = async (req, res) => {
-  //创建一个表单实例
+    //创建一个表单实例
 	const form = new formidable.IncomingForm();
 	//配置模块
 	//设置表单域的编码类型

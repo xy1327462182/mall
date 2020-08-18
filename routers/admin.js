@@ -16,6 +16,10 @@ admin.get('/userAddPage', require('./admin/userAddPage'));
 admin.post('/userAdd', require('./admin/userAdd'));
 //进入用户修改页路由
 admin.get('/userModifyPage', require('./admin/userAddPage'));
+//用户修改提交路由
+admin.post('/userModify', require('./admin/userModify'));
+//用户删除路由
+admin.get('/userDel', require('./admin/userDel'));
 
 //进入商品管理页 商品搜索展示管理页
 admin.get('/productManagePage', require('./admin/productManagePage'));
