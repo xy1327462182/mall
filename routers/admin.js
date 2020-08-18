@@ -27,6 +27,8 @@ admin.post('/productAdd', require('./admin/productAdd'));
 admin.get('/productModifyPage', require('./admin/productModifyPage'));
 //商品修改提交路由
 admin.post('/productModify', require('./admin/productModify'));
+//商品删除路由
+admin.get('/productDel', require('./admin/productDel'));
 
 
 //进入订单管理页面

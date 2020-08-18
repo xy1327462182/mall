@@ -79,7 +79,7 @@
                 </td>
                 <td><p>{{$value.stock}}</p></td>
                 <td><p>￥{{$value.price}}</p></td>
-                <td><img src="{{$value.images.images1.path}}" alt=""></td>
+                <td><img src="{{$value.images[0].path}}" alt=""></td>
                 <td>
                     <span class="pro-status">{{$value.status == 0 ? '在售': '下架'}}</span>
                 </td>

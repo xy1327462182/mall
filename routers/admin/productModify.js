@@ -17,74 +17,108 @@ module.exports = async (req, res) => {
 	//保留文件默认后缀
 	form.keepExtensions = true;
 	form.parse(req, async (err, fields, file) => {
+        //查询老数据
+        let oldData = await Product.findOne({_id: fields.proId})
+
+        //存放最终数据
         let data = {}
-        console.log(file);
-        //根据商品id 查询原有数据
-        let pro = await Product.findOne({_id: fields.proId})
-        let images = pro.images
-        let details = pro.details
-        //遍历所有图片  根据修改情况做不同处理
-        // for (let attr in file) {
-        //     if (attr.indexOf('image') != -1) {
-        //         //是主图
-        //         if (file[attr]['path'].split('.')[1]) {
-        //             //修改图片了
-        //             //删除原来图片
-        //             await fs.unlink(path.join(__dirname,'../','../','public',images[attr]['path']), function(err) {
-        //                 if (err) {
-        //                     console.log(err);
-        //                 }//更改图片最新地址
-                        
-        //             })
-        //             console.log(images[attr]['path']);
-        //             console.log(file[attr]['path'].split('public')[1]);
-        //             images[attr]['path'] = file[attr]['path'].split('public')[1]
-                    
-        //         } else {
-        //             //没修改图
-        //             //判断原来有没有这张图
-        //             if (images[attr]['path']) {
-        //                 //如果原来有  则证明图片是删除了
-        //                 //删除该图片文件
-        //                 await fs.unlink(path.join(__dirname,'../','../','public',images[attr]['path']), function(err) {
-        //                     if (err) {
-        //                         console.log(err);
-        //                     }
-        //                 })
-        //             } 
-        //             //如果原来就没有图 则不做处理
-        //         }
-                
-        //     } else if (attr.indexOf('detail') != -1) {
-        //         //是详情图
-        //         if (file[attr]['path'].split('.')[1]) {
-        //             //修改图片了
-        //             //删除原来图片
-        //             await fs.unlink(path.join(__dirname,'../','../','public',details[attr]['path']), function(err) {
-        //                 if (err) {
-        //                     console.log(err);
-        //                 }
-                        
-        //             })
-        //             //更改图片最新地址
-        //             details[attr]['path'] = file[attr]['path'].split('public')[1]
-                    
-        //         } else {
-        //             //没修改图
-        //             //判断原来有没有这张图
-        //             if (details[attr]['path']) {
-        //                 //如果原来有  则证明图片是删除了
-        //                 //删除该图片文件
-        //                 await fs.unlink(path.join(__dirname,'../','../','public',details[attr]['path']), function(err) {
-        //                     if (err) {
-        //                         console.log(err);
-        //                     }
-        //                 })
-        //             } 
-        //             //如果原来就没有图 则不做处理
-        //         }
-        //     }
-        // }
+
+        //将主图和详情图状态切成数组
+        let imagesDataArr = fields.imagesData.split(',');
+        let detailsDataArr = fields.detailsData.split(',');
+
+        //图片处理后 存放图片数据
+        let images = []
+        let details = []
+
+        imagesDataArr.forEach((n,i) => {
+            if (n == 1) {
+                //有图
+                if (file['images'+ (i - 0 + 1)]) {
+                    //如果file中有这个属性 则是上传的新图
+                    //更新数据
+                    images[i] = {
+                        id: i,
+                        path:  file['images'+ (i - 0 + 1)]['path'].split('public')[1],
+                        status: 1
+                    }
+                    //看旧数据原本是否有图 如有则删除
+                    let oldP = oldData.images[i].path
+                    if (oldP) {
+                        fs.unlink(path.join(__dirname, '../', '../','public',oldP), function(err) {
+                            console.log(err);
+                        })
+                    }
+                } else {
+                    //旧图没动
+                    images[i] = {
+                        id: i,
+                        path: oldData.images[i]['path'],
+                        status: 1
+                    }
+                }
+            } else if (n == 0) {
+                //没图 （用户删除原图 或者本就没图）
+                //更新数据
+                images[i] = {
+                    id: i,
+                    path: '',
+                    status: 0
+                }
+                //看旧数据原来是否有图 有则删除
+                let oldP = oldData.images[i].path
+                if (oldP) {
+                    fs.unlink(path.join(__dirname, '../', '../','public',oldP), function(err) {
+                        console.log(err);
+                    })
+                }
+            }
+        });
+    
+        detailsDataArr.forEach((n,i) => {
+            if (n == 1) {
+                //有图
+                if (file['details'+ (i - 0 + 1)]) {
+                    //如果file中有这个属性 则是上传的新图
+                    //更新数据
+                    details[i] = {
+                        id: i,
+                        path:  file['details'+ (i - 0 + 1)]['path'].split('public')[1],
+                        status: 1
+                    }
+                    //看旧数据原本是否有图 如有则删除
+                    let oldP = oldData.details[i].path
+                    if (oldP) {
+                        fs.unlink(path.join(__dirname, '../', '../','public',oldP), function(err) {
+                            console.log(err);
+                        })
+                    }
+                } else {
+                    //旧图没动
+                    details[i] = {
+                        id: i,
+                        path: oldData.details[i]['path'],
+                        status: 1
+                    }
+                }
+            } else if (n == 0) {
+                //没图 （用户删除原图 或者本就没图）
+                //更新数据
+                details[i] = {
+                    id: i,
+                    path: '',
+                    status: 0
+                }
+                //看旧数据原来是否有图 有则删除
+                let oldP = oldData.details[i].path
+                if (oldP) {
+                    fs.unlink(path.join(__dirname, '../', '../','public',oldP), function(err) {
+                        console.log(err);
+                    })
+                }
+            }
+        });
+      
         data.title = fields.title;
         data.category = fields.category;
         data.attribute = fields.attribute;
@@ -92,13 +126,15 @@ module.exports = async (req, res) => {
         data.price = fields.price;
         data.status = fields.status;
 
-        // data.images = images;
-        // data.details = details;
-        
+        //图片最终数据
+        data.images = images;
+        data.details = details;
+
+        //处理规格数据
         data.attribute = data.attribute.split(',');
-        // console.log(data);
+       
         //更新数据库
-        // await Product.findByIdAndUpdate(fields.proId,data)
+        await Product.findByIdAndUpdate(fields.proId,data)
   })
   //重定向到商品管理页
   res.redirect('/admin/productManagePage');

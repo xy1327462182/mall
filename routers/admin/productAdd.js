@@ -18,45 +18,52 @@ module.exports = async (req, res) => {
 	form.parse(req, async (err, fields, file) => {
     //存放最终数据
     let data = {};
-    // 将图片路径分割处理 将图片路径保存进数组   
-    let images = {}
-    let details = {}
-    // console.log(file);
+
+    //将主图和详情图状态切成数组
+    let imagesDataArr = fields.imagesData.split(',');
+    let detailsDataArr = fields.detailsData.split(',');
     
-    for (let attr in file) {
-        if (attr.indexOf('image') != -1) {
-            //是主图
-            if (file[attr]['path'].split('.')[1]) {
-                //上传图片了
-                images[attr] = {
-                    path: file[attr]['path'].split('public')[1],
-                    imagesId: attr.split('s')[1]
-                }
-            } else {
-                //没传图
-                images[attr] = {
-                    path: '',
-                    imagesId: attr.split('s')[1]
-                }
+    // 将图片路径分割处理 将图片路径保存   
+    let images = []
+    let details = []
+
+    imagesDataArr.forEach((n,i) => {
+        if (n == 1) {
+            //传图了
+            images[i] = {
+                id: i,
+                path:  file['images'+ (i - 0 + 1)]['path'].split('public')[1],
+                status: 1
             }
-            
-        } else if (attr.indexOf('detail') != -1) {
-            //是详情图
-            if (file[attr]['path'].split('.')[1]) {
-                //传图了
-                details[attr] = {
-                    path: file[attr]['path'].split('public')[1],
-                    detailsId: attr.split('s')[1]
-                }
-            } else {
-                //没传图
-                details[attr] = {
-                    path: '',
-                    detailsId: attr.split('s')[1]
-                }
+        } else if (n == 0) {
+            //没传图
+            images[i] = {
+                id: i,
+                path: '',
+                status: 0
             }
         }
-    }
+    });
+
+    detailsDataArr.forEach((n,i) => {
+        if (n == 1) {
+            //传图了
+            details[i] = {
+                id: i,
+                path:  file['details'+ (i - 0 + 1)]['path'].split('public')[1],
+                status: 1
+            }
+        } else if (n == 0) {
+            //没传图
+            details[i] = {
+                id: i,
+                path: '',
+                status: 0
+            }
+        }
+    });
+
+    
 
     // 将规格切成数组 放到最终数据中
     data.attribute = fields.attribute.split(',');
@@ -78,309 +85,15 @@ module.exports = async (req, res) => {
   res.redirect('/admin/productManagePage');
 }
 
-
 /*
-
 {
-  images1: File {
-    _events: [Object: null prototype] {},
-    _eventsCount: 0,
-    _maxListeners: undefined,
-    size: 247839,
-    path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_1e22e2bdadcb7d6cabafedf493f56518.jpg',
-    name: '1595243507580.jpg',
-    type: 'image/jpeg',
-    hash: null,
-    lastModifiedDate: 2020-08-15T08:31:03.643Z,
-    _writeStream: WriteStream {
-      _writableState: [WritableState],
-      _events: [Object: null prototype] {},
-      _eventsCount: 0,
-      _maxListeners: undefined,
-      path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_1e22e2bdadcb7d6cabafedf493f56518.jpg',
-      fd: null,
-      flags: 'w',
-      mode: 438,
-      start: undefined,
-      autoClose: true,
-      pos: undefined,
-      bytesWritten: 247839,
-      closed: true,
-      [Symbol(kFs)]: [Object],
-      [Symbol(kCapture)]: false,
-      [Symbol(kIsPerformingIO)]: false
-    },
-    [Symbol(kCapture)]: false
-  },
-  images2: File {
-    _events: [Object: null prototype] {},
-    _eventsCount: 0,
-    _maxListeners: undefined,
-    size: 25098,
-    path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_11d14a78b96446963929a13b1490b7a2.jpg',
-    name: '1595243848881.jpg',
-    type: 'image/jpeg',
-    hash: null,
-    lastModifiedDate: 2020-08-15T08:31:03.660Z,
-    _writeStream: WriteStream {
-      _writableState: [WritableState],
-      _events: [Object: null prototype] {},
-      _eventsCount: 0,
-      _maxListeners: undefined,
-      path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_11d14a78b96446963929a13b1490b7a2.jpg',
-      fd: null,
-      flags: 'w',
-      mode: 438,
-      start: undefined,
-      autoClose: true,
-      pos: undefined,
-      bytesWritten: 25098,
-      closed: true,
-      [Symbol(kFs)]: [Object],
-      [Symbol(kCapture)]: false,
-      [Symbol(kIsPerformingIO)]: false
-    },
-    [Symbol(kCapture)]: false
-  },
-  images4: File {
-    _events: [Object: null prototype] {},
-    _eventsCount: 0,
-    _maxListeners: undefined,
-    size: 0,
-    path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_adbbe21ce444bf3a6c222eb1e16446c1',
-    name: '',
-    type: 'application/octet-stream',
-    hash: null,
-    lastModifiedDate: null,
-    _writeStream: WriteStream {
-      _writableState: [WritableState],
-      _events: [Object: null prototype] {},
-      _eventsCount: 0,
-      _maxListeners: undefined,
-      path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_adbbe21ce444bf3a6c222eb1e16446c1',
-      fd: null,
-      flags: 'w',
-      mode: 438,
-      start: undefined,
-      autoClose: true,
-      pos: undefined,
-      bytesWritten: 0,
-      closed: true,
-      [Symbol(kFs)]: [Object],
-      [Symbol(kCapture)]: false,
-      [Symbol(kIsPerformingIO)]: false
-    },
-    [Symbol(kCapture)]: false
-  },
-  images5: File {
-    _events: [Object: null prototype] {},
-    _eventsCount: 0,
-    _maxListeners: undefined,
-    size: 0,
-    path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_2a4d790356f2691a0db8534eb161f425',
-    name: '',
-    type: 'application/octet-stream',
-    hash: null,
-    lastModifiedDate: null,
-    _writeStream: WriteStream {
-      _writableState: [WritableState],
-      _events: [Object: null prototype] {},
-      _eventsCount: 0,
-      _maxListeners: undefined,
-      path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_2a4d790356f2691a0db8534eb161f425',
-      fd: null,
-      flags: 'w',
-      mode: 438,
-      start: undefined,
-      autoClose: true,
-      pos: undefined,
-      bytesWritten: 0,
-      closed: true,
-      [Symbol(kFs)]: [Object],
-      [Symbol(kCapture)]: false,
-      [Symbol(kIsPerformingIO)]: false
-    },
-    [Symbol(kCapture)]: false
-  },
-  images3: File {
-    _events: [Object: null prototype] {},
-    _eventsCount: 0,
-    _maxListeners: undefined,
-    size: 166984,
-    path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_af2a2c201de217840d48bf0d1179f6ff.jpg',
-    name: '1595243903896.jpg',
-    type: 'image/jpeg',
-    hash: null,
-    lastModifiedDate: 2020-08-15T08:31:03.662Z,
-    _writeStream: WriteStream {
-      _writableState: [WritableState],
-      _events: [Object: null prototype] {},
-      _eventsCount: 0,
-      _maxListeners: undefined,
-      path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_af2a2c201de217840d48bf0d1179f6ff.jpg',
-      fd: null,
-      flags: 'w',
-      mode: 438,
-      start: undefined,
-      autoClose: true,
-      pos: undefined,
-      bytesWritten: 166984,
-      closed: true,
-      [Symbol(kFs)]: [Object],
-      [Symbol(kCapture)]: false,
-      [Symbol(kIsPerformingIO)]: false
-    },
-    [Symbol(kCapture)]: false
-  },
-  details3: File {
-    _events: [Object: null prototype] {},
-    _eventsCount: 0,
-    _maxListeners: undefined,
-    size: 0,
-    path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_9b9c176c346501d7970a528a7d60e300',
-    name: '',
-    type: 'application/octet-stream',
-    hash: null,
-    lastModifiedDate: null,
-    _writeStream: WriteStream {
-      _writableState: [WritableState],
-      _events: [Object: null prototype] {},
-      _eventsCount: 0,
-      _maxListeners: undefined,
-      path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_9b9c176c346501d7970a528a7d60e300',
-      fd: null,
-      flags: 'w',
-      mode: 438,
-      start: undefined,
-      autoClose: true,
-      pos: undefined,
-      bytesWritten: 0,
-      closed: true,
-      [Symbol(kFs)]: [Object],
-      [Symbol(kCapture)]: false,
-      [Symbol(kIsPerformingIO)]: false
-    },
-    [Symbol(kCapture)]: false
-  },
-  details5: File {
-    _events: [Object: null prototype] {},
-    _eventsCount: 0,
-    _maxListeners: undefined,
-    size: 0,
-    path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_2bbd04674391691ee21edbafd66e260d',
-    name: '',
-    type: 'application/octet-stream',
-    hash: null,
-    lastModifiedDate: null,
-    _writeStream: WriteStream {
-      _writableState: [WritableState],
-      _events: [Object: null prototype] {},
-      _eventsCount: 0,
-      _maxListeners: undefined,
-      path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_2bbd04674391691ee21edbafd66e260d',
-      fd: null,
-      flags: 'w',
-      mode: 438,
-      start: undefined,
-      autoClose: true,
-      pos: undefined,
-      bytesWritten: 0,
-      closed: true,
-      [Symbol(kFs)]: [Object],
-      [Symbol(kCapture)]: false,
-      [Symbol(kIsPerformingIO)]: false
-    },
-    [Symbol(kCapture)]: false
-  },
-  details4: File {
-    _events: [Object: null prototype] {},
-    _eventsCount: 0,
-    _maxListeners: undefined,
-    size: 0,
-    path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_765fb16edddaa825bb1328f7236141ce',
-    name: '',
-    type: 'application/octet-stream',
-    hash: null,
-    lastModifiedDate: null,
-    _writeStream: WriteStream {
-      _writableState: [WritableState],
-      _events: [Object: null prototype] {},
-      _eventsCount: 0,
-      _maxListeners: undefined,
-      path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_765fb16edddaa825bb1328f7236141ce',
-      fd: null,
-      flags: 'w',
-      mode: 438,
-      start: undefined,
-      autoClose: true,
-      pos: undefined,
-      bytesWritten: 0,
-      closed: true,
-      [Symbol(kFs)]: [Object],
-      [Symbol(kCapture)]: false,
-      [Symbol(kIsPerformingIO)]: false
-    },
-    [Symbol(kCapture)]: false
-  },
-  details1: File {
-    _events: [Object: null prototype] {},
-    _eventsCount: 0,
-    _maxListeners: undefined,
-    size: 83178,
-    path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_f4faa5c164028e232c13e9ed47af5c51.jpg',
-    name: '1595243979366.jpg',
-    type: 'image/jpeg',
-    hash: null,
-    lastModifiedDate: 2020-08-15T08:31:03.669Z,
-    _writeStream: WriteStream {
-      _writableState: [WritableState],
-      _events: [Object: null prototype] {},
-      _eventsCount: 0,
-      _maxListeners: undefined,
-      path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_f4faa5c164028e232c13e9ed47af5c51.jpg',
-      fd: null,
-      flags: 'w',
-      mode: 438,
-      start: undefined,
-      autoClose: true,
-      pos: undefined,
-      bytesWritten: 83178,
-      closed: false,
-      [Symbol(kFs)]: [Object],
-      [Symbol(kCapture)]: false,
-      [Symbol(kIsPerformingIO)]: false
-    },
-    [Symbol(kCapture)]: false
-  },
-  details2: File {
-    _events: [Object: null prototype] {},
-    _eventsCount: 0,
-    _maxListeners: undefined,
-    size: 96134,
-    path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_24e620a5a84fff5445a74cc367114267.jpg',
-    name: '1595243974710.jpg',
-    type: 'image/jpeg',
-    hash: null,
-    lastModifiedDate: 2020-08-15T08:31:03.670Z,
-    _writeStream: WriteStream {
-      _writableState: [WritableState],
-      _events: [Object: null prototype] {},
-      _eventsCount: 0,
-      _maxListeners: undefined,
-      path: 'C:\\Users\\ly\\Desktop\\study\\git\\mall\\public\\uploads\\product-img\\upload_24e620a5a84fff5445a74cc367114267.jpg',
-      fd: 9,
-      flags: 'w',
-      mode: 438,
-      start: undefined,
-      autoClose: true,
-      pos: undefined,
-      bytesWritten: 96134,
-      closed: false,
-      [Symbol(kFs)]: [Object],
-      [Symbol(kCapture)]: false,
-      [Symbol(kIsPerformingIO)]: false
-    },
-    [Symbol(kCapture)]: false
-  }
+  title: '荣耀30S 麒麟820 5G芯片 3倍光学变焦 20倍数字变焦 全网通版8GB+128GB 蝶羽白',
+  category: '汽车保养',
+  attribute: '100,200',
+  stock: '10',
+  price: '2399',
+  status: '1',
+  imagesData: '1,1,0,0,0',
+  detailsData: '1,1,0,0,0'
 }
 */

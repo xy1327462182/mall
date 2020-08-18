@@ -117,10 +117,11 @@
 			<div class="wrap-line">
                 <span class="wrap-left"><label for="">商品主图</label></span>
                 <div class="wrap-right">
-                    {{each imgArr}}
+                    <input type="hidden" class="images-data" name="imagesData" value="">
+                    {{each pro.images}}
                     <div class="pro-img-box">
-                        <img class="pro-img" src="{{imgs[('images' + $value)].path}}">
-                        <div class="pro-img-edit">上传<input type="file" name="images{{$value}}" value="{{imgs[('images' + $value)].path}}" class="pro-file"></div>
+                        <img class="pro-img" src="{{$value.path}}">
+                        <div class="pro-img-edit">上传<input type="file" name="images{{$index + 1}}" class="pro-file"></div>
                         <div class="pro-img-del">删除</div>
                     </div>
                     {{/each}}
@@ -132,11 +133,11 @@
             <div class="wrap-line">
                 <span class="wrap-left"><label for="">商品详情</label></span>
                 <div class="wrap-right">
-
-                    {{each imgArr}}
+                    <input type="hidden" class="details-data" name="detailsData" value="">
+                    {{each pro.details}}
                     <div class="pro-detail-box">
-                        <img class="pro-img" src="{{dets[('details' + $value)].path}}" >
-                        <div class="pro-img-edit">上传<input type="file" name="details{{$value}}" class="pro-file" value="{{dets[('details' + $value)].path}}"></div>
+                        <img class="pro-img" src="{{$value.path}}" >
+                        <div class="pro-img-edit">上传<input type="file" name="details{{$index + 1}}" class="pro-file"></div>
                         <div class="pro-img-del">删除</div>
                     </div>
                     {{/each}}

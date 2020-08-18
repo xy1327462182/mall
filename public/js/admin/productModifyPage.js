@@ -64,41 +64,88 @@ $(function () {
         }
   })
 
-    //商品主图模块 商品详情模块 有图则显示 无图则隐藏
-    $.each($('.pro-img'), function(i,n) {
+    //存放图片状态数据
+    let imagesArr = [0,0,0,0,0]
+    let detailsArr = [0,0,0,0,0]
+
+    function updateData() {
+        //数据给input-hidden
+        $('.images-data').val(imagesArr)
+        $('.details-data').val(detailsArr)
+    }
+
+    //遍历主图 和 详情图 设置隐藏还是显示  保存初始状态
+    $.each($('.pro-img-box .pro-img'), function(i,n) {
         if ($(n).attr('src')) {
             $(n).show().siblings('.pro-img-del').show().siblings('.pro-img-edit').hide()
+            imagesArr[i] = 1
         } else {
             $(n).hide().siblings('.pro-img-del').hide().siblings('.pro-img-edit').show()
+            imagesArr[i] = 0
         }
     })
 
+    $.each($('.pro-detail-box .pro-img'), function(i,n) {
+        if ($(n).attr('src')) {
+            $(n).show().siblings('.pro-img-del').show().siblings('.pro-img-edit').hide()
+            detailsArr[i] = 1
+        } else {
+            $(n).hide().siblings('.pro-img-del').hide().siblings('.pro-img-edit').show()
+            detailsArr[i] = 0
+        }
+    })
+    updateData()
 
     //给图片的删除按钮事件绑定
     $('.pro-img-del').on('click', function() {
+        //图片隐藏 src属性置空
         $(this).hide().siblings('.pro-img').attr('src','').hide();
-        $(this).siblings('.pro-img-edit').show().children('.pro-file').val('');
+        //编辑显示 input value值置空
+        $(this).siblings('.pro-img-edit').show().find('.pro-file').val('');
+        //变更状态
+        //获取索引
+        let index = $(this).siblings('.pro-img-edit').find('.pro-file').attr('name').split('s')[1] - 1
+        //获取name
+        let name = $(this).siblings('.pro-img-edit').find('.pro-file').attr('name').split('s')[0]
+        //更改状态
+        if (name == 'image') {
+            imagesArr[index] = 0
+        } else if (name == 'detail') {
+            detailsArr[index] = 0
+        }
+        //重新赋value值
+        updateData()
     })
 
     //监听图片上传事件
     $('.pro-file').on('change', function() {
-        //本次点击的input
+        //获取本次点击的input的各个兄弟节点
         let img = $(this).parent().siblings('.pro-img');
         let del = $(this).parent().siblings('.pro-img-del');
         let edit = $(this).parent();
-        let that = $(this);
+
+        //获取当前点击的input的索引
+        let index = $(this).attr('name').split('s')[1] - 1;
+        //获取当前点击的input的name   image || detail
+        let name = $(this).attr('name').split('s')[0]
+
         let reader = new FileReader();
         reader.readAsDataURL($(this)[0].files[0]);
         reader.onload = function () {
         //将读取到的结果放在图片的 src 属性中 让图片显示在页面中
         img.attr('src', reader.result).show();
+        //编辑隐藏 删除按钮显示
         edit.hide();
-        del.show().on('click', function() {
-            img.attr('src', '').hide();
-            that.val('');
-            edit.show();
-            del.hide();
-        })
+        del.show();
+        //更改状态
+        if (name == 'image') {
+            imagesArr[index] = 1
+        } else if (name == 'detail') {
+            detailsArr[index] = 1
+        }
+
+        //重新赋value值
+        updateData()
     }
   })
 }) 

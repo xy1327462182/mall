@@ -31,7 +31,6 @@ $(function () {
         result[i] = n.innerHTML;
     })
     $('.guige-res').val(result);
-    console.log($('.guige-res').val());
   }
   //输入框监听键盘事件，按下enter，添加规格项 并将所有的规格项的值存进隐藏的input内
   $('.guige-text').on('keyup', function (e) {
@@ -65,36 +64,70 @@ $(function () {
   })
 
     //商品主图模块 商品详情模块 默认图片隐藏 添加按钮显示
-    $('.pro-img-box').find('.pro-img').attr('src') ? $('.pro-img-box').find('.pro-img').show() : $('.pro-img-box').find('.pro-img').hide()
+    $('.pro-img-box').find('.pro-img').hide()
+    $('.pro-img-box').find('.pro-img-edit').show();
 
-    $('.pro-img-box').find('.pro-img').attr('src') ? $('.pro-img-box').find('.pro-img-edit').hide() : $('.pro-img-box').find('.pro-img-edit').show();
+    
+
+    //存放图片状态数据
+    let imagesArr = [0,0,0,0,0]
+    let detailsArr = [0,0,0,0,0]
+
+    //默认数据给input-hidden
+    $('.images-data').val(imagesArr)
+    $('.details-data').val(detailsArr)
 
     //给图片的删除按钮事件绑定
     $('.pro-img-del').on('click', function() {
+        //图片隐藏 src属性置空
         $(this).hide().siblings('.pro-img').attr('src','').hide();
-        $(this).siblings('.pro-img-edit').show();
-
+        //编辑显示 input value值置空
+        $(this).siblings('.pro-img-edit').show().find('.pro-file').val('');
+        //变更状态
+        //获取索引
+        let index = $(this).siblings('.pro-img-edit').find('.pro-file').attr('name').split('s')[1] - 1
+        //获取name
+        let name = $(this).siblings('.pro-img-edit').find('.pro-file').attr('name').split('s')[0]
+        //更改状态
+        if (name == 'image') {
+            imagesArr[index] = 0
+        } else if (name == 'detail') {
+            detailsArr[index] = 0
+        }
+        //重新赋value值
+        $('.images-data').val(imagesArr)
+        $('.details-data').val(detailsArr)
     })
 
     //监听图片上传事件
     $('.pro-file').on('change', function() {
-        //本次点击的input
+        //获取本次点击的input的各个兄弟节点
         let img = $(this).parent().siblings('.pro-img');
         let del = $(this).parent().siblings('.pro-img-del');
         let edit = $(this).parent();
-        let that = $(this);
+        //获取当前点击的input的索引
+        let index = $(this).attr('name').split('s')[1] - 1;
+        //获取当前点击的input的name   image || detail
+        let name = $(this).attr('name').split('s')[0]
+
         let reader = new FileReader();
         reader.readAsDataURL($(this)[0].files[0]);
         reader.onload = function () {
-        //将读取到的结果放在图片的 src 属性中 让图片显示在页面中
-        img.attr('src', reader.result).show();
-        edit.hide();
-        del.show().on('click', function() {
-            img.attr('src', '').hide();
-            that.val('');
-            edit.show();
-            del.hide();
-        })
+            //将读取到的结果放在图片的 src 属性中 让图片显示在页面中
+            img.attr('src', reader.result).show();
+            //编辑隐藏 删除按钮显示
+            edit.hide();
+            del.show()
+            //更改状态
+            if (name == 'image') {
+                imagesArr[index] = 1
+            } else if (name == 'detail') {
+                detailsArr[index] = 1
+            }
+
+            //重新赋value值
+            $('.images-data').val(imagesArr)
+            $('.details-data').val(detailsArr)
     }
   })
 }) 
