@@ -428,54 +428,13 @@
 					<a href="javascript:;"
                         >电脑耗材 <span class="right-arrow">&#xe7a7;</span></a>
                         <div class="child-cate">
+
+                            {{each diannaoPros}}
                             <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
+                                <img src="{{$value.images[0].path}}" alt="">
+                                <p>{{$value.title}}</p>
                             </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
-                            <div class="child-item">
-                                <img src="/upload/1587973772260.jpg" alt="">
-                                <p>小米手机</p>
-                            </div>
+                            {{/each}}
                             
                         </div>
 				</li>

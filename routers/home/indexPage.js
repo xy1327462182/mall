@@ -5,8 +5,9 @@ module.exports = async (req, res) => {
     req.app.locals.currentPage = 'index';
 
     const shouJiTongXunPros = await Product.find({category: '手机通讯'}).limit(10)
-    const diannaoPros = await Product.find({category: '电脑耗材'}).limit(10)
     const shipinPros = await Product.find({category: '食品生鲜'}).limit(10)
+    const diannaoPros = await Product.find({category: '电脑耗材'}).limit(10)
+    
 
     if (req.session.login) {
         return res.render('./home/index', {
