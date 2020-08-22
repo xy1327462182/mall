@@ -34,42 +34,21 @@
                 <!-- 购物车商品展示主体部分 -->
                 <div class="shop-bd">
                     <ul>
+                        {{each shopcarArr}}
                         <li>
                             <input type="checkbox" class="select-one">
-                            <img src="/upload/1587973772260.jpg" alt="" class="select-img">
-                            <a href="#" class="select-title">索尼（SONY）KD-55X8000G 55英寸 4K超高清 HDR 智能网络 液晶平板电视 智能语音 安卓7.0 蓝牙/WiFi 颜色:白色;</a>
-                            <span class="select-price">￥10</span>
+                            <img src="{{$value.images}}" alt="" class="select-img">
+                            <a href="/home/product-detail?productId={{$value.productId}}" class="select-title">{{$value.title}}</a>
+                            <span class="select-price">￥{{$value.price}}</span>
                             
                             <span class="count-reduce">-</span>
-                            <input type="text" class="count" value="1" oninput="value=value.replace(/[^\d]/g,'')" disabled>
+                            <input type="text" class="count" value="{{$value.productNum}}" oninput="value=value.replace(/[^\d]/g,'')" disabled>
                             <span class="count-add">+</span>
-                            <span class="totle">￥10</span>
-                            <a href="#" class="del-product">删除<span class="del-ico">&#xe62c;</span></a>
+                            <span class="totle">￥{{$value.productNum * $value.price}}</span>
+                            <a href="/home/shopcarDel?sid={{$value.sid}}" class="del-product">删除<span class="del-ico">&#xe62c;</span></a>
                         </li>
-                        <li>
-                            <input type="checkbox" class="select-one">
-                            <img src="/upload/1587973772260.jpg" alt="" class="select-img">
-                            <a href="#" class="select-title">索尼（SONY）KD-55X8000G 55英寸 4K超高清 HDR 智能网络 液晶平板电视 智能语音 安卓7.0 蓝牙/WiFi 颜色:白色;</a>
-                            <span class="select-price">￥20</span>
-                            
-                            <span class="count-reduce">-</span>
-                            <input type="text" class="count" value="1" oninput="value=value.replace(/[^\d]/g,'')" disabled>
-                            <span class="count-add">+</span>
-                            <span class="totle">￥20</span>
-                            <a href="#" class="del-product">删除<span class="del-ico">&#xe62c;</span></a>
-                        </li>
-                        <li>
-                            <input type="checkbox" class="select-one">
-                            <img src="/upload/1587973772260.jpg" alt="" class="select-img">
-                            <a href="#" class="select-title">索尼（SONY）KD-55X8000G 55英寸 4K超高清 HDR 智能网络 液晶平板电视 智能语音 安卓7.0 蓝牙/WiFi 颜色:白色;</a>
-                            <span class="select-price">￥1100</span>
-                            
-                            <span class="count-reduce">-</span>
-                            <input type="text" class="count" value="1" oninput="value=value.replace(/[^\d]/g,'')" disabled>
-                            <span class="count-add">+</span>
-                            <span class="totle">￥1100</span>
-                            <a href="#" class="del-product">删除<span class="del-ico">&#xe62c;</span></a>
-                        </li>
+                        {{/each}}
+                       
                     </ul>
                 </div>
                 <!-- 购物车底部合计价格部分 -->
@@ -77,14 +56,18 @@
                     <input type="checkbox" class="select-all se-bd">
                     <ul>
                         <li>全选</li>
-                        <li>
+                        <!-- <li>
                             <a href="#" class="del-seclect">删除选中
                                 <span class="del-seclect-ico">&#xe626;</span>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
-                    <button>去结算</button>
-                    <span class="price-totle-number">￥0</span>
+                    <form action="/home/orderConfirm" method="POST">
+                        <input type="hidden" id="jiesuanArr">
+                        <button type="submit">去结算</button>
+                    </form>
+                    
+                    <span class="price-totle-number"><span>0</span>￥</span>
                     <span class="price-totle">总价：</span>
                 </div>
             </div>

@@ -11,8 +11,6 @@ home.get('/index', require('./home/indexPage'));
 home.get('/login', require('./home/loginPage'));
 //进入注册页面
 home.get('/register', require('./home/registerPage'));
-//进入购物车页面
-home.get('/shopCar', require('./home/shopCarPage'));
 
 //登录提交路由
 home.post('/login', require('./home/login'));
@@ -44,6 +42,13 @@ home.get('/product-detail', require('./home/productDetailPage'));
 
 //进入加入购物车结果页路由
 home.post('/resultPage', require('./home/addshopCarSuccess'));
+//进入购物车页面
+home.get('/shopCar', require('./home/shopCarPage'));
+//购物车删除商品路由
+home.get('/shopcarDel', require('./home/shopcarProDel'));
+
+//进入订单确认页路由
+home.post('/orderConfirm', require('./home/orderConfirm'));
 
 
 
