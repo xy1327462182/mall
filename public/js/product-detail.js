@@ -46,10 +46,20 @@ $(function() {
         $(".product-img img").attr({src: src});
     })
 
+    function getDate() {
+        let att = $('.product-color-active').html()
+        let num = $('.product-count').html() - 0
+
+        $('#attr').val(att)
+        $('#pro-nnum').val(num)
+    }
+
     //点击规格中的哪个颜色，哪个被选中
     $(".product-color ul li").on('click', function() {
         $(".product-color ul li").removeClass('product-color-active');
         $(this).addClass('product-color-active');
+
+        getDate()
     })
 
     //数量点击增加和减少
@@ -57,6 +67,8 @@ $(function() {
         var num = $(".product-count").html() - 0;
         num++;
         $(".product-count").html(num);
+
+        getDate()
         
     })
     $(".product-count-reduce").on('click', function() {
@@ -67,7 +79,10 @@ $(function() {
             num--;
             $(".product-count").html(num);
         }
+
+        getDate()
     })
+    
 
     //商品详情介绍导航栏点击添加detail-hd-active类
     $(".detail-hd ul li").on('click', function() {

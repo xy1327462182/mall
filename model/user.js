@@ -23,7 +23,12 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     address: {
-        type: Array
+        type: Array,
+        default: []
+    },
+    shopcar: {
+        type: Array,
+        default: []
     },
     orders: {
         type: Number,

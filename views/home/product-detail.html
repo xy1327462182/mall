@@ -41,7 +41,12 @@
                             <span class="product-count">1</span>
                             <span class="product-count-add">+</span>
                         </div>
-                        <button class="add-shopcar">添加购物车</button>
+                        <form action="/home/resultPage?id={{product.id}}" method="POST">
+                            <input type="hidden" name="attr" id="attr">
+                            <input type="hidden" name="num" id="pro-nnum">
+                            <button type="submit" class="add-shopcar">添加购物车</button>
+                        </form>
+                        
                     </div>
                     <ul class="product-img-list">
                         {{each product.images}}

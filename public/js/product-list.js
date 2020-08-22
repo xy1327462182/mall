@@ -13,20 +13,20 @@ $(function() {
     })
 
     //默认排序和按价格按钮
-    $(".sort-default").on('click', function() {
-        $(".sort-price").removeClass('sort-active');
-        $(".sort-default").addClass('sort-active');
-    })
-    $(".sort-price").on('click', function() {
-        $(".sort-default").removeClass('sort-active');
-        $(".sort-price").addClass('sort-active');
-    })
-    $(".sort-price-top").on('click', function() {
-        $(".sort-price-top").addClass('t');
-        $(".sort-price-bottom").removeClass('b');
-    })
-    $(".sort-price-bottom").on('click', function() {
-        $(".sort-price-top").removeClass('t');
-        $(".sort-price-bottom").addClass('b');
-    })
+    // $(".sort-default").on('click', function() {
+    //     $(".sort-price").removeClass('sort-active');
+    //     $(".sort-default").addClass('sort-active');
+    // })
+    // $(".sort-price").on('click', function() {
+    //     $(".sort-default").removeClass('sort-active');
+    //     $(".sort-price").addClass('sort-active');
+    // })
+    // $(".sort-price-top").on('click', function() {
+    //     $(".sort-price-top").addClass('t');
+    //     $(".sort-price-bottom").removeClass('b');
+    // })
+    // $(".sort-price-bottom").on('click', function() {
+    //     $(".sort-price-top").removeClass('t');
+    //     $(".sort-price-bottom").addClass('b');
+    // })
 })

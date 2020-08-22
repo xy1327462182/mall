@@ -143,6 +143,7 @@
     left: 112px;
 }
 .add-shopcar {
+    display: block;
     width: 140px;
     height: 40px;
     margin-top: 20px;

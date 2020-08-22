@@ -41,5 +41,11 @@ home.get('/list', require('./home/listPage'));
 home.get('/hot-goods', require('./home/hotGoodsPage'));
 //进入商品详情页面
 home.get('/product-detail', require('./home/productDetailPage'));
+
+//进入加入购物车结果页路由
+home.post('/resultPage', require('./home/addshopCarSuccess'));
+
+
+
 //导出home
 module.exports = home;

@@ -60,6 +60,10 @@
     width: 862px;
     height: 744px;
 }
+.right-goods-hd .sort-default {
+    box-sizing: border-box;
+}
+.right-goods-hd .sort-default,
 .right-goods-hd button {
     float: left;
     width: 82px;
@@ -113,11 +117,15 @@
     padding-top: 20px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-content: flex-start;
 }
 .right-goods-bd a {
     margin-bottom: 20px;
+    margin-right: 10px;
+}
+.right-goods-bd a:nth-child(4n) {
+    margin-right: 0;
 }
 /* 右侧商品展现结束 */
 
